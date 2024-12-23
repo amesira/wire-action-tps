@@ -19,7 +19,6 @@ public class MovePlayer : MonoBehaviour
     [Header("プレイヤーのパラメータ")]
     public float moveSpeed;             // 移動速度
     public float jumpPower;             // ジャンプ力
-    public bool isRope;
     
     [Header("プレイヤーの部位")]
     public BoxCollider groundCheckCol;  // 接地確認用コライダー
@@ -51,9 +50,8 @@ public class MovePlayer : MonoBehaviour
             inputJumpKey = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.R)) {
-            isRope = !isRope;
-        }
+        /* ワイヤーアクション入力 */
+        wap.CheckInputWireButton();
     }
 
 	private void FixedUpdate() {
@@ -71,11 +69,7 @@ public class MovePlayer : MonoBehaviour
         bool isGround = Physics.CheckBox(transform.position + groundCheckCol.center,
             groundCheckCol.size / 2, Quaternion.identity,groundLayer);
 
-        //Debug.Log("center" + transform.position + groundCheckCol.center);
-        //Debug.Log("size" + groundCheckCol.size/2);
-
         /* ジャンプ */
-        //Vector3 jumpVel = Vector3.zero;
         if(inputJumpKey) {
             inputJumpKey = false;
             Debug.Log("input jump key.");
@@ -86,14 +80,14 @@ public class MovePlayer : MonoBehaviour
             }
         }
 
-        if(isRope) {    // ロープにつながっている場合
+        /* 速度設定 */
+        if(wap.isLink) {    // ロープにつながっている場合
             moveVel.y = 0.0f;
             rb.velocity = wap.LinkRoap(moveVel);
         }
         else {
             rb.velocity = moveVel;
         }
-        //Debug.Log("Player Velocity : " +rb.velocity);
 
         /* プレイヤーの向きを進行方向へ回転 */
         if (moveForward != Vector3.zero) {
@@ -102,5 +96,8 @@ public class MovePlayer : MonoBehaviour
             lookForward.y = 0.0f;
             transform.rotation = Quaternion.LookRotation(lookForward);
         }
+
+        /* ワイヤーコントロール */
+        wap.WireControl();
 	}
 }

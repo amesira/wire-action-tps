@@ -26,6 +26,7 @@ public class WireActionPlayer : MonoBehaviour
     Vector3 targetWirePointPos;
 
     float lerpTime = 0.0f;
+    float waitTime = 0.0f;
 
     //===================================================
     // ロープ終端と動きをリンクさせる
@@ -50,23 +51,34 @@ public class WireActionPlayer : MonoBehaviour
         /* マウスボタン入力を確認 */
         if(Input.GetMouseButtonDown(1)) {
             inputWireButton = true;
-            
 
-            /* ロープパラメータの変更 */
-            roap.SetRopeTypeDynamic();
+            /* ロープ設定 */
+            roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
             roap.isEndFixed = true;
 
-            /* パラメータの初期化 */
+            /* アンカー射出の初期値を設定 */
             startPos = gunPoint.position;
             targetWirePointPos = target.position;
             lerpTime = 0.0f;
+            waitTime = 0.03f;
 
             /* アンカーポイントを独立させる */
             anchorPoint.parent = null;
         }
         else if(Input.GetMouseButtonUp(1)) {
-            //inputWireButton = false;
-            //isLink = false;
+            inputWireButton = false;
+
+            /* プレイヤーとのリンクを切る */
+            isLink = false;
+
+            /* ロープ設定 */
+            roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_RETRACT;
+            roap.isEndFixed = true;
+
+            /* アンカー回収の初期値を設定 */
+            startPos = anchorPoint.position;
+            targetWirePointPos = gunPoint.position;
+            lerpTime = 0.0f;
         }
     }
 
@@ -84,9 +96,30 @@ public class WireActionPlayer : MonoBehaviour
                 anchorPoint.position = pos;
             }
             else {
-                isLink = true;
-                roap.SetRopeTypeStatic();
-                roap.isEndFixed = false;
+                waitTime -= Time.deltaTime;
+                if(waitTime < 0.0f) {
+                    /* プレイヤーとリンクさせる */
+                    isLink = true;
+
+                    /* ロープ設定 */
+                    roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
+                    roap.isEndFixed = false;
+                }
+            }
+        }
+        else {
+            if(Vector3.Magnitude(gunPoint.position - anchorPoint.position) > 0.1f) {
+                /* アンカーを回収 */
+                Vector3 foward = gunPoint.position - anchorPoint.position;
+                Vector3 pos = foward * Time.deltaTime * 50.0f;
+                anchorPoint.position += pos;
+            }
+            else {
+                /* ロープ設定（初期状態） */
+                //roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
+
+                /* アンカーポイントをプレイヤーの子オブジェクトに戻す */
+                anchorPoint.parent = this.transform;
             }
         }
     }

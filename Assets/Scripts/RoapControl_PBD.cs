@@ -120,9 +120,10 @@ public class Matrix3x3 {
 
 public class RoapControl_PBD : MonoBehaviour
 {
-    public enum ROAP_TYPE {
-        ROAP_STATIC,
-        ROAP_DYNAMIC,
+    public enum ROPE_TYPE {
+        ROPE_STATIC,    // 静的なロープ（質点の数は動かない）
+        ROPE_EXTEND,    // 伸びるロープ
+        ROPE_RETRACT,   // 縮むロープ
     }
     struct MassPoint {         // 質点構造体
         public Vector3 pos;    // 位置
@@ -146,7 +147,7 @@ public class RoapControl_PBD : MonoBehaviour
 
     const int MIN_MASS_POINT = 2;
 
-    public ROAP_TYPE roapType;
+    public ROPE_TYPE roapType;
 
     [Header("ロープの両端の位置")]
     public Transform startPoint;    // ロープの開始点
@@ -211,7 +212,6 @@ public class RoapControl_PBD : MonoBehaviour
         constraints = new List<Constraint>(); // 質点間の拘束を表す
         for(int i = 0; i < pointNum - 1; i++) {
             /* 通常の伸びを計算（Vector3.Magnitude：ベクトルの長さを表す） */
-            //float defStretch = Vector3.Magnitude(massPoints[i].pos - massPoints[i + 1].pos);
             float defStretch = pointSpawn;
 
             /* 隣り合う質点を接続 */
@@ -258,12 +258,19 @@ public class RoapControl_PBD : MonoBehaviour
             massPoints[pointNum - 1] = tmp;
         }
 
-        /* 質点を追加 */
-        if(roapType == ROAP_TYPE.ROAP_DYNAMIC) {
-            if(Vector3.Magnitude(massPoints[pointNum - 1].pos - massPoints[pointNum - 2].pos) > pointSpawn + spawnRange) {
-                AddMassPoint();
-            }
-		}
+        /* 動的なロープ処理 */
+        switch(roapType) {
+            case ROPE_TYPE.ROPE_EXTEND: // 質点を追加
+                if(Vector3.Magnitude(massPoints[pointNum - 1].pos - massPoints[pointNum - 2].pos) > pointSpawn + spawnRange) {
+                    AddMassPoint();
+                }
+                break;
+            case ROPE_TYPE.ROPE_RETRACT: // 質点を削除
+                if(Vector3.Magnitude(massPoints[pointNum - 1].pos - massPoints[pointNum - 2].pos) < pointSpawn + spawnRange && pointNum > 2) {
+                    RemoveMassPoint();
+                }
+                break;
+        }
 
 		/* 外力による速度変化 */
         for(int i = 0; i < pointNum; i++) {
@@ -450,6 +457,35 @@ public class RoapControl_PBD : MonoBehaviour
     }
 
     //===================================================
+    // 質点削除関数
+    //===================================================
+    private void RemoveMassPoint() {
+        massPoints.RemoveAt(pointNum - 1);
+        constraints.RemoveAt(pointNum - 2);
+
+        /* デバッグ用Sphereの削除 */
+        Destroy(pointObj[pointNum - 1]);
+        pointObj.RemoveAt(pointNum - 1);
+
+        pointNum--;
+
+        /* isFixedの初期化 */
+        for(int i = 0; i < pointNum; i++) {
+            MassPoint init = massPoints[i];
+            if((i > 0 && i < pointNum - 1) || (i == pointNum - 1 && !isEndFixed)) {
+                init.isFixed = false;
+            }
+            else {
+                init.isFixed = true;
+            }
+            massPoints[i] = init;
+        }
+
+        /* LineRendererの更新 */
+        roapLine.positionCount = pointNum;
+    }
+
+    //===================================================
     // 終端質点の位置を取得
     //===================================================
     public Vector3 GetEndPos() {
@@ -468,20 +504,5 @@ public class RoapControl_PBD : MonoBehaviour
     //===================================================
     public void AddForceToPoint(Vector3 _force) {
         moveForce = _force;
-    }
-
-    //===================================================
-    // 開始点を設定
-    //===================================================
-    //public void SetStartPoint(Vector3 _pos) {
-    //    startPoint.position = _pos;
-    //}
-
-    public void SetRopeTypeStatic() {
-        roapType = ROAP_TYPE.ROAP_STATIC;
-    }
-
-    public void SetRopeTypeDynamic() {
-        roapType = ROAP_TYPE.ROAP_DYNAMIC;
     }
 }

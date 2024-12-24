@@ -163,9 +163,11 @@ public class RoapControl_PBD : MonoBehaviour
     public float stiffness;         // ばねの強さ
     public float gravity;           // ロープにかかる重力
     public float kDamping = 0.03f;
+    public float maxPointVel;
 
     [Space]
     public float endPointSpwn;
+    public float endPointGetPower;
 
     [Header("ロープの描画パラメータ")]
     public float lineWidth;
@@ -176,7 +178,7 @@ public class RoapControl_PBD : MonoBehaviour
     List<MassPoint> massPoints = null;  // 質点
     List<Constraint> constraints;       // 質点間の拘束
 
-    Vector3 moveForce;              // ロープの終端に加わる力
+    Vector3 moveForce;                  // ロープの終端に加わる力
 
     LineRenderer roapLine;
 
@@ -294,7 +296,7 @@ public class RoapControl_PBD : MonoBehaviour
             /* endPointとの差が一定距離以上開いた場合 */
             Vector3 hangDiff = endPoint.position - massPoints[pointNum - 1].pos;
             if(Vector3.Magnitude(hangDiff) > endPointSpwn) {
-                tmp.vel += hangDiff * Time.deltaTime * 5.0f;
+                tmp.vel += hangDiff * Time.deltaTime * endPointGetPower;
             }
 
             massPoints[pointNum - 1] = tmp;
@@ -346,11 +348,16 @@ public class RoapControl_PBD : MonoBehaviour
 
             /* 速度を更新 */
             MassPoint tmp1 = massPoints[c.massPoint1];
-            tmp1.vel += de1 / Time.deltaTime;
-            massPoints[c.massPoint1] = tmp1;
-
             MassPoint tmp2 = massPoints[c.massPoint2];
+
+            tmp1.vel += de1 / Time.deltaTime;
             tmp2.vel += de2 / Time.deltaTime;
+
+            /* 最大速度を制限 */
+            tmp1.vel = Vector3.ClampMagnitude(tmp1.vel, maxPointVel);
+            tmp2.vel = Vector3.ClampMagnitude(tmp2.vel, maxPointVel);
+
+            massPoints[c.massPoint1] = tmp1;
             massPoints[c.massPoint2] = tmp2;
         }
 

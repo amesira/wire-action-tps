@@ -1526,12 +1526,14 @@ MonoBehaviour:
   endPoint: {fileID: 843394972}
   isEndFixed: 1
   pointSpawn: 1.5
-  spawnRange: 3.5
+  spawnRange: 0.5
   pointMass: 1
-  stiffness: 0.8
-  gravity: -40
-  kDamping: 0.1
+  stiffness: 1.2
+  gravity: -50
+  kDamping: 0.08
+  maxPointVel: 50
   endPointSpwn: 0.1
+  endPointGetPower: 5
   lineWidth: 0.1
   lineColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
 --- !u!4 &1689095321

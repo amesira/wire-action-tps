@@ -155,19 +155,19 @@ public class RoapControl_PBD : MonoBehaviour
     public bool isEndFixed;
 
     [Header("ロープの計算パラメータ")]
-    public float pointSpawn;        // 質点の配置間隔
-    public float spawnRange;        // 伸びの範囲
-    public float pointMass;         // 質点の質量
+    public float pointSpawn = 1.5f; // 質点の配置間隔
+    public float spawnRange = 0.5f; // 伸びの範囲
+    public float pointMass = 1.0f;  // 質点の質量
 
     [Space]
-    public float stiffness;         // ばねの強さ
-    public float gravity;           // ロープにかかる重力
+    public float stiffness = 1.0f;  // ばねの強さ
+    public float gravity = -9.8f;   // ロープにかかる重力
     public float kDamping = 0.03f;
-    public float maxPointVel;
+    public float maxPointVel = 50.0f;
 
     [Space]
-    public float endPointSpwn;
-    public float endPointGetPower;
+    public float endPointSpwn = 0.1f;
+    public float endPointGetPower = 5.0f;
 
     [Header("ロープの描画パラメータ")]
     public float lineWidth;

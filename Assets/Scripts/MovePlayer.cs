@@ -23,6 +23,7 @@ public class MovePlayer : MonoBehaviour
     [Header("プレイヤーの部位")]
     public BoxCollider groundCheckCol;  // 接地確認用コライダー
 
+
     float inputHorizontal;              // 左右キーの入力
     float inputVertical;                // 前後キーの入力
 
@@ -55,6 +56,9 @@ public class MovePlayer : MonoBehaviour
     }
 
 	private void FixedUpdate() {
+        /* アンカーターゲットを設定 */
+        wap.SetAnchorTarget(playerCamera);
+
 		/* 移動方向を取得 */
         Vector3 cameraForward 
             = Vector3.Scale(playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
@@ -98,6 +102,6 @@ public class MovePlayer : MonoBehaviour
         }
 
         /* ワイヤーコントロール */
-        wap.WireControl();
+        wap.WireAnchorControl();
 	}
 }

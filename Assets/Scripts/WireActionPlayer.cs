@@ -6,42 +6,87 @@ using static UnityEditor.PlayerSettings;
 
 public class WireActionPlayer : MonoBehaviour
 {
-    public RoapControl_PBD roap;
+    public RoapControl_PBD roap;    // ワイヤー用のロープ
 
     [Header("ワイヤーの部位")]
-    public Transform gunPoint;
-    public Transform anchorPoint;
+    public Transform gunPoint;      // 銃口
+    public Transform anchorPoint;   // アンカー
 
     [Header("ワイヤーのパラメータ")]
-    public float anchorSpeed;
-    public Transform target;
+    public float anchorSpeed;       // アンカー射出スピード
+    public float rewindSpeed;       // アンカー回収スピード
+    public float moveDecay;         // ワイヤーアクション時の速度減衰
+    public bool isLink;             // ワイヤーとリンクしているか
 
-    [Header("ワイヤーアクションのパラメータ")]
-    public float moveDecay;
-    public bool isLink;
+    [Header("アンカーターゲット")]
+    public string targetTagName;    // アンカーターゲットのタグ
+    public Transform anchorTarget;  // アンカーターゲット
+    public float viewingAngle = 0.7f;
+    public float viewingDistance;
+    public RectTransform scopeImage;
 
     bool inputWireButton = false;
 
-    Vector3 startPos;
-    Vector3 targetWirePointPos;
+    Vector3 startPos;               // アンカーのスタート地点
+    Vector3 targetWirePointPos;     // アンカーの目標地点
 
     float lerpTime = 0.0f;
-    float waitTime = 0.0f;
+
+    GameObject[] targets;           // アンカーターゲットのリスト
+
+	private void Start() {
+        targets = GameObject.FindGameObjectsWithTag(targetTagName);
+	}
 
     //===================================================
-    // ロープ終端と動きをリンクさせる
+    // アンカーターゲットを設定
     //===================================================
-    public Vector3 LinkRoap(Vector3 _vel) {
-        /* 速度の減衰 */
-        _vel.x *= moveDecay;
-        _vel.z *= moveDecay;
+	public void SetAnchorTarget(Camera _camera) {
+        anchorTarget = null;
+        List<GameObject> viewTarget = new List<GameObject>();
 
-        /* プレイヤーの力をロープに加える */
-        roap.AddForceToPoint(_vel);
+        /* 視野角をラジアンに変換 */
+        float viewingAngleCos = Mathf.Cos(viewingAngle * Mathf.Deg2Rad);
 
-        /* ロープ終端地点へ動くための変数を返す */
-        Vector3 forward = roap.GetEndPos() - gunPoint.position;
-        return Vector3.Magnitude(roap.GetEndPointVel()) * forward;
+        /* 視界に入っているターゲットを取得 */
+        foreach(GameObject o in targets) {
+            /* ターゲットからカメラ方向へのベクトル */
+            Vector3 targetToCamera_N = (_camera.transform.position - o.transform.position).normalized;
+
+            /* 正規化したベクトルの内積が一定以下なら視界に入っている */
+            if(Vector3.Dot(targetToCamera_N, _camera.transform.forward.normalized) < -viewingAngleCos &&
+                Vector3.Magnitude(_camera.transform.position - o.transform.position) < viewingDistance) {
+                viewTarget.Add(o);
+            }
+        }
+
+        /* アンカーターゲットを設定 */
+        float minDistance = viewingDistance;
+        foreach(GameObject o in viewTarget) {
+            /* ターゲットとカメラの距離を取得 */
+            float distance = Vector3.Magnitude(_camera.transform.position - o.transform.position);
+
+            /* 距離が最も短いポイントをアンカーターゲットに */
+            if(distance < minDistance) {
+                minDistance = distance;
+
+                /* アンカーターゲットを設定 */
+                anchorTarget = o.transform;
+            }
+        }
+
+        /* アンカーターゲットの位置にスコープを表示 */
+        if(anchorTarget != null) {
+            scopeImage.gameObject.SetActive(true);
+
+            /* スクリーン座標に変換したのち位置を設定 */
+            Vector3 targetWorldPos = anchorTarget.position;
+            Vector3 targetScreenPos = _camera.WorldToScreenPoint(targetWorldPos);
+            scopeImage.position = targetScreenPos;
+        }
+        else {
+            scopeImage.gameObject.SetActive(false);
+        }
     }
 
     //===================================================
@@ -56,11 +101,12 @@ public class WireActionPlayer : MonoBehaviour
             roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
             roap.isEndFixed = true;
 
+            /* ロープを初期化（質点が2つの状態にする） */
+
             /* アンカー射出の初期値を設定 */
             startPos = gunPoint.position;
-            targetWirePointPos = target.position;
+            targetWirePointPos = anchorTarget.position;
             lerpTime = 0.0f;
-            waitTime = 0.03f;
 
             /* アンカーポイントを独立させる */
             anchorPoint.parent = null;
@@ -83,9 +129,25 @@ public class WireActionPlayer : MonoBehaviour
     }
 
     //===================================================
-    // ワイヤー
+    // ロープ終端と動きをリンクさせる
     //===================================================
-    public void WireControl() {
+    public Vector3 LinkRoap(Vector3 _vel) {
+        /* 速度の減衰 */
+        _vel.x *= moveDecay;
+        _vel.z *= moveDecay;
+
+        /* プレイヤーの力をロープに加える */
+        roap.AddForceToPoint(_vel);
+
+        /* ロープ終端地点へ動くための変数を返す */
+        Vector3 forward = roap.GetEndPos() - gunPoint.position;
+        return Vector3.Magnitude(roap.GetEndPointVel()) * forward;
+    }
+
+    //===================================================
+    // アンカーを制御
+    //===================================================
+    public void WireAnchorControl() {
         if(inputWireButton) {
             if(lerpTime < 1.0f) {
                 lerpTime += Time.deltaTime * anchorSpeed;
@@ -96,22 +158,19 @@ public class WireActionPlayer : MonoBehaviour
                 anchorPoint.position = pos;
             }
             else {
-                waitTime -= Time.deltaTime;
-                if(waitTime < 0.0f) {
-                    /* プレイヤーとリンクさせる */
-                    isLink = true;
+                /* プレイヤーとリンクさせる */
+                isLink = true;
 
-                    /* ロープ設定 */
-                    roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
-                    roap.isEndFixed = false;
-                }
+                /* ロープ設定 */
+                roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
+                roap.isEndFixed = false;
             }
         }
         else {
             if(Vector3.Magnitude(gunPoint.position - anchorPoint.position) > 0.1f) {
                 /* アンカーを回収 */
                 Vector3 foward = gunPoint.position - anchorPoint.position;
-                Vector3 pos = foward * Time.deltaTime * 50.0f;
+                Vector3 pos = foward * Time.deltaTime * rewindSpeed;
                 anchorPoint.position += pos;
             }
             else {

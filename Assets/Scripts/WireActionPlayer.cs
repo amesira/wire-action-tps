@@ -95,22 +95,24 @@ public class WireActionPlayer : MonoBehaviour
     public void CheckInputWireButton() {
         /* マウスボタン入力を確認 */
         if(Input.GetMouseButtonDown(1)) {
-            inputWireButton = true;
+            if(anchorTarget != null) {
+                inputWireButton = true;
 
-            /* ロープ設定 */
-            rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
-            rope.isEndFixed = true;
+                /* ロープ設定 */
+                rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
+                rope.isEndFixed = true;
 
-            /* ロープを初期化 */
-            rope.InitializeRope();
+                /* ロープを初期化 */
+                rope.InitializeRope();
 
-            /* アンカー射出の初期値を設定 */
-            startPos = gunPoint.position;
-            targetWirePointPos = anchorTarget.position;
-            lerpTime = 0.0f;
+                /* アンカー射出の初期値を設定 */
+                startPos = gunPoint.position;
+                targetWirePointPos = anchorTarget.position;
+                lerpTime = 0.0f;
 
-            /* アンカーポイントを独立させる */
-            anchorPoint.parent = null;
+                /* アンカーポイントを独立させる */
+                anchorPoint.parent = null;
+            }
         }
         else if(Input.GetMouseButtonUp(1)) {
             inputWireButton = false;

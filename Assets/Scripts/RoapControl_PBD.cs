@@ -152,7 +152,7 @@ public class RoapControl_PBD : MonoBehaviour
     [Header("ロープの両端の位置")]
     public Transform startPoint;    // ロープの開始点
     public Transform endPoint;      // ロープに終点
-    public bool isEndFixed;
+    public bool isEndFixed;         // 終点の固定
 
     [Header("ロープの計算パラメータ")]
     public float pointSpawn = 1.5f; // 質点の配置間隔
@@ -162,8 +162,8 @@ public class RoapControl_PBD : MonoBehaviour
     [Space]
     public float stiffness = 1.0f;  // ばねの強さ
     public float gravity = -9.8f;   // ロープにかかる重力
-    public float kDamping = 0.03f;
-    public float maxPointVel = 50.0f;
+    public float kDamping = 0.03f;  // 速度減衰率
+    public float maxPointVel = 50.0f;   // 質点の最大速度
 
     [Space]
     public float endPointSpwn = 0.1f;
@@ -185,6 +185,14 @@ public class RoapControl_PBD : MonoBehaviour
     List<GameObject> pointObj;          // 質点に表示するオブジェクト（デバッグ用）
 
 	private void Awake() {
+        /* ロープタイプを静的に */
+        roapType = ROPE_TYPE.ROPE_STATIC;
+
+        /* ロープの初期化 */
+        InitializeRope();
+	}
+
+    public void InitializeRope() {
         /* 質点の個数を設定 */
         float roapLen = Vector3.Magnitude(startPoint.position - endPoint.position);
         pointNum = Mathf.FloorToInt(roapLen / pointSpawn);
@@ -241,6 +249,13 @@ public class RoapControl_PBD : MonoBehaviour
         roapLine.startWidth = roapLine.endWidth = lineWidth;
         roapLine.startColor = roapLine.endColor = lineColor;
 
+        /* Sphereを削除 */
+        if(pointObj != null) {
+            foreach(GameObject o in pointObj) {
+                Destroy(o);
+            }
+        }
+
         /* MassPointに設置するSphereを生成（デバッグ用） */
         pointObj = new List<GameObject>();
         for(int i = 0; i < pointNum; i++) {
@@ -250,7 +265,7 @@ public class RoapControl_PBD : MonoBehaviour
             pointObj[i].transform.localScale = new Vector3(0.05f, 0.3f, 0.05f);
             Destroy(pointObj[i].GetComponent<SphereCollider>());
         }
-	}
+    }
 
     void FixedUpdate() {
         /* 最終点のisFixedを更新 */

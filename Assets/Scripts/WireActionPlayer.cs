@@ -6,7 +6,7 @@ using static UnityEditor.PlayerSettings;
 
 public class WireActionPlayer : MonoBehaviour
 {
-    public RoapControl_PBD roap;    // ワイヤー用のロープ
+    public RoapControl_PBD rope;    // ワイヤー用のロープ
 
     [Header("ワイヤーの部位")]
     public Transform gunPoint;      // 銃口
@@ -98,10 +98,11 @@ public class WireActionPlayer : MonoBehaviour
             inputWireButton = true;
 
             /* ロープ設定 */
-            roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
-            roap.isEndFixed = true;
+            rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
+            rope.isEndFixed = true;
 
-            /* ロープを初期化（質点が2つの状態にする） */
+            /* ロープを初期化 */
+            rope.InitializeRope();
 
             /* アンカー射出の初期値を設定 */
             startPos = gunPoint.position;
@@ -118,8 +119,8 @@ public class WireActionPlayer : MonoBehaviour
             isLink = false;
 
             /* ロープ設定 */
-            roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_RETRACT;
-            roap.isEndFixed = true;
+            rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_RETRACT;
+            rope.isEndFixed = true;
 
             /* アンカー回収の初期値を設定 */
             startPos = anchorPoint.position;
@@ -137,11 +138,11 @@ public class WireActionPlayer : MonoBehaviour
         _vel.z *= moveDecay;
 
         /* プレイヤーの力をロープに加える */
-        roap.AddForceToPoint(_vel);
+        rope.AddForceToPoint(_vel);
 
         /* ロープ終端地点へ動くための変数を返す */
-        Vector3 forward = roap.GetEndPos() - gunPoint.position;
-        return Vector3.Magnitude(roap.GetEndPointVel()) * forward;
+        Vector3 forward = rope.GetEndPos() - gunPoint.position;
+        return Vector3.Magnitude(rope.GetEndPointVel()) * forward;
     }
 
     //===================================================
@@ -162,22 +163,20 @@ public class WireActionPlayer : MonoBehaviour
                 isLink = true;
 
                 /* ロープ設定 */
-                roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
-                roap.isEndFixed = false;
+                rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
+                rope.isEndFixed = false;
             }
         }
         else {
-            if(Vector3.Magnitude(gunPoint.position - anchorPoint.position) > 0.1f) {
+            if(Vector3.Magnitude(gunPoint.position - anchorPoint.position) > 0.3f) {
                 /* アンカーを回収 */
                 Vector3 foward = gunPoint.position - anchorPoint.position;
                 Vector3 pos = foward * Time.deltaTime * rewindSpeed;
                 anchorPoint.position += pos;
             }
             else {
-                /* ロープ設定（初期状態） */
-                //roap.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
-
                 /* アンカーポイントをプレイヤーの子オブジェクトに戻す */
+                anchorPoint.position = gunPoint.position;
                 anchorPoint.parent = this.transform;
             }
         }

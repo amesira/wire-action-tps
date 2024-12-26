@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7839183ea421c4c0ab47099e79f76bee
+timeCreated: 1475377000
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 72792
+  packageName: Low Poly Flare Gun
+  packageVersion: 1.0
+  assetPath: Assets/Flare Gun/Materials/FG_Trigger.mat
+  uploadId: 139797

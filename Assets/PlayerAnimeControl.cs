@@ -43,4 +43,8 @@ public class PlayerAnimeControl : MonoBehaviour
             anim.SetFloat("scaleVertical", 0.0f);
         }
     }
+
+    public void SetSword() {
+        anim.SetTrigger("swingSword");
+    }
 }

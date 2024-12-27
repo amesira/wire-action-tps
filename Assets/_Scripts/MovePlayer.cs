@@ -14,6 +14,7 @@ public class MovePlayer : MonoBehaviour
     Rigidbody rb;                       // プレイヤーのRigidBody
     WireActionPlayer wap;
     PlayerAnimeControl anim;
+    SwordActionPlayer sap;
     
     public LayerMask groundLayer;       // 地面レイヤー
     public Camera playerCamera;
@@ -37,6 +38,7 @@ public class MovePlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         wap = GetComponent<WireActionPlayer>();
         anim = GetComponent<PlayerAnimeControl>();
+        sap = GetComponent<SwordActionPlayer>();
 
         /* 初期化処理 */
         inputJumpKey = false;
@@ -56,6 +58,9 @@ public class MovePlayer : MonoBehaviour
 
         /* ワイヤーアクション入力 */
         wap.CheckInputWireButton();
+
+        /* 攻撃アクション入力 */
+        sap.CheckInputActionButton();
     }
 
 	private void FixedUpdate() {
@@ -69,7 +74,7 @@ public class MovePlayer : MonoBehaviour
             = Vector3.Scale(playerCamera.transform.right, new Vector3(1, 0, 1)).normalized;
 
         Vector3 moveForward
-            = cameraForward * inputVertical + cameraRight * inputHorizontal;
+            = (cameraForward * inputVertical + cameraRight * inputHorizontal).normalized;
 
         /* 移動処理 */
         Vector3 moveVel = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
@@ -115,5 +120,8 @@ public class MovePlayer : MonoBehaviour
             anim.SetRunning(false);
         }
         anim.SetScaleVertical(rb.velocity.y);
+
+        /* 剣の軌跡 */
+        sap.UpdateTrace();
 	}
 }

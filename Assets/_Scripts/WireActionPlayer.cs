@@ -11,6 +11,7 @@ public class WireActionPlayer : MonoBehaviour
     [Header("ワイヤーの部位")]
     public Transform gunPoint;      // 銃口
     public Transform anchorPoint;   // アンカー
+    public Transform handPoint;
 
     [Header("ワイヤーのパラメータ")]
     public float anchorSpeed = 3.0f;    // アンカー射出スピード
@@ -184,5 +185,10 @@ public class WireActionPlayer : MonoBehaviour
                 anchorPoint.parent = anchorParent;
             }
         }
+
+        handPoint.position = rope.GetEndPos();
+
+        //Vector3 handFoward = rope.GetEndPointVel().normalized;
+        //handPoint.rotation = Quaternion.LookRotation(handFoward);
     }
 }

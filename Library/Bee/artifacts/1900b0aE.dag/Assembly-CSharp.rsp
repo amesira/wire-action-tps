@@ -385,11 +385,12 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/GameManager.cs"
-"Assets/Scripts/CameraController_TPS.cs"
-"Assets/Scripts/MovePlayer.cs"
-"Assets/Scripts/RoapControl_PBD.cs"
-"Assets/Scripts/SwordActionPlayer.cs"
-"Assets/Scripts/WireActionPlayer.cs"
+"Assets/PlayerAnimeControl.cs"
+"Assets/_Scripts/CameraController_TPS.cs"
+"Assets/_Scripts/MovePlayer.cs"
+"Assets/_Scripts/RoapControl_PBD.cs"
+"Assets/_Scripts/SwordActionPlayer.cs"
+"Assets/_Scripts/WireActionPlayer.cs"
 -langversion:9.0
 
 /deterministic

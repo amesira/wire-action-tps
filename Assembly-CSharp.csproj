@@ -61,12 +61,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\RoapControl_PBD.cs" />
-    <Compile Include="Assets\Scripts\SwordActionPlayer.cs" />
+    <Compile Include="Assets\_Scripts\CameraController_TPS.cs" />
+    <Compile Include="Assets\_Scripts\WireActionPlayer.cs" />
+    <Compile Include="Assets\_Scripts\SwordActionPlayer.cs" />
+    <Compile Include="Assets\_Scripts\MovePlayer.cs" />
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MovePlayer.cs" />
-    <Compile Include="Assets\Scripts\WireActionPlayer.cs" />
-    <Compile Include="Assets\Scripts\CameraController_TPS.cs" />
+    <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
+    <Compile Include="Assets\PlayerAnimeControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />

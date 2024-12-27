@@ -8,6 +8,7 @@ public class PlayerAnimeControl : MonoBehaviour
     Animator anim;
 
     public float blinkSpawn;
+    public float stateChangeY;
 
     float time;
 
@@ -27,7 +28,19 @@ public class PlayerAnimeControl : MonoBehaviour
             time = blinkSpawn;
         }
     }
-    public void IsRunning(bool _flag) {
+    public void SetRunning(bool _flag) {
         anim.SetBool("isRunning", _flag);
+    }
+
+    public void SetScaleVertical(float _yVel) {
+        if(_yVel > stateChangeY) {
+            anim.SetFloat("scaleVertical", 1.0f);
+        }
+        else if(_yVel < -stateChangeY) {
+            anim.SetFloat("scaleVertical", -1.0f);
+        }
+        else {
+            anim.SetFloat("scaleVertical", 0.0f);
+        }
     }
 }

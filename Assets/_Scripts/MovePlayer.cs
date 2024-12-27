@@ -65,9 +65,11 @@ public class MovePlayer : MonoBehaviour
 		/* 移動方向を取得 */
         Vector3 cameraForward 
             = Vector3.Scale(playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
+        Vector3 cameraRight
+            = Vector3.Scale(playerCamera.transform.right, new Vector3(1, 0, 1)).normalized;
 
-        Vector3 moveForward 
-            = cameraForward * inputVertical + playerCamera.transform.right * inputHorizontal;
+        Vector3 moveForward
+            = cameraForward * inputVertical + cameraRight * inputHorizontal;
 
         /* 移動処理 */
         Vector3 moveVel = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
@@ -107,10 +109,11 @@ public class MovePlayer : MonoBehaviour
 
         /* アニメーション */
         if(Vector3.Magnitude(moveVel) > 0.1f && !wap.isLink) {
-            anim.IsRunning(true);
+            anim.SetRunning(true);
         }
         else {
-            anim.IsRunning(false);
+            anim.SetRunning(false);
         }
+        anim.SetScaleVertical(rb.velocity.y);
 	}
 }

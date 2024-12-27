@@ -183,7 +183,7 @@ public class RoapControl_PBD : MonoBehaviour
 
     LineRenderer roapLine;
 
-    List<GameObject> pointObj;          // 質点に表示するオブジェクト（デバッグ用）
+    //List<GameObject> pointObj;          // 質点に表示するオブジェクト（デバッグ用）
 
 	private void Awake() {
         /* ロープタイプを静的に */
@@ -251,21 +251,21 @@ public class RoapControl_PBD : MonoBehaviour
         roapLine.startColor = roapLine.endColor = lineColor;
 
         /* Sphereを削除 */
-        if(pointObj != null) {
-            foreach(GameObject o in pointObj) {
-                Destroy(o);
-            }
-        }
+        //if(pointObj != null) {
+        //    foreach(GameObject o in pointObj) {
+        //        Destroy(o);
+        //    }
+        //}
 
-        /* MassPointに設置するSphereを生成（デバッグ用） */
-        pointObj = new List<GameObject>();
-        for(int i = 0; i < pointNum; i++) {
-            pointObj.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
-            pointObj[i].name = "MassPointObject" + (i + 1);
+        ///* MassPointに設置するSphereを生成（デバッグ用） */
+        //pointObj = new List<GameObject>();
+        //for(int i = 0; i < pointNum; i++) {
+        //    pointObj.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+        //    pointObj[i].name = "MassPointObject" + (i + 1);
 
-            pointObj[i].transform.localScale = new Vector3(0.05f, 0.3f, 0.05f);
-            Destroy(pointObj[i].GetComponent<SphereCollider>());
-        }
+        //    pointObj[i].transform.localScale = new Vector3(0.05f, 0.3f, 0.05f);
+        //    Destroy(pointObj[i].GetComponent<SphereCollider>());
+        //}
     }
 
     void FixedUpdate() {
@@ -386,9 +386,9 @@ public class RoapControl_PBD : MonoBehaviour
         }
 
         /* MassPointにSphereを表示（デバッグ用） */
-        for(int i = 0; i < pointNum; i++) {
-            pointObj[i].transform.position = massPoints[i].pos;
-        }
+        //for(int i = 0; i < pointNum; i++) {
+        //    pointObj[i].transform.position = massPoints[i].pos;
+        //}
     }
 
     //===================================================
@@ -475,11 +475,11 @@ public class RoapControl_PBD : MonoBehaviour
         roapLine.positionCount = pointNum;
 
         /* デバッグ用Sphereの追加 */
-        pointObj.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
-        pointObj[pointNum - 1].name = "MassPointObject" + (pointNum - 1 + 1);
+        //pointObj.Add(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+        //pointObj[pointNum - 1].name = "MassPointObject" + (pointNum - 1 + 1);
 
-        pointObj[pointNum - 1].transform.localScale = new Vector3(0.05f, 0.3f, 0.05f);
-        Destroy(pointObj[pointNum - 1].GetComponent<SphereCollider>());
+        //pointObj[pointNum - 1].transform.localScale = new Vector3(0.05f, 0.3f, 0.05f);
+        //Destroy(pointObj[pointNum - 1].GetComponent<SphereCollider>());
     }
 
     //===================================================
@@ -490,8 +490,8 @@ public class RoapControl_PBD : MonoBehaviour
         constraints.RemoveAt(pointNum - 2);
 
         /* デバッグ用Sphereの削除 */
-        Destroy(pointObj[pointNum - 1]);
-        pointObj.RemoveAt(pointNum - 1);
+        //Destroy(pointObj[pointNum - 1]);
+        //pointObj.RemoveAt(pointNum - 1);
 
         pointNum--;
 

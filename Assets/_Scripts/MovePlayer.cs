@@ -66,6 +66,8 @@ public class MovePlayer : MonoBehaviour
     }
 
 	private void FixedUpdate() {
+        this.transform.parent = null;
+
         /* アンカーターゲットを設定 */
         wap.SetAnchorTarget(playerCamera);
 
@@ -81,15 +83,23 @@ public class MovePlayer : MonoBehaviour
         /* 移動処理 */
         Vector3 moveVel = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
 
-        /* 接地判定用の一時コライダーを作成 */
-        bool isGround = Physics.CheckBox(transform.position + groundCheckCol.center,
-            groundCheckCol.size / 2, Quaternion.identity,groundLayer);
+        /* 接地している地面のコライダーを取得 */
+        Collider[] groundCol = Physics.OverlapBox(transform.position + groundCheckCol.center, 
+            groundCheckCol.size / 2, Quaternion.identity, groundLayer);
+
+        /* 接地している */
+        if(groundCol.Length > 0 && !wap.isLink) {
+            /* 接地している地面が"動く床"である */
+            if(groundCol[0].tag == "MovingGround") {
+                this.transform.parent = groundCol[0].transform;
+            }
+        }
 
         /* ジャンプ */
         if(inputJumpKey) {
             inputJumpKey = false;
 
-            if(isGround) {  // ジャンプ処理
+            if(groundCol.Length > 0) {  // ジャンプ処理
                 moveVel += new Vector3(0, jumpPower, 0);
             }
         }

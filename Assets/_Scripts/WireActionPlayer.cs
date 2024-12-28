@@ -32,7 +32,7 @@ public class WireActionPlayer : MonoBehaviour
     bool inputWireButton = false;
 
     Vector3 startPos;               // アンカーのスタート地点
-    Vector3 targetWirePointPos;     // アンカーの目標地点
+    Transform targetWirePoint;     // アンカーの目標地点
     float lerpTime = 0.0f;
 
 
@@ -110,7 +110,7 @@ public class WireActionPlayer : MonoBehaviour
 
                 /* アンカー射出の初期値を設定 */
                 startPos = gunPoint.position;
-                targetWirePointPos = anchorTarget.position;
+                targetWirePoint = anchorTarget;
                 lerpTime = 0.0f;
 
                 /* アンカーポイントを独立させる */
@@ -129,7 +129,7 @@ public class WireActionPlayer : MonoBehaviour
 
             /* アンカー回収の初期値を設定 */
             startPos = anchorPoint.position;
-            targetWirePointPos = gunPoint.position;
+            targetWirePoint = gunPoint;
             lerpTime = 0.0f;
         }
     }
@@ -160,16 +160,21 @@ public class WireActionPlayer : MonoBehaviour
 
                 /* 徐々に減速するようにアンカーを飛ばす */
                 float easedLerp = 1.0f - (1.0f - lerpTime) * (1.0f - lerpTime);
-                Vector3 pos = Vector3.Lerp(startPos, targetWirePointPos, easedLerp);
+                Vector3 pos = Vector3.Lerp(startPos, targetWirePoint.position, easedLerp);
                 anchorPoint.position = pos;
             }
             else {
-                /* プレイヤーとリンクさせる */
-                isLink = true;
+                /* アンカーの位置を固定 */
+                anchorPoint.position = targetWirePoint.position;
 
-                /* ロープ設定 */
-                rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
-                rope.isEndFixed = false;
+                if(!isLink) {
+                    /* プレイヤーとリンクさせる */
+                    isLink = true;
+
+                    /* ロープ設定 */
+                    rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
+                    rope.isEndFixed = false;
+                }
             }
         }
         else {
@@ -187,8 +192,5 @@ public class WireActionPlayer : MonoBehaviour
         }
 
         handPoint.position = rope.GetEndPos();
-
-        //Vector3 handFoward = rope.GetEndPointVel().normalized;
-        //handPoint.rotation = Quaternion.LookRotation(handFoward);
     }
 }

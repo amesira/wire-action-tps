@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 500, y: 100}
   m_MaxSize: {x: 40480, y: 16192}
   vertical: 0
-  controlID: 29172
+  controlID: 8616
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 29008
+  controlID: 8617
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 29024
+  controlID: 8618
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -884,9 +884,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 87.54625, y: 31.440796, z: -67.49802}
+    m_Target: {x: 114.54164, y: 31.440815, z: -8.2582245}
     speed: 2
-    m_Value: {x: 87.54625, y: 31.440796, z: -67.49802}
+    m_Value: {x: 114.54164, y: 31.440815, z: -8.2582245}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -932,13 +932,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.488
   m_Rotation:
-    m_Target: {x: 0.1493361, y: 0.19731762, z: -0.030428251, w: 0.96842366}
+    m_Target: {x: 0.0764105, y: 0.9137516, z: -0.20337354, w: 0.3433107}
     speed: 2
-    m_Value: {x: -0.14933611, y: -0.19731763, z: 0.030428251, w: -0.9684237}
+    m_Value: {x: 0.0764105, y: 0.9137516, z: -0.20337354, w: 0.34331074}
   m_Size:
-    m_Target: 81.54842
+    m_Target: 49.03287
     speed: 2
-    m_Value: 81.54842
+    m_Value: 49.03287
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1113,7 +1113,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -367448
+  m_LastSelectedObjectID: 31476
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1188,10 +1188,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 575}
-      m_SelectedIDs: a864faff
-      m_LastClickedID: -367448
-      m_ExpandedIDs: a864faff80faffff84faffff88faffff8cfaffff90faffff94faffffa6fafffff0faffff6c790000d4790000407a00000a7b0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: c0770000
+      m_LastClickedID: 0
+      m_ExpandedIDs: a8f7fdfff0faffff0c7b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1208,7 +1208,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 11}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1263,7 +1263,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/_Materials
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1273,16 +1273,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/_Materials
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\HAL_Tokyo_miu\UnityProjects\01-SU_HalSchool-unity\1NenKouki_3contest\3KOU_WireActionTPS
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 247e0000
-    m_LastClickedID: 32292
-    m_ExpandedIDs: 00000000247e0000267e0000287e00002a7e00002c7e000000ca9a3b
+    m_SelectedIDs: a67f0000
+    m_LastClickedID: 32678
+    m_ExpandedIDs: 00000000fa7e0000fc7e0000fe7e0000007f0000027f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1311,7 +1311,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000247e0000267e0000287e00002a7e00002c7e000000ca9a3b
+    m_ExpandedIDs: 00000000fa7e0000fc7e0000fe7e0000007f0000027f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1357,7 +1357,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0

@@ -67,6 +67,7 @@
     <Compile Include="Assets\_Scripts\MovePlayer.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
+    <Compile Include="Assets\Rotate.cs" />
     <Compile Include="Assets\PlayerAnimeControl.cs" />
   </ItemGroup>
   <ItemGroup>

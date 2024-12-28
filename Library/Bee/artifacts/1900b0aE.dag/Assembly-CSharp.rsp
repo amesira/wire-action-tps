@@ -386,6 +386,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/GameManager.cs"
 "Assets/PlayerAnimeControl.cs"
+"Assets/Rotate.cs"
 "Assets/_Scripts/CameraController_TPS.cs"
 "Assets/_Scripts/MovePlayer.cs"
 "Assets/_Scripts/RoapControl_PBD.cs"

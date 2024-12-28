@@ -22,10 +22,12 @@ public class MovePlayer : MonoBehaviour
     [Header("プレイヤーのパラメータ")]
     public float moveSpeed;             // 移動速度
     public float jumpPower;             // ジャンプ力
+
+    [Space]
+    public float rotStep = 15.0f;       // 回転する大きさ
     
     [Header("プレイヤーの部位")]
     public BoxCollider groundCheckCol;  // 接地確認用コライダー
-
 
     float inputHorizontal;              // 左右キーの入力
     float inputVertical;                // 前後キーの入力
@@ -102,11 +104,17 @@ public class MovePlayer : MonoBehaviour
         }
 
         /* プレイヤーの向きを進行方向へ回転 */
-        if (moveForward != Vector3.zero) {
-
+        if(moveForward != Vector3.zero) {
+            /* 最終的な回転方向 */
             Vector3 lookForward = moveForward;
             lookForward.y = 0.0f;
-            transform.rotation = Quaternion.LookRotation(lookForward);
+            Quaternion lookRot = Quaternion.LookRotation(lookForward);
+
+            /* 実際の回転方向 */
+            Quaternion nextRot = Quaternion.RotateTowards(transform.rotation, lookRot, rotStep);
+
+            /* 回転させる */
+            transform.rotation = nextRot;
         }
 
         /* ワイヤーコントロール */

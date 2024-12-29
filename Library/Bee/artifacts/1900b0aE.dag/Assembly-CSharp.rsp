@@ -384,15 +384,16 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/BreakableBoxObject.cs"
-"Assets/GameManager.cs"
-"Assets/PlayerAnimeControl.cs"
-"Assets/Rotate.cs"
+"Assets/_Scripts/BreakableBoxObject.cs"
 "Assets/_Scripts/CameraController_TPS.cs"
-"Assets/_Scripts/MovePlayer.cs"
+"Assets/_Scripts/GameManager.cs"
+"Assets/_Scripts/PlayerScripts/MovePlayer.cs"
+"Assets/_Scripts/PlayerScripts/PlayerAnimeControl.cs"
+"Assets/_Scripts/PlayerScripts/SwordActionPlayer.cs"
+"Assets/_Scripts/PlayerScripts/WireActionPlayer.cs"
 "Assets/_Scripts/RoapControl_PBD.cs"
-"Assets/_Scripts/SwordActionPlayer.cs"
-"Assets/_Scripts/WireActionPlayer.cs"
+"Assets/_Scripts/SimpleScripts/Rotate.cs"
+"Assets/_Scripts/SimpleScripts/ShrinkAndDisappear.cs"
 -langversion:9.0
 
 /deterministic

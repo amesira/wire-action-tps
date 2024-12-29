@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AnchorTarget
   - MovingGround
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
+  - AttackCollision_Player
+  - BreakableObj
+  - BreakablePart
   - 
   - 
   - 

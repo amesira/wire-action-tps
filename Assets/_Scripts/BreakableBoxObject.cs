@@ -70,7 +70,6 @@ public class BreakableBoxObject : MonoBehaviour
 	private void OnCollisionEnter(Collision collision) {
         if(collision.collider.tag == "PlayerAttack") {
             BeBreaken(collision.contacts[0].point);    // ƒvƒŒƒCƒ„[‚ÌUŒ‚‚ğó‚¯‚½‚ç‰ó‚ê‚é
-            Debug.Log("Break");
         }
 	}
 

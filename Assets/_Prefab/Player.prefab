@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 7311291714829139493}
   - component: {fileID: 2117170440723861596}
   - component: {fileID: 3557278741793997335}
+  - component: {fileID: 599106633828118280}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -427,7 +428,7 @@ MonoBehaviour:
   targetTagName: AnchorTarget
   anchorTarget: {fileID: 0}
   viewingAngle: 15
-  viewingDistance: 70
+  viewingDistance: 120
   scopeImage: {fileID: 0}
 --- !u!114 &2117170440723861596
 MonoBehaviour:
@@ -459,6 +460,20 @@ MonoBehaviour:
   traceObject: {fileID: 4673465719900371874}
   isTrace: 1
   traceSpawn: 0.01
+--- !u!114 &599106633828118280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785921278394083391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56998b13da22f342b0ccd22f1bce09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallLine: {fileID: 0}
+  startPos: {fileID: 0}
 --- !u!1 &1075100298527461980
 GameObject:
   m_ObjectHideFlags: 0

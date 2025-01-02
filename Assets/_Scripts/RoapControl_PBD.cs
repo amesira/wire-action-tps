@@ -279,12 +279,12 @@ public class RoapControl_PBD : MonoBehaviour
         /* 動的なロープ処理 */
         switch(roapType) {
             case ROPE_TYPE.ROPE_EXTEND: // 質点を追加
-                if(Vector3.Magnitude(massPoints[pointNum - 1].pos - massPoints[pointNum - 2].pos) > pointSpawn + spawnRange) {
+                if(Vector3.Distance(massPoints[pointNum - 1].pos, massPoints[pointNum - 2].pos) > pointSpawn + spawnRange) {
                     AddMassPoint();
                 }
                 break;
             case ROPE_TYPE.ROPE_RETRACT: // 質点を削除
-                if(Vector3.Magnitude(massPoints[pointNum - 1].pos - massPoints[pointNum - 2].pos) < pointSpawn + spawnRange && pointNum > 2) {
+                if(Vector3.Distance(massPoints[pointNum - 1].pos, massPoints[pointNum - 2].pos) < pointSpawn + spawnRange && pointNum > 2) {
                     RemoveMassPoint();
                 }
                 break;

@@ -71,6 +71,7 @@
     <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\Rotate.cs" />
     <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
+    <Compile Include="Assets\PlayerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />

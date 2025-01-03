@@ -65,13 +65,14 @@
     <Compile Include="Assets\_Scripts\CameraController_TPS.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\SwordActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
+    <Compile Include="Assets\_Scripts\WhaleMove.cs" />
+    <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\ShrinkAndDisappear.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\MovePlayer.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\WireActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\Rotate.cs" />
     <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
-    <Compile Include="Assets\PlayerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />

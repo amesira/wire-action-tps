@@ -145,6 +145,6 @@ public class MovePlayer : MonoBehaviour
         anim.SetScaleVertical(rb.velocity.y);
 
         /* Œ•‚Ì‹OÕ */
-        sap.UpdateSword();
+        sap.PlayerActionUpdate(playerCamera);
 	}
 }

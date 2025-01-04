@@ -7,6 +7,7 @@ TagManager:
   - AnchorTarget
   - MovingGround
   - PlayerAttack
+  - ThrowObject
   layers:
   - Default
   - TransparentFX

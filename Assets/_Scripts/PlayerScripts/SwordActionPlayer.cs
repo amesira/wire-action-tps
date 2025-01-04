@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 public class SwordActionPlayer : MonoBehaviour
 {
@@ -21,15 +22,16 @@ public class SwordActionPlayer : MonoBehaviour
     public float traceSpawn = 0.1f;
 
     [Header("投げつけアクション")]
+    public Transform throwBox;
     public GameObject throwObject;
+    public float throwPower = 100.0f;
 
     float traceTime;
-
     float swingTime;
-
     List<GameObject> traceLine = new List<GameObject>();
 
-    // Start is called before the first frame update
+    bool inputAction = false;
+
     void Start()
     {
         anim = GetComponent<PlayerAnimeControl>();
@@ -42,12 +44,29 @@ public class SwordActionPlayer : MonoBehaviour
 
     public void CheckInputActionButton() {
         if(Input.GetMouseButtonDown(0)) {
-            anim.SetSword();
+            inputAction = true;
         }
     }
 
-    public void UpdateSword() {
-        if(isTrace) {
+    public void PlayerActionUpdate(Camera _playerCam) {
+        /* アクション入力 */
+        if(inputAction) {
+            inputAction = false;
+
+            switch(playerAct) {
+                case PLAYER_ACTION.SWORD_ACTION:
+                    anim.SetSword();
+                    break;
+                case PLAYER_ACTION.THROW_ACTION:
+                    ThrowAwayObject(_playerCam);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /* 剣の軌跡 */
+        if(isTrace && playerAct == PLAYER_ACTION.SWORD_ACTION) {
             traceTime -= Time.deltaTime;
             if(traceTime < 0.0f) {
                 traceTime = traceSpawn;
@@ -65,6 +84,7 @@ public class SwordActionPlayer : MonoBehaviour
             }
         }
 
+        /* 剣を振った後処理 */
         swingTime -= Time.deltaTime;
         if(swingTime < 0.0f && swordCol.enabled) {
             swordCol.enabled = false;
@@ -76,10 +96,45 @@ public class SwordActionPlayer : MonoBehaviour
         swingTime = 0.5f;
     }
 
+    void ThrowAwayObject(Camera _cam) {
+        /* 投げつけベクトルを計算 */
+        Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+        Vector3 force = ray.direction.normalized * throwPower;
+
+        /* 投げつける */
+        throwObject.transform.parent = null;
+        throwObject.GetComponent<Rigidbody>().isKinematic = false;
+        throwObject.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
+
+        throwObject.GetComponent<AfterImage>().isAfterImage = true;
+
+        Destroy(throwObject, 10.0f);
+
+        SetAction(PLAYER_ACTION.SWORD_ACTION);
+    }
+
 	private void OnTriggerEnter(Collider other) {
-        if(other.tag == "ThrowObj") {
+        if(other.tag == "ThrowObject" && playerAct == PLAYER_ACTION.SWORD_ACTION) {
             throwObject = other.gameObject;
-            playerAct = PLAYER_ACTION.THROW_ACTION;
+            throwObject.transform.parent = throwBox;
+            throwObject.GetComponent<Rigidbody>().isKinematic = true;
+
+            SetAction(PLAYER_ACTION.THROW_ACTION);
         }
 	}
+
+    void SetAction(PLAYER_ACTION _setAct) {
+        playerAct = _setAct;
+
+        switch(_setAct) {
+            case PLAYER_ACTION.SWORD_ACTION:
+                swordCol.gameObject.SetActive(true);
+                break;
+            case PLAYER_ACTION.THROW_ACTION:
+                swordCol.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
+    }
 }

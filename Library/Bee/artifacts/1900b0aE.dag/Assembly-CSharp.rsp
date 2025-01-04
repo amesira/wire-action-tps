@@ -394,6 +394,8 @@
 "Assets/_Scripts/PlayerScripts/SwordActionPlayer.cs"
 "Assets/_Scripts/PlayerScripts/WireActionPlayer.cs"
 "Assets/_Scripts/RoapControl_PBD.cs"
+"Assets/_Scripts/SimpleScripts/AfterImage.cs"
+"Assets/_Scripts/SimpleScripts/LightlyAndDisappear.cs"
 "Assets/_Scripts/SimpleScripts/Rotate.cs"
 "Assets/_Scripts/SimpleScripts/ShrinkAndDisappear.cs"
 "Assets/_Scripts/WhaleMove.cs"

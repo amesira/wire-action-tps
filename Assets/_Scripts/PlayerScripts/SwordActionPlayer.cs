@@ -5,14 +5,23 @@ using UnityEngine;
 
 public class SwordActionPlayer : MonoBehaviour
 {
+    public enum PLAYER_ACTION {
+        SWORD_ACTION,
+        THROW_ACTION,
+    }
+
     PlayerAnimeControl anim;
 
-    public BoxCollider swordCol;
+    public PLAYER_ACTION playerAct;
 
-    [Header("剣の軌跡")]
+    [Header("剣アクション")]
+    public BoxCollider swordCol;
     public GameObject traceObject;
     public bool isTrace;
     public float traceSpawn = 0.1f;
+
+    [Header("投げつけアクション")]
+    public GameObject throwObject;
 
     float traceTime;
 
@@ -24,6 +33,8 @@ public class SwordActionPlayer : MonoBehaviour
     void Start()
     {
         anim = GetComponent<PlayerAnimeControl>();
+
+        playerAct = PLAYER_ACTION.SWORD_ACTION;
 
         traceObject.SetActive(false);
         swordCol.enabled = false;
@@ -64,4 +75,11 @@ public class SwordActionPlayer : MonoBehaviour
         swordCol.enabled = true;
         swingTime = 0.5f;
     }
+
+	private void OnTriggerEnter(Collider other) {
+        if(other.tag == "ThrowObj") {
+            throwObject = other.gameObject;
+            playerAct = PLAYER_ACTION.THROW_ACTION;
+        }
+	}
 }

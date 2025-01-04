@@ -65,6 +65,7 @@
     <Compile Include="Assets\_Scripts\CameraController_TPS.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\SwordActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
+    <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSoundControl.cs" />
     <Compile Include="Assets\_Scripts\WhaleMove.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\ShrinkAndDisappear.cs" />

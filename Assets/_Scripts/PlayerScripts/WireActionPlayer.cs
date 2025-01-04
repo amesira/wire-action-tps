@@ -35,10 +35,14 @@ public class WireActionPlayer : MonoBehaviour
     Transform targetWirePoint;     // アンカーの目標地点
     float lerpTime = 0.0f;
 
+    PlayerSoundControl psc;
+
 
 	private void Start() {
         targets = GameObject.FindGameObjectsWithTag(targetTagName);
         anchorParent = anchorPoint.parent;
+
+        psc = GetComponent<PlayerSoundControl>();
 	}
 
     //===================================================
@@ -115,6 +119,9 @@ public class WireActionPlayer : MonoBehaviour
 
                 /* アンカーポイントを独立させる */
                 anchorPoint.parent = null;
+
+                /* 効果音を鳴らす */
+                psc.PlayWireInjection();
             }
         }
         else if(Input.GetMouseButtonUp(1)) {
@@ -174,6 +181,9 @@ public class WireActionPlayer : MonoBehaviour
                     /* ロープ設定 */
                     rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
                     rope.isEndFixed = false;
+
+                    /* 効果音を鳴らす */
+                    psc.PlayWireShoot();
                 }
             }
         }

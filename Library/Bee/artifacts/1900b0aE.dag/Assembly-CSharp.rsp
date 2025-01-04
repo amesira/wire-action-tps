@@ -389,6 +389,7 @@
 "Assets/_Scripts/GameManager.cs"
 "Assets/_Scripts/PlayerScripts/MovePlayer.cs"
 "Assets/_Scripts/PlayerScripts/PlayerAnimeControl.cs"
+"Assets/_Scripts/PlayerScripts/PlayerSoundControl.cs"
 "Assets/_Scripts/PlayerScripts/PlayerSystem.cs"
 "Assets/_Scripts/PlayerScripts/SwordActionPlayer.cs"
 "Assets/_Scripts/PlayerScripts/WireActionPlayer.cs"

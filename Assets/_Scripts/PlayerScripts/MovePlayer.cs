@@ -12,9 +12,11 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     Rigidbody rb;                       // プレイヤーのRigidBody
+
     WireActionPlayer wap;
     PlayerAnimeControl anim;
     SwordActionPlayer sap;
+    PlayerSoundControl psc;
     
     public LayerMask groundLayer;       // 地面レイヤー
     public Camera playerCamera;
@@ -38,9 +40,11 @@ public class MovePlayer : MonoBehaviour
     {
         /* コンポーネントの取得 */
         rb = GetComponent<Rigidbody>();
+
         wap = GetComponent<WireActionPlayer>();
         anim = GetComponent<PlayerAnimeControl>();
         sap = GetComponent<SwordActionPlayer>();
+        psc = GetComponent<PlayerSoundControl>();
 
         /* 初期化処理 */
         inputJumpKey = false;
@@ -101,6 +105,7 @@ public class MovePlayer : MonoBehaviour
 
             if(groundCol.Length > 0) {  // ジャンプ処理
                 moveVel += new Vector3(0, jumpPower, 0);
+                //psc.PlayJumpClip();
             }
         }
 
@@ -131,7 +136,7 @@ public class MovePlayer : MonoBehaviour
         wap.WireAnchorControl();
 
         /* アニメーション */
-        if(Vector3.Magnitude(moveVel) > 0.1f && !wap.isLink) {
+        if(Vector3.Magnitude(moveVel) > 0.1f && !wap.isLink && groundCol.Length > 0) {
             anim.SetRunning(true);
         }
         else {

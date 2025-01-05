@@ -11,11 +11,14 @@ public class BreakableBoxObject : MonoBehaviour
     public float splitSpawn = 1.0f;
     public float forceMagnitude = 100.0f;
 
+    public int partCnt;
+
     List<GameObject> childParts = new List<GameObject>();
 
-    void Start()
+    void Awake()
     {
         InitSplit();
+        partCnt = childParts.Count;
     }
 
     private void InitSplit() {
@@ -36,12 +39,14 @@ public class BreakableBoxObject : MonoBehaviour
                 for(int r = 0; r < splitZ; r++) {
                     /* 分割パーツを生成 */
                     GameObject part = new GameObject(gameObject.name + "Part" + "(" + i + "," + j + "," + r + ")");
-                    
+
                     /* トランスフォーム設定 */
                     Vector3 pos = bounds.min + new Vector3((partSize.x * i) + (partSize.x / 2),
                                                            (partSize.y * j) + (partSize.y / 2),
                                                            (partSize.z * r) + (partSize.z / 2));
+                    //pos -= bounds.center;
                     part.transform.position = pos;
+                    //part.transform.localPosition = pos;
                     part.transform.rotation = transform.rotation;
                     part.transform.localScale = partSize;
 
@@ -70,7 +75,9 @@ public class BreakableBoxObject : MonoBehaviour
 	private void OnCollisionEnter(Collision collision) {
         if(collision.collider.tag == "PlayerAttack") {
             BeBreaken(collision.contacts[0].point);    // プレイヤーの攻撃を受けたら壊れる
+            Debug.Log("Be Breaken");
         }
+        // Debug.Log("Be Collision");
 	}
 
     private void BeBreaken(Vector3 _contactPos) {
@@ -79,7 +86,7 @@ public class BreakableBoxObject : MonoBehaviour
             int index = partsNum - (i + 1);
 
             /* 衝突位置から半径r以内のオブジェクトのみ処理を行う */
-            if(Vector3.Distance(childParts[index].transform.position, _contactPos) < 3.0f) {
+            if(Vector3.Distance(childParts[index].transform.position, _contactPos) < splitSpawn * 3.0f) {
                 /* ペアレントを切り離す */
                 childParts[index].transform.parent = null;
 
@@ -98,6 +105,7 @@ public class BreakableBoxObject : MonoBehaviour
 
                 /* リストから削除 */
                 childParts.RemoveAt(index);
+                partCnt--;
             }
         }
     }

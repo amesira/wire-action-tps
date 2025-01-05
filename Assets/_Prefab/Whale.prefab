@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1258294761647810155}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,8 +44,10 @@ GameObject:
   - component: {fileID: 6812914859048867180}
   - component: {fileID: 3539469685255732713}
   - component: {fileID: 4535603860729920745}
-  - component: {fileID: 337626773378259339}
-  m_Layer: 6
+  - component: {fileID: 439186060250519556}
+  - component: {fileID: 1726388023651203793}
+  - component: {fileID: 3445847738174134882}
+  m_Layer: 8
   m_Name: WhaleBodyCube
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -119,7 +121,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &337626773378259339
+--- !u!114 &439186060250519556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310721522723600423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &1726388023651203793
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,8 +154,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999997, y: 0.99999976, z: 0.9999998}
+  m_Center: {x: 0, y: 0.00000023841858, z: 2.842171e-14}
+--- !u!54 &3445847738174134882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310721522723600423}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &660815637642885713
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3561703380140751725}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin3.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666046081054233218}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9099415256450393730}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Mouth_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,8 +293,10 @@ GameObject:
   - component: {fileID: 238414859024688353}
   - component: {fileID: 2403677134321773225}
   - component: {fileID: 3055247002091152183}
-  - component: {fileID: 8719751035002766838}
-  m_Layer: 6
+  - component: {fileID: 5776266343060865060}
+  - component: {fileID: 7638940706011050024}
+  - component: {fileID: 2014091700425010564}
+  m_Layer: 8
   m_Name: WhaleBodyCube (6)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -325,7 +370,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8719751035002766838
+--- !u!114 &5776266343060865060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212749885081959584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &7638940706011050024
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,8 +403,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.9999999, z: 0.9999999}
+  m_Center: {x: -0.00000047683716, y: -0.00000047683716, z: -0.00000023841858}
+--- !u!54 &2014091700425010564
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212749885081959584}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1701180861178892499
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134095040981044033}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7314184821195353396}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin3.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5970356038334699245}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin3.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6099940634042519729}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,8 +573,10 @@ GameObject:
   - component: {fileID: 5759853067624195443}
   - component: {fileID: 9041851964540583204}
   - component: {fileID: 980949559741427728}
-  - component: {fileID: 5173396300982169478}
-  m_Layer: 6
+  - component: {fileID: 4750411309956169191}
+  - component: {fileID: 5839723574551039922}
+  - component: {fileID: 950507156284887624}
+  m_Layer: 8
   m_Name: WhaleBodyCube (2)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -562,7 +650,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5173396300982169478
+--- !u!114 &4750411309956169191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493081896157378998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &5839723574551039922
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,8 +683,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.99999976, z: 0.9999999}
+  m_Center: {x: -0.000000007450581, y: 0.00000071525574, z: 1.4210855e-14}
+--- !u!54 &950507156284887624
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2493081896157378998}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2502006789138572034
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8276518742072167302}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1641444152690906531}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,8 +789,10 @@ GameObject:
   - component: {fileID: 3752837278888154745}
   - component: {fileID: 7427162104838461773}
   - component: {fileID: 8550563756828000221}
-  - component: {fileID: 7514948763217785760}
-  m_Layer: 6
+  - component: {fileID: 2504834988946364848}
+  - component: {fileID: 5254197563521747591}
+  - component: {fileID: 531626158910946114}
+  m_Layer: 8
   m_Name: WhaleBodyCube (7)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -735,7 +866,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7514948763217785760
+--- !u!114 &2504834988946364848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823037277228923657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &5254197563521747591
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -754,8 +899,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.9999998, z: 0.9999999}
+  m_Center: {x: -0.00000023841858, y: -0.00000047683716, z: 0}
+--- !u!54 &531626158910946114
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823037277228923657}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &3701969450820402363
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6993434783862737049}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,8 +972,10 @@ GameObject:
   - component: {fileID: 6793348421552163}
   - component: {fileID: 1858198245237865788}
   - component: {fileID: 4063659393052262927}
-  - component: {fileID: 5132325763671927568}
-  m_Layer: 6
+  - component: {fileID: 7376701487064134820}
+  - component: {fileID: 7659278428319097583}
+  - component: {fileID: 6996605819873890916}
+  m_Layer: 8
   m_Name: WhaleBodyCube (4)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -875,7 +1049,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5132325763671927568
+--- !u!114 &7376701487064134820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747082719743629946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &7659278428319097583
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,8 +1082,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.99999976, z: 0.9999998}
+  m_Center: {x: 0.000000018626451, y: 0.00000047683716, z: 1.4210855e-14}
+--- !u!54 &6996605819873890916
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747082719743629946}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &3759638788684932523
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +1120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6328778690683799880}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,8 +1155,10 @@ GameObject:
   - component: {fileID: 5934389667855233870}
   - component: {fileID: 2825925644800336475}
   - component: {fileID: 4670796097941586714}
-  - component: {fileID: 5087036209189963144}
-  m_Layer: 6
+  - component: {fileID: 7387838979751083180}
+  - component: {fileID: 8771282664234375886}
+  - component: {fileID: 4321309662603447333}
+  m_Layer: 8
   m_Name: WhaleBodyCube (3)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -1015,7 +1232,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5087036209189963144
+--- !u!114 &7387838979751083180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946213045050891391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &8771282664234375886
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1034,8 +1265,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.99999976, z: 0.99999994}
+  m_Center: {x: 0.000000028871, y: 0.0000009536743, z: 0}
+--- !u!54 &4321309662603447333
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946213045050891391}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4198775146279616034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8221968717857551140}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TailFin.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2333911832231584649}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TailFin.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1368,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2892968003535388394}
   - component: {fileID: 7172172480176029928}
-  m_Layer: 6
+  - component: {fileID: 575717481717980220}
+  m_Layer: 8
   m_Name: Whale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,6 +1435,18 @@ MonoBehaviour:
   - {fileID: 1258294761647810155}
   - {fileID: 6099940634042519729}
   - {fileID: 7370466286156282537}
+--- !u!114 &575717481717980220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386878186107215441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f3c4ad91f43e54ebc571c58d612d45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4780874018439497644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,8 +1458,10 @@ GameObject:
   - component: {fileID: 7980848525525591574}
   - component: {fileID: 1182269014941298849}
   - component: {fileID: 6593075180653499422}
-  - component: {fileID: 3092498548930264335}
-  m_Layer: 6
+  - component: {fileID: 4304110225375159093}
+  - component: {fileID: 2936494734263538843}
+  - component: {fileID: 491635889724788967}
+  m_Layer: 8
   m_Name: WhaleBodyCube (1)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -1262,7 +1535,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3092498548930264335
+--- !u!114 &4304110225375159093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780874018439497644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &2936494734263538843
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1281,8 +1568,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999997, y: 0.99999976, z: 0.9999999}
+  m_Center: {x: 0, y: 0.00000047683716, z: 1.4210855e-14}
+--- !u!54 &491635889724788967
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780874018439497644}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &4781957802203095888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,8 +1608,10 @@ GameObject:
   - component: {fileID: 4978821546456325556}
   - component: {fileID: 7567322576145160729}
   - component: {fileID: 2624546826080125162}
-  - component: {fileID: 2095713054261222274}
-  m_Layer: 6
+  - component: {fileID: 9034301280087003592}
+  - component: {fileID: 62875072723638409}
+  - component: {fileID: 6821686994748206406}
+  m_Layer: 8
   m_Name: WhaleBodyCube (3)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -1369,7 +1685,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2095713054261222274
+--- !u!114 &9034301280087003592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781957802203095888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &62875072723638409
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1388,8 +1718,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000007, y: 0.99999994, z: 1.0000006}
+  m_Center: {x: 0.00000017881393, y: 0, z: 0.00000047683716}
+--- !u!54 &6821686994748206406
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781957802203095888}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5044287071293178176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7654077983155855506}
   - component: {fileID: 2605313055018116910}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: WhaleEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1504,8 +1861,10 @@ GameObject:
   - component: {fileID: 1992686012876569875}
   - component: {fileID: 8080840057480617786}
   - component: {fileID: 8713525167255855058}
-  - component: {fileID: 8650331049865572022}
-  m_Layer: 6
+  - component: {fileID: 402130891483049329}
+  - component: {fileID: 7529546991964165986}
+  - component: {fileID: 1488440683445994006}
+  m_Layer: 8
   m_Name: WhaleBodyCube (4)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -1579,7 +1938,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8650331049865572022
+--- !u!114 &402130891483049329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208483784538023180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &7529546991964165986
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1598,8 +1971,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999997, y: 0.99999976, z: 0.9999999}
+  m_Center: {x: 0.000000052154064, y: 0.0000009536743, z: -2.842171e-14}
+--- !u!54 &1488440683445994006
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208483784538023180}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5469315379291732150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +2009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7986866452318148451}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,8 +2045,10 @@ GameObject:
   - component: {fileID: 3889272849244285271}
   - component: {fileID: 6322588963672855026}
   - component: {fileID: 453076821142371128}
-  - component: {fileID: 4716677851417416025}
-  m_Layer: 6
+  - component: {fileID: 2517795084835099664}
+  - component: {fileID: 7264354044704950529}
+  - component: {fileID: 4877275472715783375}
+  m_Layer: 8
   m_Name: WhaleBodyCube (5)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -1720,7 +2122,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4716677851417416025
+--- !u!114 &2517795084835099664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871110715786956265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &7264354044704950529
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1739,8 +2155,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999964, y: 0.99999976, z: 0.9999999}
+  m_Center: {x: -0.00000011920929, y: 0.0000009536743, z: 2.842171e-14}
+--- !u!54 &4877275472715783375
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871110715786956265}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6081374676500849251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,7 +2193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7376926989403602993}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin3.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1783,8 +2226,10 @@ GameObject:
   - component: {fileID: 6274684567896903559}
   - component: {fileID: 7366280289383091383}
   - component: {fileID: 7675402211550763397}
-  - component: {fileID: 248264192552822682}
-  m_Layer: 6
+  - component: {fileID: 4195836664201765545}
+  - component: {fileID: 3375846748458729721}
+  - component: {fileID: 7776386717864866530}
+  m_Layer: 8
   m_Name: WhaleBodyCube (7)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -1858,7 +2303,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &248264192552822682
+--- !u!114 &4195836664201765545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391359363038405689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &3375846748458729721
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1877,8 +2336,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999997, y: 0.9999994, z: 0.9999995}
+  m_Center: {x: 0, y: 0.00000047683716, z: -0.00000047683716}
+--- !u!54 &7776386717864866530
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391359363038405689}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6488265541293433981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,7 +2374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833912320408644271}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TailFin.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,7 +2405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2296687614674945973}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1954,8 +2440,10 @@ GameObject:
   - component: {fileID: 5058415806284130627}
   - component: {fileID: 412970221298431852}
   - component: {fileID: 3598447568129078515}
-  - component: {fileID: 3244186116846951694}
-  m_Layer: 6
+  - component: {fileID: 2177522564239539632}
+  - component: {fileID: 5754801038968928216}
+  - component: {fileID: 212105798570407471}
+  m_Layer: 8
   m_Name: WhaleBodyCube (4)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -2029,7 +2517,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3244186116846951694
+--- !u!114 &2177522564239539632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921414968730983139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &5754801038968928216
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2048,8 +2550,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000006, y: 1.0000001, z: 1.0000002}
+  m_Center: {x: 0.00000023841858, y: 0.00000047683716, z: 0.00000047683716}
+--- !u!54 &212105798570407471
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921414968730983139}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &7338624404309160524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,7 +2588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3152986816839640279}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: TailFin.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2094,8 +2623,10 @@ GameObject:
   - component: {fileID: 249035484358639595}
   - component: {fileID: 2445874584004538381}
   - component: {fileID: 1543944184655364847}
-  - component: {fileID: 7880561911210380208}
-  m_Layer: 6
+  - component: {fileID: 6881074890438136773}
+  - component: {fileID: 24910551905309607}
+  - component: {fileID: 4920649068918806889}
+  m_Layer: 8
   m_Name: WhaleBodyCube (6)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -2169,7 +2700,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7880561911210380208
+--- !u!114 &6881074890438136773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019351564087551692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &24910551905309607
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2188,8 +2733,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.9999994, z: 0.9999995}
+  m_Center: {x: -0.000000059604645, y: 0, z: -0.0000009536743}
+--- !u!54 &4920649068918806889
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019351564087551692}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8162862728437827834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,8 +2773,10 @@ GameObject:
   - component: {fileID: 983707136629527028}
   - component: {fileID: 8838714224199871414}
   - component: {fileID: 6890101656810666629}
-  - component: {fileID: 2972724536754654770}
-  m_Layer: 6
+  - component: {fileID: 2158832681371352162}
+  - component: {fileID: 1591611401517647853}
+  - component: {fileID: 6621420992841240843}
+  m_Layer: 8
   m_Name: WhaleBodyCube (8)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -2276,7 +2850,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2972724536754654770
+--- !u!114 &2158832681371352162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162862728437827834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &1591611401517647853
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2295,8 +2883,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999997, y: 0.9999994, z: 0.9999995}
+  m_Center: {x: 0.00000029802322, y: 0.00000023841858, z: -0.00000071525574}
+--- !u!54 &6621420992841240843
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162862728437827834}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8184318458377139305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370466286156282537}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Spine7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2340,7 +2955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7008922123569906569}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: WhaleBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2374,8 +2989,10 @@ GameObject:
   - component: {fileID: 3334552464695059692}
   - component: {fileID: 4692099990779216502}
   - component: {fileID: 7706047429977002745}
-  - component: {fileID: 767541854057282031}
-  m_Layer: 6
+  - component: {fileID: 5170450490143324728}
+  - component: {fileID: 2919742167859798563}
+  - component: {fileID: 4260401727542185913}
+  m_Layer: 8
   m_Name: WhaleBodyCube (5)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -2449,7 +3066,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &767541854057282031
+--- !u!114 &5170450490143324728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647982961284867460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &2919742167859798563
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2468,8 +3099,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 1.0000002, z: 0.99999994}
+  m_Center: {x: -0.00000011920929, y: -0.00000047683716, z: 0}
+--- !u!54 &4260401727542185913
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647982961284867460}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8823941311205178378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,7 +3137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8055851965596083989}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: PectoralFin2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,8 +3172,10 @@ GameObject:
   - component: {fileID: 3702133038527160087}
   - component: {fileID: 6481403841684792652}
   - component: {fileID: 782921614696351716}
-  - component: {fileID: 4026178470516788046}
-  m_Layer: 6
+  - component: {fileID: 8917012381707277208}
+  - component: {fileID: 4249527709461630834}
+  - component: {fileID: 6238823739880699004}
+  m_Layer: 8
   m_Name: WhaleBodyCube (1)
   m_TagString: MovingGround
   m_Icon: {fileID: 0}
@@ -2589,7 +3249,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4026178470516788046
+--- !u!114 &8917012381707277208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8956727545595931525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28acd2abf9653d4395f875a4e7db4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splitSpawn: 7
+  forceMagnitude: 200
+--- !u!65 &4249527709461630834
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2608,5 +3282,32 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 0.9999998, z: 0.9999999}
+  m_Center: {x: 0.00000071525574, y: 0.00000047683716, z: 1.4210855e-14}
+--- !u!54 &6238823739880699004
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8956727545595931525}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

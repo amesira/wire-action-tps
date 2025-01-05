@@ -71,6 +71,7 @@
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\LightlyAndDisappear.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\ShrinkAndDisappear.cs" />
+    <Compile Include="Assets\WhaleHp.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\MovePlayer.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\WireActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />

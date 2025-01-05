@@ -102,7 +102,9 @@ public class SwordActionPlayer : MonoBehaviour
         Vector3 force = ray.direction.normalized * throwPower;
 
         /* 投げつける */
+        throwObject.tag = "PlayerAttack";
         throwObject.transform.parent = null;
+        throwObject.GetComponent<BoxCollider>().enabled = true;
         throwObject.GetComponent<Rigidbody>().isKinematic = false;
         throwObject.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
 
@@ -116,7 +118,14 @@ public class SwordActionPlayer : MonoBehaviour
 	private void OnTriggerEnter(Collider other) {
         if(other.tag == "ThrowObject" && playerAct == PLAYER_ACTION.SWORD_ACTION) {
             throwObject = other.gameObject;
+
+            /* オブジェクトを手に持つ */
             throwObject.transform.parent = throwBox;
+            throwObject.transform.position = throwBox.position;
+
+            /* コンポーネント設定 */
+            throwObject.GetComponent<SphereCollider>().enabled = false;
+            throwObject.GetComponent<BoxCollider>().enabled = false;
             throwObject.GetComponent<Rigidbody>().isKinematic = true;
 
             SetAction(PLAYER_ACTION.THROW_ACTION);

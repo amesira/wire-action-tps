@@ -14,8 +14,7 @@ public class AfterImage : MonoBehaviour
 
     Material source;
 
-    void Start()
-    {
+    void Start() {
         time = generateSpawn;
 
         /* 子オブジェクトも含めて全てのMeshFilterを取得 */
@@ -23,16 +22,17 @@ public class AfterImage : MonoBehaviour
 
         /* 各メッシュをCombineInstanceに入れる */
         CombineInstance[] combine = new CombineInstance[meshFilters.Length];
-        for (int i = 0; i < meshFilters.Length; i++)
-        {
+        for(int i = 0; i < meshFilters.Length; i++) {
             combine[i].mesh = meshFilters[i].mesh;
-            combine[i].transform = meshFilters[i].transform.localToWorldMatrix * transform.localToWorldMatrix.inverse;
+            combine[i].transform = transform.worldToLocalMatrix * meshFilters[i].transform.localToWorldMatrix;
         }
 
         /* 統合したメッシュを作成 */
         afterImageMesh = new Mesh();
         afterImageMesh.name = gameObject.name + "(AfterImageMesh)";
         afterImageMesh.CombineMeshes(combine);
+
+        afterImageMesh.RecalculateBounds();
 
         /* 残像用のマテリアルを取得 */
         source = Resources.Load<Material>("Materials/AfterImageMat");

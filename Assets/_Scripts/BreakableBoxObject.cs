@@ -86,7 +86,7 @@ public class BreakableBoxObject : MonoBehaviour
             int index = partsNum - (i + 1);
 
             /* 衝突位置から半径r以内のオブジェクトのみ処理を行う */
-            if(Vector3.Distance(childParts[index].transform.position, _contactPos) < splitSpawn * 3.0f) {
+            if(Vector3.Distance(childParts[index].transform.position, _contactPos) < splitSpawn * 5.0f) {
                 /* ペアレントを切り離す */
                 childParts[index].transform.parent = null;
 

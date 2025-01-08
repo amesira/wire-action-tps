@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 599106633828118280}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -482,6 +482,7 @@ MonoBehaviour:
   traceSpawn: 0.01
   throwBox: {fileID: 4816227536780668468}
   throwObject: {fileID: 0}
+  throwPower: 100
 --- !u!114 &2117170440723861596
 MonoBehaviour:
   m_ObjectHideFlags: 0

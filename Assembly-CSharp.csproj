@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\AfterImage.cs" />
     <Compile Include="Assets\_Scripts\WhaleMove.cs" />
+    <Compile Include="Assets\TitleManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\LightlyAndDisappear.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\ShrinkAndDisappear.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\Rotate.cs" />
     <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
+    <Compile Include="Assets\FixedTurretAct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />

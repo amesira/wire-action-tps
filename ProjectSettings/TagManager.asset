@@ -8,6 +8,7 @@ TagManager:
   - MovingGround
   - PlayerAttack
   - ThrowObject
+  - Bullet
   layers:
   - Default
   - TransparentFX

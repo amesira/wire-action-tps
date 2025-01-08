@@ -102,7 +102,15 @@ public class WireActionPlayer : MonoBehaviour
     public void CheckInputWireButton() {
         /* マウスボタン入力を確認 */
         if(Input.GetMouseButtonDown(1)) {
-            if(anchorTarget != null) {
+            ShotWire();
+        }
+        else if(Input.GetMouseButtonUp(1)) {
+            DivideWire();
+        }
+    }
+
+    public void ShotWire() {
+        if(anchorTarget != null) {
                 inputWireButton = true;
 
                 /* ロープ設定 */
@@ -123,9 +131,10 @@ public class WireActionPlayer : MonoBehaviour
                 /* 効果音を鳴らす */
                 psc.PlayWireInjection();
             }
-        }
-        else if(Input.GetMouseButtonUp(1)) {
-            inputWireButton = false;
+    }
+
+    public void DivideWire() {
+        inputWireButton = false;
 
             /* プレイヤーとのリンクを切る */
             isLink = false;
@@ -138,7 +147,6 @@ public class WireActionPlayer : MonoBehaviour
             startPos = anchorPoint.position;
             targetWirePoint = gunPoint;
             lerpTime = 0.0f;
-        }
     }
 
     //===================================================

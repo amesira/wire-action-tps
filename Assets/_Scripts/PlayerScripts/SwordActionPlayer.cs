@@ -105,6 +105,7 @@ public class SwordActionPlayer : MonoBehaviour
         throwObject.tag = "PlayerAttack";
         throwObject.transform.parent = null;
         throwObject.GetComponent<BoxCollider>().enabled = true;
+        throwObject.GetComponent<BoxCollider>().size *= 2.0f;
         throwObject.GetComponent<Rigidbody>().isKinematic = false;
         throwObject.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
 
@@ -127,6 +128,7 @@ public class SwordActionPlayer : MonoBehaviour
             throwObject.GetComponent<SphereCollider>().enabled = false;
             throwObject.GetComponent<BoxCollider>().enabled = false;
             throwObject.GetComponent<Rigidbody>().isKinematic = true;
+            Destroy(throwObject.GetComponent<FixedTurretAct>());
 
             SetAction(PLAYER_ACTION.THROW_ACTION);
         }

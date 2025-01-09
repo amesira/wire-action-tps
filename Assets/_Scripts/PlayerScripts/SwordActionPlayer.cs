@@ -12,6 +12,7 @@ public class SwordActionPlayer : MonoBehaviour
     }
 
     PlayerAnimeControl anim;
+    PlayerSoundControl psc;
 
     public PLAYER_ACTION playerAct;
 
@@ -35,6 +36,7 @@ public class SwordActionPlayer : MonoBehaviour
     void Start()
     {
         anim = GetComponent<PlayerAnimeControl>();
+        psc = GetComponent<PlayerSoundControl>();
 
         playerAct = PLAYER_ACTION.SWORD_ACTION;
 
@@ -92,11 +94,15 @@ public class SwordActionPlayer : MonoBehaviour
     }
 
     public void SwingSword() {
+        psc.PlaySwingSE(0);
         swordCol.enabled = true;
         swingTime = 0.5f;
     }
 
     void ThrowAwayObject(Camera _cam) {
+        /* 効果音 */
+        psc.PlayThrowClip();
+
         /* 投げつけベクトルを計算 */
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
         Vector3 force = ray.direction.normalized * throwPower;
@@ -117,20 +123,24 @@ public class SwordActionPlayer : MonoBehaviour
     }
 
 	private void OnTriggerEnter(Collider other) {
-        if(other.tag == "ThrowObject" && playerAct == PLAYER_ACTION.SWORD_ACTION) {
-            throwObject = other.gameObject;
+        if(playerAct == PLAYER_ACTION.SWORD_ACTION && swordCol.enabled) {
+            if(other.tag == "ThrowObject") {
+                psc.PlaySwingSE(1);
 
-            /* オブジェクトを手に持つ */
-            throwObject.transform.parent = throwBox;
-            throwObject.transform.position = throwBox.position;
+                throwObject = other.gameObject;
 
-            /* コンポーネント設定 */
-            throwObject.GetComponent<SphereCollider>().enabled = false;
-            throwObject.GetComponent<BoxCollider>().enabled = false;
-            throwObject.GetComponent<Rigidbody>().isKinematic = true;
-            Destroy(throwObject.GetComponent<FixedTurretAct>());
+                /* オブジェクトを手に持つ */
+                throwObject.transform.parent = throwBox;
+                throwObject.transform.position = throwBox.position;
 
-            SetAction(PLAYER_ACTION.THROW_ACTION);
+                /* コンポーネント設定 */
+                throwObject.GetComponent<SphereCollider>().enabled = false;
+                throwObject.GetComponent<BoxCollider>().enabled = false;
+                throwObject.GetComponent<Rigidbody>().isKinematic = true;
+                Destroy(throwObject.GetComponent<FixedTurretAct>());
+
+                SetAction(PLAYER_ACTION.THROW_ACTION);
+            }
         }
 	}
 

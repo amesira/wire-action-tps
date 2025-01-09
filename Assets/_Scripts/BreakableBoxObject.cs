@@ -5,13 +5,18 @@ using TMPro;
 using UnityEditor.Animations;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class BreakableBoxObject : MonoBehaviour
 {
+    AudioSource audioSource;
+
     public float splitSpawn = 1.0f;
     public float forceMagnitude = 100.0f;
 
     public int partCnt;
+
+    public AudioClip breakSE;
 
     List<GameObject> childParts = new List<GameObject>();
 
@@ -72,6 +77,10 @@ public class BreakableBoxObject : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
     }
 
+	private void Start() {
+        audioSource = GetComponent<AudioSource>();
+	}
+
 	private void OnCollisionEnter(Collision collision) {
         if(collision.collider.tag == "PlayerAttack") {
             BeBreaken(collision.contacts[0].point);    // プレイヤーの攻撃を受けたら壊れる
@@ -87,26 +96,41 @@ public class BreakableBoxObject : MonoBehaviour
 
             /* 衝突位置から半径r以内のオブジェクトのみ処理を行う */
             if(Vector3.Distance(childParts[index].transform.position, _contactPos) < splitSpawn * 5.0f) {
-                /* ペアレントを切り離す */
-                childParts[index].transform.parent = null;
-
-                /* レイヤーを変更 */
-                childParts[index].layer = gameObject.layer + 1;
-
-                /* 力を加える */
-                Vector3 forceDirection = (_contactPos - childParts[index].transform.position).normalized;
-                float force = Mathf.Clamp
-                                (1f / (Vector3.Distance(childParts[index].transform.position, _contactPos) + 0.1f), 0, 10f);
-                force *= forceMagnitude;
-                childParts[index].AddComponent<Rigidbody>().AddForce(forceDirection * force, ForceMode.Impulse);
-
-                /* 収縮したのち削除する処理 */
-                childParts[index].GetComponent<ShrinkAndDisappear>().StartShrinking(1.5f, 2.0f);
-
-                /* リストから削除 */
-                childParts.RemoveAt(index);
-                partCnt--;
+                BreakenPart(index, _contactPos);
             }
         }
+
+        if(childParts.Count <= 5) {
+            int remainNum = childParts.Count;
+            for(int i = 0; i < remainNum; i++) {
+                int remIndex = remainNum - (i + 1);
+                BreakenPart(remIndex, childParts[remIndex].transform.position);
+            }
+        }
+    }
+
+    void BreakenPart(int _index,Vector3 _contactPos) {
+        /* 効果音を鳴らす */
+        audioSource.PlayOneShot(breakSE);
+
+        /* ペアレントを切り離す */
+        childParts[_index].transform.parent = null;
+
+        /* レイヤーを変更 */
+        childParts[_index].layer = gameObject.layer + 1;
+
+        /* 力を加える */
+        Vector3 forceDirection = (_contactPos - childParts[_index].transform.position).normalized;
+        float force = Mathf.Clamp
+                        (1f / (Vector3.Distance(childParts[_index].transform.position, _contactPos) + 0.1f), 0, 10f);
+        force *= forceMagnitude;
+        childParts[_index].AddComponent<Rigidbody>().AddForce(forceDirection * force, ForceMode.Impulse);
+
+        /* 収縮したのち削除する処理 */
+        childParts[_index].GetComponent<ShrinkAndDisappear>().StartShrinking(1.5f, 2.0f);
+
+        /* リストから削除 */
+        childParts.RemoveAt(_index);
+        partCnt--;
     }
 }

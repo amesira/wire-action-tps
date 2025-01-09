@@ -8,8 +8,15 @@ public class PlayerSoundControl : MonoBehaviour
 
     public AudioClip runClip;
     public AudioClip jumpClip;
+
+    public AudioClip swingClip;
+    public AudioClip chopSwordClip;
+
     public AudioClip wireInjectionClip;
     public AudioClip wireShootClip;
+
+    public AudioClip throwClip;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -36,4 +43,18 @@ public class PlayerSoundControl : MonoBehaviour
     public void PlayJumpClip() {
         audioSource.PlayOneShot(jumpClip);
     }
+
+    public void PlayThrowClip() {
+        audioSource.PlayOneShot(throwClip);
+    }
+
+    public void PlaySwingSE(int n) {
+        if(n == 0) {
+            audioSource.PlayOneShot(swingClip);
+        }
+        else if(n == 1) {
+            audioSource.PlayOneShot(chopSwordClip);
+        }
+    }
+
 }

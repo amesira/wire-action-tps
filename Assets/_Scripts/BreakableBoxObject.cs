@@ -86,10 +86,15 @@ public class BreakableBoxObject : MonoBehaviour
             BeBreaken(collision.contacts[0].point);    // プレイヤーの攻撃を受けたら壊れる
             Debug.Log("Be Breaken");
         }
-        // Debug.Log("Be Collision");
 	}
 
     private void BeBreaken(Vector3 _contactPos) {
+        int breakCnt = 0;
+
+        /* 効果音を鳴らす */
+        audioSource.PlayOneShot(breakSE);
+
+        /* 壊れる処理 */
         int partsNum = childParts.Count;
         for(int i = 0; i < partsNum; i++) {
             int index = partsNum - (i + 1);
@@ -97,21 +102,25 @@ public class BreakableBoxObject : MonoBehaviour
             /* 衝突位置から半径r以内のオブジェクトのみ処理を行う */
             if(Vector3.Distance(childParts[index].transform.position, _contactPos) < splitSpawn * 5.0f) {
                 BreakenPart(index, _contactPos);
+                breakCnt++;
             }
         }
 
-        if(childParts.Count <= 5) {
+        /* 残りのパーツの数が少なかったらそのまま壊れる */
+        if(childParts.Count <= 10) {
             int remainNum = childParts.Count;
             for(int i = 0; i < remainNum; i++) {
                 int remIndex = remainNum - (i + 1);
                 BreakenPart(remIndex, childParts[remIndex].transform.position);
+                breakCnt++;
             }
         }
+
+        /* BreakUIを設定 */
+        WhaleHp.instance.SetBreakData(breakCnt);
     }
 
     void BreakenPart(int _index,Vector3 _contactPos) {
-        /* 効果音を鳴らす */
-        audioSource.PlayOneShot(breakSE);
 
         /* ペアレントを切り離す */
         childParts[_index].transform.parent = null;

@@ -137,7 +137,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &1726388023651203793
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &7638940706011050024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -866,7 +866,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &5839723574551039922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &5254197563521747591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1465,7 +1465,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &7659278428319097583
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &8771282664234375886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2048,6 +2048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 0}
+  hpText: {fileID: 0}
   fillImage: {fileID: 0}
   halfColor: {r: 0, g: 0, b: 0, a: 0}
   lastColor: {r: 0, g: 0, b: 0, a: 0}
@@ -2157,7 +2158,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &2936494734263538843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2407,7 +2408,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &62875072723638409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2760,7 +2761,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &7529546991964165986
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3044,7 +3045,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &7264354044704950529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3325,7 +3326,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &3375846748458729721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3639,7 +3640,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &5754801038968928216
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3922,7 +3923,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &24910551905309607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4172,7 +4173,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &1591611401517647853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4488,7 +4489,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &2919742167859798563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4771,7 +4772,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
-  breakSE: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  breakSE: {fileID: 8300000, guid: 95296fa740bdd2a4087dba9c469ce6c4, type: 3}
 --- !u!65 &4249527709461630834
 BoxCollider:
   m_ObjectHideFlags: 0

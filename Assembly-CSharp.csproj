@@ -70,6 +70,9 @@
     <Compile Include="Assets\_Scripts\WhaleMove.cs" />
     <Compile Include="Assets\TitleManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
+    <Compile Include="Assets\EventManager.cs" />
+    <Compile Include="Assets\Bullet.cs" />
+    <Compile Include="Assets\_Heathen Engineering\Samples\UX Examples\Flat Icons [Free]\ToggleSetAnimatorBoolean.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\LightlyAndDisappear.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\ShrinkAndDisappear.cs" />
     <Compile Include="Assets\WhaleHp.cs" />
@@ -77,11 +80,15 @@
     <Compile Include="Assets\_Scripts\PlayerScripts\WireActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\Rotate.cs" />
+    <Compile Include="Assets\HpHeart.cs" />
+    <Compile Include="Assets\Explosion.cs" />
     <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
+    <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\FixedTurretAct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />
+    <None Include="Assets\_Heathen Engineering\Documentation\UX\Flat Icons [Free]\Read Me.txt" />
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -1051,6 +1058,10 @@
     </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">

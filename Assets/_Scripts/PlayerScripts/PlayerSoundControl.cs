@@ -17,6 +17,8 @@ public class PlayerSoundControl : MonoBehaviour
 
     public AudioClip throwClip;
 
+    public AudioClip damageClip;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -55,6 +57,10 @@ public class PlayerSoundControl : MonoBehaviour
         else if(n == 1) {
             audioSource.PlayOneShot(chopSwordClip);
         }
+    }
+
+    public void PlayDamageSE() {
+        audioSource.PlayOneShot(damageClip);
     }
 
 }

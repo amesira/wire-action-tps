@@ -6,16 +6,38 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     public bool loadStart;
+    public bool isPlaying;
 
     [Header("フェード処理")]
     public Image fadeImage;
     public Text loadText;
     public float fadeSpeed = 1.5f;
 
+    [Header("UIグループ")]
+    public GameObject startUI;
+    public GameObject gameUI;
+
+    [Header("タイマー")]
+    public float timeRimit = 180.0f;
+    public Timer timer;
+    public Text timerText;
+    
+    float timerCnt = 0.0f;
+
     bool isFadeout;
 
-    void Start()
+	private void Awake() {
+        if(instance == null) {
+            instance = this;
+        }
+        loadStart = true;
+        isPlaying = false;
+	}
+
+	void Start()
     {
         if(loadStart) {
             /* フェードアウト処理UIの初期化 */
@@ -29,6 +51,12 @@ public class GameManager : MonoBehaviour
 
             isFadeout = true;
         }
+
+        timerCnt = timeRimit;
+        timerText.text = timerCnt.ToString();
+
+        startUI.SetActive(true);
+        gameUI.SetActive(false);
     }
 
     private void FixedUpdate() {
@@ -50,17 +78,33 @@ public class GameManager : MonoBehaviour
 
 	void Update()
     {
-        /* Escを押したら */
-        if(Input.GetKeyDown(KeyCode.Escape)) {
-            /* カーソルを表示 */
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+        if(isPlaying) {
+            timerCnt -= Time.deltaTime;
+            timer.SetTimerText(timerCnt);
 
-        /* マウスを押したら */
-        if(Input.GetMouseButtonDown(0)) {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            //string timerStr = timerCnt.ToString("f3");
+            //timerText.text = timerStr;
+
+            /* Escを押したら */
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                /* カーソルを表示 */
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+            /* マウスを押したら */
+            if(Input.GetMouseButtonDown(0)) {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
+    }
+    public void GameStart() {
+        isPlaying = true;
+        startUI.SetActive(false);
+        gameUI.SetActive(true);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

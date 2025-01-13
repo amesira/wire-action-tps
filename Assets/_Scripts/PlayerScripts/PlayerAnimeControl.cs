@@ -6,9 +6,13 @@ using UnityEngine.Rendering;
 public class PlayerAnimeControl : MonoBehaviour
 {
     Animator anim;
+    Animation animation;
 
     public float blinkSpawn;
     public float stateChangeY;
+
+    public AnimationClip loseAnim;
+    public AnimationClip winAnim;
 
     float time;
 
@@ -16,6 +20,8 @@ public class PlayerAnimeControl : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        animation = GetComponent<Animation>();
+
         time = blinkSpawn;
     }
 
@@ -46,5 +52,23 @@ public class PlayerAnimeControl : MonoBehaviour
 
     public void SetSword() {
         anim.SetTrigger("swingSword");
+    }
+
+    public IEnumerator PlayEndAnim(int a) {
+        anim.enabled = false;
+        yield return null;
+
+        if(a == 0) {
+            animation.clip = loseAnim;
+            yield return null;
+
+            animation.Play();
+        }
+        else {
+            animation.clip = winAnim;
+            yield return null;
+
+            animation.Play();
+        }
     }
 }

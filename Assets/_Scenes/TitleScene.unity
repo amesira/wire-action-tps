@@ -2464,6 +2464,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8770510754600163654, guid: 481183266936f68459fd214386d7385a, type: 3}
   m_PrefabInstance: {fileID: 1037406172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1043586828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043586830}
+  - component: {fileID: 1043586829}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1043586829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043586828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8840e2d19f2aafd45b985198b3444cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 6359969773675059580, guid: 0929f5caa5a34b745b658bcd4be20137, type: 3}
+--- !u!4 &1043586830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043586828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1073522518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4992,6 +5037,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!33 &412970221384921470
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5074,6 +5120,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &451117276736771173
 GameObject:
   m_ObjectHideFlags: 0
@@ -6113,6 +6160,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!114 &2177522564054514594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6128,6 +6176,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &2211368224147047161
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,6 +6358,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &2506133472191513507
 GameObject:
   m_ObjectHideFlags: 0
@@ -6340,6 +6390,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &2565919797832491246
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,6 +7325,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &4198775145890117680
 GameObject:
   m_ObjectHideFlags: 0
@@ -7353,6 +7405,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!54 &4321309662684760631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7721,6 +7774,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &4780874018351989182
 GameObject:
   m_ObjectHideFlags: 0
@@ -7941,6 +7995,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &5208483784894030622
 GameObject:
   m_ObjectHideFlags: 0
@@ -8384,6 +8439,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!4 &5781441654527345675
 Transform:
   m_ObjectHideFlags: 0
@@ -8973,8 +9029,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runClip: {fileID: 8300000, guid: 8c5757a957effac4983b0f5d22eed68a, type: 3}
   jumpClip: {fileID: 8300000, guid: 5abd13d5763a3a34a85012274565afb4, type: 3}
+  swingClip: {fileID: 0}
+  chopSwordClip: {fileID: 0}
   wireInjectionClip: {fileID: 8300000, guid: 626408035ccf89b4f98a639e3d1ce0e0, type: 3}
   wireShootClip: {fileID: 8300000, guid: 0a25dd1ffe88f504fb87ecd9bb7535de, type: 3}
+  throwClip: {fileID: 0}
 --- !u!1 &6561337039045564523
 GameObject:
   m_ObjectHideFlags: 0
@@ -9206,6 +9265,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!23 &6890101656461999255
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9455,6 +9515,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!4 &7376926989822461475
 Transform:
   m_ObjectHideFlags: 0
@@ -9485,6 +9546,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!33 &7427162105290907487
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10386,6 +10448,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!1 &8956727545207418263
 GameObject:
   m_ObjectHideFlags: 0
@@ -10437,6 +10500,7 @@ MonoBehaviour:
   splitSpawn: 7
   forceMagnitude: 200
   partCnt: 0
+  breakSE: {fileID: 0}
 --- !u!33 &9041851964121627446
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10552,3 +10616,4 @@ SceneRoots:
   - {fileID: 1800054792}
   - {fileID: 176178842}
   - {fileID: 865729053}
+  - {fileID: 1043586830}

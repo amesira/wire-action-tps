@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 859009514107712585}
   - component: {fileID: 6744402966149651746}
   - component: {fileID: 599106633828118280}
+  - component: {fileID: 92213524087613481}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -497,6 +498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinkSpawn: 3
   stateChangeY: 3
+  loseAnim: {fileID: 0}
+  winAnim: {fileID: 0}
 --- !u!82 &859009514107712585
 AudioSource:
   m_ObjectHideFlags: 0
@@ -608,8 +611,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runClip: {fileID: 8300000, guid: 8c5757a957effac4983b0f5d22eed68a, type: 3}
   jumpClip: {fileID: 8300000, guid: 5abd13d5763a3a34a85012274565afb4, type: 3}
+  swingClip: {fileID: 8300000, guid: 7da91d96a5df8bc4eabe5819b7da0315, type: 3}
+  chopSwordClip: {fileID: 8300000, guid: eafbc7d4cbda48145953aa1e16a9492e, type: 3}
   wireInjectionClip: {fileID: 8300000, guid: 626408035ccf89b4f98a639e3d1ce0e0, type: 3}
   wireShootClip: {fileID: 8300000, guid: 0a25dd1ffe88f504fb87ecd9bb7535de, type: 3}
+  throwClip: {fileID: 8300000, guid: a857c35d59ece2d429d5702652def005, type: 3}
+  damageClip: {fileID: 8300000, guid: 7026a940937f4394196980a9f4e5d7e1, type: 3}
 --- !u!114 &599106633828118280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +631,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallLine: {fileID: 0}
   startPos: {fileID: 0}
+  hpText: {fileID: 0}
+  hpMax: 5
+  hp: 0
+  playerHeart: {fileID: 0}
+--- !u!111 &92213524087613481
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785921278394083391}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &1075100298527461980
 GameObject:
   m_ObjectHideFlags: 0

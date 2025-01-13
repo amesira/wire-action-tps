@@ -84,7 +84,7 @@ public class BreakableBoxObject : MonoBehaviour
 	private void OnCollisionEnter(Collision collision) {
         if(collision.collider.tag == "PlayerAttack") {
             BeBreaken(collision.contacts[0].point);    // プレイヤーの攻撃を受けたら壊れる
-            Debug.Log("Be Breaken");
+            //Debug.Log("Be Breaken");
         }
 	}
 
@@ -107,7 +107,7 @@ public class BreakableBoxObject : MonoBehaviour
         }
 
         /* 残りのパーツの数が少なかったらそのまま壊れる */
-        if(childParts.Count <= 10) {
+        if(childParts.Count <= 15) {
             int remainNum = childParts.Count;
             for(int i = 0; i < remainNum; i++) {
                 int remIndex = remainNum - (i + 1);
@@ -121,7 +121,6 @@ public class BreakableBoxObject : MonoBehaviour
     }
 
     void BreakenPart(int _index,Vector3 _contactPos) {
-
         /* ペアレントを切り離す */
         childParts[_index].transform.parent = null;
 

@@ -28,6 +28,7 @@ public class WhaleHp : MonoBehaviour
     bool updateValue = false;
 
     public float t = 0.0f;
+    Outline outline;
 
 	private void Awake() {
         if(instance == null) {
@@ -46,6 +47,8 @@ public class WhaleHp : MonoBehaviour
         }
         partsMax = partsCnt;
 
+        outline = hpText.gameObject.GetComponent<Outline>();
+
         /* スライダー設定 */
         hpSlider.value = partsCnt / partsMax;
         sliderValue = hpSlider.value;
@@ -55,7 +58,7 @@ public class WhaleHp : MonoBehaviour
         int cnt = Mathf.FloorToInt(partsCnt);
         hpText.text = cnt.ToString("D4") + "/" + max.ToString("D4");
 
-        hpText.color = fillImage.color;
+        outline.effectColor = fillImage.color;
     }
 
 	private void Update() {
@@ -77,7 +80,7 @@ public class WhaleHp : MonoBehaviour
             }
 
             /* テキストの色にも適用 */
-            hpText.color = fillImage.color;
+            outline.effectColor = fillImage.color;
 
             if(t >= 0.98f) {
                 t = 0.0f;

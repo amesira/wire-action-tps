@@ -183,6 +183,9 @@ public class WireActionPlayer : MonoBehaviour
                 anchorPoint.position = targetWirePoint.position;
 
                 if(!isLink) {
+                    /* 爆発エフェクトを設定 */
+                    EventManager.instance.SetExplosion(targetWirePoint.position, Color.blue);
+
                     /* プレイヤーとリンクさせる */
                     isLink = true;
 

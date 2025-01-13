@@ -29,7 +29,9 @@ public class CameraController_TPS : MonoBehaviour
     void FixedUpdate()
     {
         FollowTarget();
-        CameraControl();
+        if(GameManager.instance.isPlaying) {
+            CameraControl();
+        }
     }
 
     void FollowTarget() {

@@ -5,14 +5,17 @@ using UnityEngine.UIElements;
 
 public class FixedTurretAct : MonoBehaviour
 {
+    AudioSource audioSource;
+
     public Transform movingPart;
     public Transform gunPoint;
     public GameObject bulletPrefab;
+    public AudioClip shotSE;
 
     GameObject[] player;
-    float areaRange = 100.0f;
-    float shotSpeed = 15.0f;
-    float shotSpawn = 1.5f;
+    float areaRange = 50.0f;
+    float shotSpeed = 20.0f;
+    float shotSpawn = 3.0f;
     float rotStep = 15.0f;
 
     bool withinRange = false;
@@ -20,6 +23,8 @@ public class FixedTurretAct : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         player = GameObject.FindGameObjectsWithTag("Player");
     }
 
@@ -47,7 +52,7 @@ public class FixedTurretAct : MonoBehaviour
 
     void RotToPlayer() {
         /* 回転方向 */
-        Quaternion lookRot = Quaternion.LookRotation(player[0].transform.position - movingPart.position);
+        Quaternion lookRot = Quaternion.LookRotation((player[0].transform.position + new Vector3(0.0f, 1.0f, 0.0f)) - movingPart.position);
         Quaternion nextRot = Quaternion.RotateTowards(movingPart.rotation, lookRot, rotStep);
 
         /* 回転させる */
@@ -56,9 +61,16 @@ public class FixedTurretAct : MonoBehaviour
 
     void ShotBullet() {
         GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, gunPoint.rotation);
+
+        /* 弾丸の設定 */
         Vector3 direction = (gunPoint.position - movingPart.position).normalized;
         bullet.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
+        bullet.GetComponent<Bullet>().myTurret = gameObject;
 
-        Destroy(bullet, 10.0f);
+        /* 爆発エフェクトをセット */
+        EventManager.instance.SetExplosion(gunPoint.position, Color.red);
+
+        /* ショットSEを再生 */
+        audioSource.PlayOneShot(shotSE);
     }
 }

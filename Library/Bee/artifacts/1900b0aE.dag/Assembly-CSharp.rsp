@@ -390,6 +390,8 @@
 "Assets/Explosion.cs"
 "Assets/FixedTurretAct.cs"
 "Assets/HpHeart.cs"
+"Assets/ResultManager.cs"
+"Assets/SendResult.cs"
 "Assets/Timer.cs"
 "Assets/TitleManager.cs"
 "Assets/WhaleHp.cs"

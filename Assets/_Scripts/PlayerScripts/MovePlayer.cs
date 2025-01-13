@@ -36,6 +36,8 @@ public class MovePlayer : MonoBehaviour
 
     bool inputJumpKey;                  // ジャンプキーが押された
 
+    public bool canMoving;
+
     void Start()
     {
         /* コンポーネントの取得 */
@@ -49,11 +51,13 @@ public class MovePlayer : MonoBehaviour
         /* 初期化処理 */
         inputJumpKey = false;
         groundCheckCol.enabled = false;
+
+        canMoving = true;
     }
 
     void Update()
     {
-        if(GameManager.instance.isPlaying) {
+        if(GameManager.instance.isPlaying && canMoving) {
             /* 移動キー入力 */
             inputHorizontal = Input.GetAxisRaw("Horizontal");
             inputVertical = Input.GetAxisRaw("Vertical");
@@ -72,7 +76,7 @@ public class MovePlayer : MonoBehaviour
     }
 
 	private void FixedUpdate() {
-        if(GameManager.instance.isPlaying) {
+        if(GameManager.instance.isPlaying && canMoving) {
             this.transform.parent = null;
 
             /* アンカーターゲットを設定 */

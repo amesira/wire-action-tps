@@ -16,6 +16,9 @@ public class PlayerSystem : MonoBehaviour
     public int hp;
     public HpHeart playerHeart;
 
+    public Image respawnFadeImage;
+    public Text respawnText;
+
     void Start()
     {
         psc = GetComponent<PlayerSoundControl>();
@@ -24,31 +27,86 @@ public class PlayerSystem : MonoBehaviour
         hp = hpMax;
         hpText.text = hp.ToString();
         playerHeart.SetHeartImage(hp);
+
+        Color newColor = respawnFadeImage.color;
+        newColor.a = 0.0f;
+        respawnFadeImage.color = newColor;
+        
+        newColor = respawnText.color;
+        newColor.a = 0.0f;
+        respawnText.color = newColor;
     }
 
 	private void OnTriggerEnter(Collider other) {
         if(other.gameObject == fallLine) {
-            transform.position = startPos.position;
+            StartCoroutine(Respawn());
         }
 	}
 
+    IEnumerator Respawn() {
+        //GameManager.instance.isPlaying = false;
+        GetComponent<MovePlayer>().canMoving = false;
+
+        for(int i = 0; i < 1000; i++) {
+            Color newColor = respawnFadeImage.color;
+            newColor.a += Time.deltaTime;
+            respawnFadeImage.color = newColor;
+
+            newColor = respawnText.color;
+            newColor.a += Time.deltaTime;
+            respawnText.color = newColor;
+
+            if(newColor.a >= 1.0f) {
+                break;
+            }
+            yield return null;
+        }
+
+        GetComponent<WireActionPlayer>().DivideWire();
+
+        /* プレイヤーを初期位置へ */
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        transform.position = startPos.position;
+        transform.rotation = Quaternion.identity;
+        yield return new WaitForSeconds(0.5f);
+
+        for(int i = 0; i < 1000; i++) {
+            Color newColor = respawnFadeImage.color;
+            newColor.a -= Time.deltaTime;
+            respawnFadeImage.color = newColor;
+
+            newColor = respawnText.color;
+            newColor.a -= Time.deltaTime;
+            respawnText.color = newColor;
+
+            if(newColor.a <= 0.0f) {
+                break;
+            }
+            yield return null;
+        }
+        //GameManager.instance.isPlaying = true;
+        GetComponent<MovePlayer>().canMoving = true;
+    }
+
     public void DamagedPlayer() {
-        hp--;
-        hpText.text = hp.ToString();
-        playerHeart.SetHeartImage(hp);
+        if(GameManager.instance.isPlaying) {
+            hp--;
+            hpText.text = hp.ToString();
+            playerHeart.SetHeartImage(hp);
 
-        psc.PlayDamageSE();
+            psc.PlayDamageSE();
 
-        if(hp <= 0) {
-            LosePlayer();
+            if(hp <= 0) {
+                LosePlayer();
+            }
         }
     }
 
     private void LosePlayer() {
-        StartCoroutine(pac.PlayEndAnim(0));
+        StartCoroutine(GameManager.instance.GameEnd(0));
     }
 
     private void WinPlayer() {
-
+        StartCoroutine(GameManager.instance.GameEnd(1));
     }
 }

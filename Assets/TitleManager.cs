@@ -23,13 +23,37 @@ public class TitleManager : MonoBehaviour
         wap = player.GetComponent<WireActionPlayer>();
 
         Color newColor = fadeImage.color;
-        newColor.a = 0.0f;
+        newColor.a = 1.0f;
         fadeImage.color = newColor;
 
         newColor = loadText.color;
-        newColor.a = 0.0f;
+        newColor.a = 1.0f;
         loadText.color = newColor;
+
+        StartCoroutine(Fade());
     }
+
+    IEnumerator Fade() {
+        fadeImage.gameObject.SetActive(true);
+
+        for(int i = 0; i < 1000; i++) {
+            Color newColor = fadeImage.color;
+            newColor.a -= Time.deltaTime * fadeSpeed;
+            fadeImage.color = newColor;
+
+            newColor = loadText.color;
+            newColor.a -= Time.deltaTime * fadeSpeed;
+            loadText.color = newColor;
+
+            if(newColor.a < 0.0f) {
+                break;
+            }
+            yield return null;
+        }
+
+        fadeImage.gameObject.SetActive(false);
+    }
+
 	private void FixedUpdate() {
         if(isStart) {
             /* 速度設定 */
@@ -40,6 +64,7 @@ public class TitleManager : MonoBehaviour
             /* ワイヤーコントロール */
             wap.WireAnchorControl();
 
+            fadeImage.gameObject.SetActive(true);
             /* フェードイン */
             Color newColor = fadeImage.color;
             newColor.a += Time.deltaTime * fadeSpeed;

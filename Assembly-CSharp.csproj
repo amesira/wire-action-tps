@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
     <Compile Include="Assets\_Scripts\SimpleScripts\AfterImage.cs" />
     <Compile Include="Assets\_Scripts\WhaleMove.cs" />
+    <Compile Include="Assets\ResultManager.cs" />
     <Compile Include="Assets\TitleManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
     <Compile Include="Assets\EventManager.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\HpHeart.cs" />
     <Compile Include="Assets\Explosion.cs" />
     <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
+    <Compile Include="Assets\SendResult.cs" />
     <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\FixedTurretAct.cs" />
   </ItemGroup>
@@ -1044,6 +1046,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
       <Private>False</Private>
@@ -1118,10 +1124,6 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

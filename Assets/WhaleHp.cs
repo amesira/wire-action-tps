@@ -104,6 +104,10 @@ public class WhaleHp : MonoBehaviour
         sliderValue = partsCnt / partsMax;
 
         StartCoroutine(WaitUpdateValue());
+
+        if(Mathf.FloorToInt(partsCnt) == 0) {
+            StartCoroutine(GameManager.instance.GameEnd(1));
+        }
     }
 
     IEnumerator WaitUpdateValue() {

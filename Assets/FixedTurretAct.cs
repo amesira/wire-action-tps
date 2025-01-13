@@ -40,7 +40,7 @@ public class FixedTurretAct : MonoBehaviour
     }
 
 	private void FixedUpdate() {
-        if(withinRange) {
+        if(withinRange && GameManager.instance.isPlaying) {
             time -= Time.deltaTime;
             RotToPlayer();
             if(time < 0.0f) {

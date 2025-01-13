@@ -111,42 +111,42 @@ public class WireActionPlayer : MonoBehaviour
 
     public void ShotWire() {
         if(anchorTarget != null) {
-                inputWireButton = true;
+            inputWireButton = true;
 
-                /* ロープ設定 */
-                rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
-                rope.isEndFixed = true;
+            /* ロープ設定 */
+            rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
+            rope.isEndFixed = true;
 
-                /* ロープを初期化 */
-                rope.InitializeRope();
+            /* ロープを初期化 */
+            rope.InitializeRope();
 
-                /* アンカー射出の初期値を設定 */
-                startPos = gunPoint.position;
-                targetWirePoint = anchorTarget;
-                lerpTime = 0.0f;
+            /* アンカー射出の初期値を設定 */
+            startPos = gunPoint.position;
+            targetWirePoint = anchorTarget;
+            lerpTime = 0.0f;
 
-                /* アンカーポイントを独立させる */
-                anchorPoint.parent = null;
+            /* アンカーポイントを独立させる */
+            anchorPoint.parent = null;
 
-                /* 効果音を鳴らす */
-                psc.PlayWireInjection();
-            }
+            /* 効果音を鳴らす */
+            psc.PlayWireInjection();
+        }
     }
 
     public void DivideWire() {
         inputWireButton = false;
 
-            /* プレイヤーとのリンクを切る */
-            isLink = false;
+        /* プレイヤーとのリンクを切る */
+        isLink = false;
 
-            /* ロープ設定 */
-            rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_RETRACT;
-            rope.isEndFixed = true;
+        /* ロープ設定 */
+        rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_RETRACT;
+        rope.isEndFixed = true;
 
-            /* アンカー回収の初期値を設定 */
-            startPos = anchorPoint.position;
-            targetWirePoint = gunPoint;
-            lerpTime = 0.0f;
+        /* アンカー回収の初期値を設定 */
+        startPos = anchorPoint.position;
+        targetWirePoint = gunPoint;
+        lerpTime = 0.0f;
     }
 
     //===================================================

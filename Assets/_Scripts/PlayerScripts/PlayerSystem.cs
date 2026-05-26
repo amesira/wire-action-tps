@@ -42,7 +42,7 @@ public class PlayerSystem : MonoBehaviour
         newColor.a = 0.0f;
         respawnText.color = newColor;
 
-        // ダメージ
+        // 繝繝｡繝ｼ繧ｸ
         damageCnt = 0;
         damageImage.gameObject.SetActive(false);
         Color color = damagePanel.color;
@@ -105,7 +105,7 @@ public class PlayerSystem : MonoBehaviour
 
         GetComponent<WireActionPlayer>().DivideWire();
 
-        /* プレイヤーを初期位置へ */
+        /* 繝励Ξ繧､繝､繝ｼ繧貞�晄悄菴咲ｽｮ縺ｸ */
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.position = startPos.position;
         transform.rotation = Quaternion.identity;
@@ -141,7 +141,7 @@ public class PlayerSystem : MonoBehaviour
             //    LosePlayer();
             //}
 
-            // ダメージ演出
+            // 繝繝｡繝ｼ繧ｸ貍泌�ｺ
             damageTime = Time.fixedTime;
             damageCnt++;
 

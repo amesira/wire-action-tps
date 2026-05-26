@@ -402,7 +402,7 @@
 "Assets/WhaleHp.cs"
 "Assets/_Heathen Engineering/Samples/UX Examples/Flat Icons [Free]/ToggleSetAnimatorBoolean.cs"
 "Assets/_Scripts/BreakableBoxObject.cs"
-"Assets/_Scripts/CameraController_TPS.cs"
+"Assets/_Scripts/CameraController.cs"
 "Assets/_Scripts/GameManager.cs"
 "Assets/_Scripts/LoadingUiManager.cs"
 "Assets/_Scripts/PlayerScripts/MovePlayer.cs"

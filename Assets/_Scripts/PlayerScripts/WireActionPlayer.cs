@@ -5,33 +5,33 @@ using UnityEngine;
 
 public class WireActionPlayer : MonoBehaviour
 {
-    public RoapControl_PBD rope;    // ƒƒCƒ„[—p‚Ìƒ[ƒv
+    public RoapControl_PBD rope;    // ãƒ¯ã‚¤ãƒ¤ãƒ¼ç”¨ã®ãƒ­ãƒ¼ãƒ—
 
-    [Header("ƒƒCƒ„[‚Ì•”ˆÊ")]
-    public Transform gunPoint;      // eŒû
-    public Transform anchorPoint;   // ƒAƒ“ƒJ[
+    [Header("ãƒ¯ã‚¤ãƒ¤ãƒ¼ã®éƒ¨ä½")]
+    public Transform gunPoint;      // éŠƒå£
+    public Transform anchorPoint;   // ã‚¢ãƒ³ã‚«ãƒ¼
     public Transform handPoint;
 
-    [Header("ƒƒCƒ„[‚Ìƒpƒ‰ƒ[ƒ^")]
-    public float anchorSpeed = 3.0f;    // ƒAƒ“ƒJ[ËoƒXƒs[ƒh
-    public float rewindSpeed = 50.0f;   // ƒAƒ“ƒJ[‰ñûƒXƒs[ƒh
-    public float moveDecay = 0.3f;      // ƒƒCƒ„[ƒAƒNƒVƒ‡ƒ“‚Ì‘¬“xŒ¸Š
-    public bool isLink;                 // ƒƒCƒ„[‚ÆƒŠƒ“ƒN‚µ‚Ä‚¢‚é‚©
+    [Header("ãƒ¯ã‚¤ãƒ¤ãƒ¼ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿")]
+    public float anchorSpeed = 3.0f;    // ã‚¢ãƒ³ã‚«ãƒ¼å°„å‡ºã‚¹ãƒ”ãƒ¼ãƒ‰
+    public float rewindSpeed = 50.0f;   // ã‚¢ãƒ³ã‚«ãƒ¼å›åã‚¹ãƒ”ãƒ¼ãƒ‰
+    public float moveDecay = 0.3f;      // ãƒ¯ã‚¤ãƒ¤ãƒ¼ã‚¢ã‚¯ã‚·ãƒ§ãƒ³æ™‚ã®é€Ÿåº¦æ¸›è¡°
+    public bool isLink;                 // ãƒ¯ã‚¤ãƒ¤ãƒ¼ã¨ãƒªãƒ³ã‚¯ã—ã¦ã„ã‚‹ã‹
 
-    [Header("ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg")]
-    public string targetTagName;    // ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚Ìƒ^ƒO
-    public Transform anchorTarget;  // ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg
+    [Header("ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ")]
+    public string targetTagName;    // ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®ã‚¿ã‚°
+    public Transform anchorTarget;  // ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ
     public float viewingAngle = 15.0f;
     public float viewingDistance;
     public RectTransform scopeImage;
 
     Transform anchorParent;
-    GameObject[] targets;           // ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚ÌƒŠƒXƒg
+    GameObject[] targets;           // ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®ãƒªã‚¹ãƒˆ
 
     bool inputWireButton = false;
 
-    Vector3 startPos;               // ƒAƒ“ƒJ[‚ÌƒXƒ^[ƒg’n“_
-    Transform targetWirePoint;     // ƒAƒ“ƒJ[‚Ì–Ú•W’n“_
+    Vector3 startPos;               // ã‚¢ãƒ³ã‚«ãƒ¼ã®ã‚¹ã‚¿ãƒ¼ãƒˆåœ°ç‚¹
+    Transform targetWirePoint;     // ã‚¢ãƒ³ã‚«ãƒ¼ã®ç›®æ¨™åœ°ç‚¹
     float lerpTime = 0.0f;
 
     PlayerSoundControl psc;
@@ -45,47 +45,47 @@ public class WireActionPlayer : MonoBehaviour
 	}
 
     //===================================================
-    // ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚ğİ’è
+    // ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’è¨­å®š
     //===================================================
 	public void SetAnchorTarget(Camera _camera) {
         anchorTarget = null;
         List<GameObject> viewTarget = new List<GameObject>();
 
-        /* ‹–ìŠp‚ğƒ‰ƒWƒAƒ“‚É•ÏŠ· */
+        /* è¦–é‡è§’ã‚’ãƒ©ã‚¸ã‚¢ãƒ³ã«å¤‰æ› */
         float viewingAngleCos = Mathf.Cos(viewingAngle * Mathf.Deg2Rad);
 
-        /* ‹ŠE‚É“ü‚Á‚Ä‚¢‚éƒ^[ƒQƒbƒg‚ğæ“¾ */
+        /* è¦–ç•Œã«å…¥ã£ã¦ã„ã‚‹ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’å–å¾— */
         foreach(GameObject o in targets) {
-            /* ƒ^[ƒQƒbƒg‚©‚çƒJƒƒ‰•ûŒü‚Ö‚ÌƒxƒNƒgƒ‹ */
+            /* ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‹ã‚‰ã‚«ãƒ¡ãƒ©æ–¹å‘ã¸ã®ãƒ™ã‚¯ãƒˆãƒ« */
             Vector3 targetToCamera_N = (_camera.transform.position - o.transform.position).normalized;
 
-            /* ³‹K‰»‚µ‚½ƒxƒNƒgƒ‹‚Ì“àÏ‚ªˆê’èˆÈ‰º‚È‚ç‹ŠE‚É“ü‚Á‚Ä‚¢‚é */
+            /* æ­£è¦åŒ–ã—ãŸãƒ™ã‚¯ãƒˆãƒ«ã®å†…ç©ãŒä¸€å®šä»¥ä¸‹ãªã‚‰è¦–ç•Œã«å…¥ã£ã¦ã„ã‚‹ */
             if(Vector3.Dot(targetToCamera_N, _camera.transform.forward.normalized) < -viewingAngleCos &&
                 Vector3.Magnitude(_camera.transform.position - o.transform.position) < viewingDistance) {
                 viewTarget.Add(o);
             }
         }
 
-        /* ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚ğİ’è */
+        /* ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’è¨­å®š */
         float minDistance = viewingDistance;
         foreach(GameObject o in viewTarget) {
-            /* ƒ^[ƒQƒbƒg‚ÆƒJƒƒ‰‚Ì‹——£‚ğæ“¾ */
+            /* ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã¨ã‚«ãƒ¡ãƒ©ã®è·é›¢ã‚’å–å¾— */
             float distance = Vector3.Magnitude(_camera.transform.position - o.transform.position);
 
-            /* ‹——£‚ªÅ‚à’Z‚¢ƒ|ƒCƒ“ƒg‚ğƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚É */
+            /* è·é›¢ãŒæœ€ã‚‚çŸ­ã„ãƒã‚¤ãƒ³ãƒˆã‚’ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã« */
             if(distance < minDistance) {
                 minDistance = distance;
 
-                /* ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚ğİ’è */
+                /* ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’è¨­å®š */
                 anchorTarget = o.transform;
             }
         }
 
-        /* ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚ÌˆÊ’u‚ÉƒXƒR[ƒv‚ğ•\¦ */
+        /* ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã®ä½ç½®ã«ã‚¹ã‚³ãƒ¼ãƒ—ã‚’è¡¨ç¤º */
         if(anchorTarget != null) {
             scopeImage.gameObject.SetActive(true);
 
-            /* ƒXƒNƒŠ[ƒ“À•W‚É•ÏŠ·‚µ‚½‚Ì‚¿ˆÊ’u‚ğİ’è */
+            /* ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ã«å¤‰æ›ã—ãŸã®ã¡ä½ç½®ã‚’è¨­å®š */
             Vector3 targetWorldPos = anchorTarget.position;
             Vector3 targetScreenPos = _camera.WorldToScreenPoint(targetWorldPos);
             scopeImage.position = targetScreenPos;
@@ -96,10 +96,10 @@ public class WireActionPlayer : MonoBehaviour
     }
 
     //===================================================
-    // ƒƒCƒ„[ƒAƒNƒVƒ‡ƒ“‚ÌƒL[“ü—Íƒ`ƒFƒbƒN
+    // ãƒ¯ã‚¤ãƒ¤ãƒ¼ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã®ã‚­ãƒ¼å…¥åŠ›ãƒã‚§ãƒƒã‚¯
     //===================================================
     public void CheckInputWireButton() {
-        /* ƒ}ƒEƒXƒ{ƒ^ƒ““ü—Í‚ğŠm”F */
+        /* ãƒã‚¦ã‚¹ãƒœã‚¿ãƒ³å…¥åŠ›ã‚’ç¢ºèª */
         if(Input.GetMouseButtonDown(1)) {
             ShotWire();
         }
@@ -112,22 +112,22 @@ public class WireActionPlayer : MonoBehaviour
         if(anchorTarget != null) {
             inputWireButton = true;
 
-            /* ƒ[ƒvİ’è */
+            /* ãƒ­ãƒ¼ãƒ—è¨­å®š */
             rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_EXTEND;
             rope.isEndFixed = true;
 
-            /* ƒ[ƒv‚ğ‰Šú‰» */
+            /* ãƒ­ãƒ¼ãƒ—ã‚’åˆæœŸåŒ– */
             rope.InitializeRope();
 
-            /* ƒAƒ“ƒJ[Ëo‚Ì‰Šú’l‚ğİ’è */
+            /* ã‚¢ãƒ³ã‚«ãƒ¼å°„å‡ºã®åˆæœŸå€¤ã‚’è¨­å®š */
             startPos = gunPoint.position;
             targetWirePoint = anchorTarget;
             lerpTime = 0.0f;
 
-            /* ƒAƒ“ƒJ[ƒ|ƒCƒ“ƒg‚ğ“Æ—§‚³‚¹‚é */
+            /* ã‚¢ãƒ³ã‚«ãƒ¼ãƒã‚¤ãƒ³ãƒˆã‚’ç‹¬ç«‹ã•ã›ã‚‹ */
             anchorPoint.parent = null;
 
-            /* Œø‰Ê‰¹‚ğ–Â‚ç‚· */
+            /* åŠ¹æœéŸ³ã‚’é³´ã‚‰ã™ */
             psc.PlayWireInjection();
         }
     }
@@ -135,77 +135,77 @@ public class WireActionPlayer : MonoBehaviour
     public void DivideWire() {
         inputWireButton = false;
 
-        /* ƒvƒŒƒCƒ„[‚Æ‚ÌƒŠƒ“ƒN‚ğØ‚é */
+        /* ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨ã®ãƒªãƒ³ã‚¯ã‚’åˆ‡ã‚‹ */
         isLink = false;
 
-        /* ƒ[ƒvİ’è */
+        /* ãƒ­ãƒ¼ãƒ—è¨­å®š */
         rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_RETRACT;
         rope.isEndFixed = true;
 
-        /* ƒAƒ“ƒJ[‰ñû‚Ì‰Šú’l‚ğİ’è */
+        /* ã‚¢ãƒ³ã‚«ãƒ¼å›åã®åˆæœŸå€¤ã‚’è¨­å®š */
         startPos = anchorPoint.position;
         targetWirePoint = gunPoint;
         lerpTime = 0.0f;
     }
 
     //===================================================
-    // ƒ[ƒvI’[‚Æ“®‚«‚ğƒŠƒ“ƒN‚³‚¹‚é
+    // ãƒ­ãƒ¼ãƒ—çµ‚ç«¯ã¨å‹•ãã‚’ãƒªãƒ³ã‚¯ã•ã›ã‚‹
     //===================================================
     public Vector3 LinkRoap(Vector3 _vel) {
-        /* ‘¬“x‚ÌŒ¸Š */
+        /* é€Ÿåº¦ã®æ¸›è¡° */
         _vel.x *= moveDecay;
         _vel.z *= moveDecay;
 
-        /* ƒvƒŒƒCƒ„[‚Ì—Í‚ğƒ[ƒv‚É‰Á‚¦‚é */
+        /* ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åŠ›ã‚’ãƒ­ãƒ¼ãƒ—ã«åŠ ãˆã‚‹ */
         rope.AddForceToPoint(_vel);
 
-        /* ƒ[ƒvI’[’n“_‚Ö“®‚­‚½‚ß‚Ì•Ï”‚ğ•Ô‚· */
+        /* ãƒ­ãƒ¼ãƒ—çµ‚ç«¯åœ°ç‚¹ã¸å‹•ããŸã‚ã®å¤‰æ•°ã‚’è¿”ã™ */
         Vector3 forward = rope.GetEndPos() - gunPoint.position;
         return Vector3.Magnitude(rope.GetEndPointVel()) * forward;
     }
 
     //===================================================
-    // ƒAƒ“ƒJ[‚ğ§Œä
+    // ã‚¢ãƒ³ã‚«ãƒ¼ã‚’åˆ¶å¾¡
     //===================================================
     public void WireAnchorControl() {
         if(inputWireButton) {
             if(lerpTime < 1.0f) {
                 lerpTime += Time.deltaTime * anchorSpeed;
 
-                /* ™X‚ÉŒ¸‘¬‚·‚é‚æ‚¤‚ÉƒAƒ“ƒJ[‚ğ”ò‚Î‚· */
+                /* å¾ã€…ã«æ¸›é€Ÿã™ã‚‹ã‚ˆã†ã«ã‚¢ãƒ³ã‚«ãƒ¼ã‚’é£›ã°ã™ */
                 float easedLerp = 1.0f - (1.0f - lerpTime) * (1.0f - lerpTime);
                 Vector3 pos = Vector3.Lerp(startPos, targetWirePoint.position, easedLerp);
                 anchorPoint.position = pos;
             }
             else {
-                /* ƒAƒ“ƒJ[‚ÌˆÊ’u‚ğŒÅ’è */
+                /* ã‚¢ãƒ³ã‚«ãƒ¼ã®ä½ç½®ã‚’å›ºå®š */
                 anchorPoint.position = targetWirePoint.position;
 
                 if(!isLink) {
-                    /* ”š”­ƒGƒtƒFƒNƒg‚ğİ’è */
+                    /* çˆ†ç™ºã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’è¨­å®š */
                     EventManager.instance.SetExplosion(targetWirePoint.position, Color.blue);
 
-                    /* ƒvƒŒƒCƒ„[‚ÆƒŠƒ“ƒN‚³‚¹‚é */
+                    /* ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨ãƒªãƒ³ã‚¯ã•ã›ã‚‹ */
                     isLink = true;
 
-                    /* ƒ[ƒvİ’è */
+                    /* ãƒ­ãƒ¼ãƒ—è¨­å®š */
                     rope.roapType = RoapControl_PBD.ROPE_TYPE.ROPE_STATIC;
                     rope.isEndFixed = false;
 
-                    /* Œø‰Ê‰¹‚ğ–Â‚ç‚· */
+                    /* åŠ¹æœéŸ³ã‚’é³´ã‚‰ã™ */
                     psc.PlayWireShoot();
                 }
             }
         }
         else {
             if(Vector3.Magnitude(gunPoint.position - anchorPoint.position) > 0.3f) {
-                /* ƒAƒ“ƒJ[‚ğ‰ñû */
+                /* ã‚¢ãƒ³ã‚«ãƒ¼ã‚’å›å */
                 Vector3 foward = gunPoint.position - anchorPoint.position;
                 Vector3 pos = foward * Time.deltaTime * rewindSpeed;
                 anchorPoint.position += pos;
             }
             else {
-                /* ƒAƒ“ƒJ[ƒ|ƒCƒ“ƒg‚ğƒvƒŒƒCƒ„[‚ÌqƒIƒuƒWƒFƒNƒg‚É–ß‚· */
+                /* ã‚¢ãƒ³ã‚«ãƒ¼ãƒã‚¤ãƒ³ãƒˆã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æˆ»ã™ */
                 anchorPoint.position = gunPoint.position;
                 anchorPoint.parent = anchorParent;
             }

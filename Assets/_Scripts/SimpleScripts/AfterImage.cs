@@ -17,24 +17,24 @@ public class AfterImage : MonoBehaviour
     void Start() {
         time = generateSpawn;
 
-        /* qƒIƒuƒWƒFƒNƒg‚àŠÜ‚ß‚Ä‘S‚Ä‚ÌMeshFilter‚ğæ“¾ */
+        /* å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚‚å«ã‚ã¦å…¨ã¦ã®MeshFilterã‚’å–å¾— */
         MeshFilter[] meshFilters = GetComponentsInChildren<MeshFilter>();
 
-        /* ŠeƒƒbƒVƒ…‚ğCombineInstance‚É“ü‚ê‚é */
+        /* å„ãƒ¡ãƒƒã‚·ãƒ¥ã‚’CombineInstanceã«å…¥ã‚Œã‚‹ */
         CombineInstance[] combine = new CombineInstance[meshFilters.Length];
         for(int i = 0; i < meshFilters.Length; i++) {
             combine[i].mesh = meshFilters[i].mesh;
             combine[i].transform = transform.worldToLocalMatrix * meshFilters[i].transform.localToWorldMatrix;
         }
 
-        /* “‡‚µ‚½ƒƒbƒVƒ…‚ğì¬ */
+        /* çµ±åˆã—ãŸãƒ¡ãƒƒã‚·ãƒ¥ã‚’ä½œæˆ */
         afterImageMesh = new Mesh();
         afterImageMesh.name = gameObject.name + "(AfterImageMesh)";
         afterImageMesh.CombineMeshes(combine);
 
         afterImageMesh.RecalculateBounds();
 
-        /* c‘œ—p‚Ìƒ}ƒeƒŠƒAƒ‹‚ğæ“¾ */
+        /* æ®‹åƒç”¨ã®ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’å–å¾— */
         source = Resources.Load<Material>("Materials/AfterImageMat");
     }
 
@@ -46,22 +46,22 @@ public class AfterImage : MonoBehaviour
             if(time < 0.0f) {
                 time = generateSpawn;
 
-                /* c‘œƒIƒuƒWƒFƒNƒg‚ğì¬ */
+                /* æ®‹åƒã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ */
                 GameObject afterImage = new GameObject(gameObject.name + "(AgterImage)");
                 afterImage.transform.position = transform.position;
                 afterImage.transform.rotation = transform.rotation;
                 afterImage.transform.localScale = transform.lossyScale;
 
-                /* ƒƒbƒVƒ…‚ğİ’è */
+                /* ãƒ¡ãƒƒã‚·ãƒ¥ã‚’è¨­å®š */
                 MeshFilter newFilter = afterImage.AddComponent<MeshFilter>();
                 newFilter.mesh = afterImageMesh;
 
-                /* ƒ}ƒeƒŠƒAƒ‹‚ÆF‚ğİ’è */
+                /* ãƒãƒ†ãƒªã‚¢ãƒ«ã¨è‰²ã‚’è¨­å®š */
                 MeshRenderer newRenderer = afterImage.AddComponent<MeshRenderer>();
                 newRenderer.material = new Material(source);
                 newRenderer.material.color = afterImageColor;
 
-                /* F‚ğ™X‚É“§–¾‚É‚µ‚Äíœ‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒg */
+                /* è‰²ã‚’å¾ã€…ã«é€æ˜ã«ã—ã¦å‰Šé™¤ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ */
                 afterImage.AddComponent<LightlyAndDisappear>();
             }
         }

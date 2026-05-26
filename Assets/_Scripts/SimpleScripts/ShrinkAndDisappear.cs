@@ -16,7 +16,7 @@ public class ShrinkAndDisappear : MonoBehaviour
         if(shrinking) {
             waitTime -= Time.deltaTime;
 
-            /* ˆê’èŠÔŒo‰ß‚µ‚½‚çûkˆ—‚ğn‚ß‚é */
+            /* ä¸€å®šæ™‚é–“çµŒéã—ãŸã‚‰åç¸®å‡¦ç†ã‚’å§‹ã‚ã‚‹ */
             if(waitTime < 0.0f) {
                 lerp += Time.deltaTime * shrinkSpeed;
                 transform.localScale = Vector3.Lerp(startScale, new Vector3(0.01f, 0.01f, 0.01f), lerp);

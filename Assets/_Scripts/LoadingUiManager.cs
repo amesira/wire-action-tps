@@ -15,26 +15,14 @@ public class LoadingUiManager : MonoBehaviour
     [SerializeField] private List<LoadingUiLine> loadingUiLines;
     [SerializeField] private float animationDelay = 0.3f;
 
+    private bool initialized = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < loadingUiLines.Count; i++)
-        {
-            for (int j = 0; j < loadingUiLines[i].animations.Count; j++)
-            {
-                loadingUiLines[i].animations[j].gameObject.SetActive(true);
+        Initialize();
 
-                // アニメーションをサンプリングして、初期状態を設定
-                AnimationState state = loadingUiLines[i].animations[j][loadingUiLines[i].animations[j].clip.name];
-
-                state.enabled = true;
-                state.weight = 1.0f;
-                state.time = 0.0f;
-
-                loadingUiLines[i].animations[j].Sample();
-                state.enabled = false;
-            }
-        }
+        //Close();
     }
 
     // Update is called once per frame
@@ -45,6 +33,7 @@ public class LoadingUiManager : MonoBehaviour
 
     public void Open()
     {
+        Initialize();
         for (int i = 0; i < loadingUiLines.Count; i++)
         {
             StartCoroutine(PlayAnimations(1f, loadingUiLines[i].animations));
@@ -53,12 +42,40 @@ public class LoadingUiManager : MonoBehaviour
 
     public void Close()
     {
+        Initialize();
         for (int i = 0; i < loadingUiLines.Count; i++)
         {
             StartCoroutine(PlayAnimations(-1f, loadingUiLines[i].animations));
         }
     }
 
+    // 初期化
+    public void Initialize()
+    {
+        if (!initialized)
+        {
+            for (int i = 0; i < loadingUiLines.Count; i++)
+            {
+                for (int j = 0; j < loadingUiLines[i].animations.Count; j++)
+                {
+                    loadingUiLines[i].animations[j].gameObject.SetActive(true);
+
+                    // アニメーションをサンプリングして、初期状態を設定
+                    AnimationState state = loadingUiLines[i].animations[j][loadingUiLines[i].animations[j].clip.name];
+
+                    state.enabled = true;
+                    state.weight = 1.0f;
+                    state.time = 0.0f;
+
+                    loadingUiLines[i].animations[j].Sample();
+                    state.enabled = false;
+                }
+            }
+            initialized = true;
+        }
+    }
+
+    // アニメーションを再生するコルーチン
     private IEnumerator PlayAnimations(float speed, List<Animation> animations)
     {
 

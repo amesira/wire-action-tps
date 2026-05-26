@@ -1,7 +1,7 @@
 //===================================================
 // MovePlayer.cs
 // 
-// ì¬ÒF–k‘º”ü‰H  ì¬“úF2024/12/19
+// ä½œæˆè€…ï¼šåŒ—æ‘ç¾ç¾½  ä½œæˆæ—¥ï¼š2024/12/19
 //===================================================
 using System.Collections;
 using System.Collections.Generic;
@@ -11,36 +11,36 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    Rigidbody rb;                       // ƒvƒŒƒCƒ„[‚ÌRigidBody
+    Rigidbody rb;                       // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®RigidBody
 
     WireActionPlayer wap;
     PlayerAnimeControl anim;
     SwordActionPlayer sap;
     PlayerSoundControl psc;
     
-    public LayerMask groundLayer;       // ’n–ÊƒŒƒCƒ„[
+    public LayerMask groundLayer;       // åœ°é¢ãƒ¬ã‚¤ãƒ¤ãƒ¼
     public Camera playerCamera;
 
-    [Header("ƒvƒŒƒCƒ„[‚Ìƒpƒ‰ƒ[ƒ^")]
-    public float moveSpeed;             // ˆÚ“®‘¬“x
-    public float jumpPower;             // ƒWƒƒƒ“ƒv—Í
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿")]
+    public float moveSpeed;             // ç§»å‹•é€Ÿåº¦
+    public float jumpPower;             // ã‚¸ãƒ£ãƒ³ãƒ—åŠ›
 
     [Space]
-    public float rotStep = 15.0f;       // ‰ñ“]‚·‚é‘å‚«‚³
+    public float rotStep = 15.0f;       // å›è»¢ã™ã‚‹å¤§ãã•
     
-    [Header("ƒvƒŒƒCƒ„[‚Ì•”ˆÊ")]
-    public BoxCollider groundCheckCol;  // Ú’nŠm”F—pƒRƒ‰ƒCƒ_[
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®éƒ¨ä½")]
+    public BoxCollider groundCheckCol;  // æ¥åœ°ç¢ºèªç”¨ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼
 
-    float inputHorizontal;              // ¶‰EƒL[‚Ì“ü—Í
-    float inputVertical;                // ‘OŒãƒL[‚Ì“ü—Í
+    float inputHorizontal;              // å·¦å³ã‚­ãƒ¼ã®å…¥åŠ›
+    float inputVertical;                // å‰å¾Œã‚­ãƒ¼ã®å…¥åŠ›
 
-    bool inputJumpKey;                  // ƒWƒƒƒ“ƒvƒL[‚ª‰Ÿ‚³‚ê‚½
+    bool inputJumpKey;                  // ã‚¸ãƒ£ãƒ³ãƒ—ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸ
 
     public bool canMoving;
 
     void Start()
     {
-        /* ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìæ“¾ */
+        /* ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®å–å¾— */
         rb = GetComponent<Rigidbody>();
 
         wap = GetComponent<WireActionPlayer>();
@@ -48,7 +48,7 @@ public class MovePlayer : MonoBehaviour
         sap = GetComponent<SwordActionPlayer>();
         psc = GetComponent<PlayerSoundControl>();
 
-        /* ‰Šú‰»ˆ— */
+        /* åˆæœŸåŒ–å‡¦ç† */
         inputJumpKey = false;
         groundCheckCol.enabled = false;
 
@@ -58,19 +58,19 @@ public class MovePlayer : MonoBehaviour
     void Update()
     {
         if(GameManager.instance.isPlaying && canMoving) {
-            /* ˆÚ“®ƒL[“ü—Í */
+            /* ç§»å‹•ã‚­ãƒ¼å…¥åŠ› */
             inputHorizontal = Input.GetAxisRaw("Horizontal");
             inputVertical = Input.GetAxisRaw("Vertical");
 
-            /* ƒWƒƒƒ“ƒvƒL[“ü—Í */
+            /* ã‚¸ãƒ£ãƒ³ãƒ—ã‚­ãƒ¼å…¥åŠ› */
             if(Input.GetKeyDown(KeyCode.Space)) {
                 inputJumpKey = true;
             }
 
-            /* ƒƒCƒ„[ƒAƒNƒVƒ‡ƒ““ü—Í */
+            /* ãƒ¯ã‚¤ãƒ¤ãƒ¼ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å…¥åŠ› */
             wap.CheckInputWireButton();
 
-            /* UŒ‚ƒAƒNƒVƒ‡ƒ““ü—Í */
+            /* æ”»æ’ƒã‚¢ã‚¯ã‚·ãƒ§ãƒ³å…¥åŠ› */
             sap.CheckInputActionButton();
         }
     }
@@ -79,10 +79,10 @@ public class MovePlayer : MonoBehaviour
         if(GameManager.instance.isPlaying && canMoving) {
             this.transform.parent = null;
 
-            /* ƒAƒ“ƒJ[ƒ^[ƒQƒbƒg‚ğİ’è */
+            /* ã‚¢ãƒ³ã‚«ãƒ¼ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’è¨­å®š */
             wap.SetAnchorTarget(playerCamera);
 
-            /* ˆÚ“®•ûŒü‚ğæ“¾ */
+            /* ç§»å‹•æ–¹å‘ã‚’å–å¾— */
             Vector3 cameraForward
                 = Vector3.Scale(playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 cameraRight
@@ -91,32 +91,32 @@ public class MovePlayer : MonoBehaviour
             Vector3 moveForward
                 = (cameraForward * inputVertical + cameraRight * inputHorizontal).normalized;
 
-            /* ˆÚ“®ˆ— */
+            /* ç§»å‹•å‡¦ç† */
             Vector3 moveVel = moveForward * moveSpeed + new Vector3(0, rb.velocity.y, 0);
 
-            /* Ú’n‚µ‚Ä‚¢‚é’n–Ê‚ÌƒRƒ‰ƒCƒ_[‚ğæ“¾ */
+            /* æ¥åœ°ã—ã¦ã„ã‚‹åœ°é¢ã®ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’å–å¾— */
             Collider[] groundCol = Physics.OverlapBox(transform.position + groundCheckCol.center,
                 groundCheckCol.size / 2, Quaternion.identity, groundLayer);
 
-            /* Ú’n‚µ‚Ä‚¢‚é */
+            /* æ¥åœ°ã—ã¦ã„ã‚‹ */
             if(groundCol.Length > 0 && !wap.isLink) {
-                /* Ú’n‚µ‚Ä‚¢‚é’n–Ê‚ª"“®‚­°"‚Å‚ ‚é */
+                /* æ¥åœ°ã—ã¦ã„ã‚‹åœ°é¢ãŒ"å‹•ãåºŠ"ã§ã‚ã‚‹ */
                 if(groundCol[0].tag == "MovingGround") {
                     this.transform.parent = groundCol[0].transform;
                 }
             }
 
-            /* ƒWƒƒƒ“ƒv */
+            /* ã‚¸ãƒ£ãƒ³ãƒ— */
             if(inputJumpKey) {
                 inputJumpKey = false;
 
-                if(groundCol.Length > 0) {  // ƒWƒƒƒ“ƒvˆ—
+                if(groundCol.Length > 0) {  // ã‚¸ãƒ£ãƒ³ãƒ—å‡¦ç†
                     moveVel += new Vector3(0, jumpPower, 0);
                 }
             }
 
-            /* ‘¬“xİ’è */
-            if(wap.isLink) {    // ƒ[ƒv‚É‚Â‚È‚ª‚Á‚Ä‚¢‚éê‡
+            /* é€Ÿåº¦è¨­å®š */
+            if(wap.isLink) {    // ãƒ­ãƒ¼ãƒ—ã«ã¤ãªãŒã£ã¦ã„ã‚‹å ´åˆ
                 moveVel.y = 0.0f;
                 rb.velocity = wap.LinkRoap(moveVel);
             }
@@ -124,24 +124,24 @@ public class MovePlayer : MonoBehaviour
                 rb.velocity = moveVel;
             }
 
-            /* ƒvƒŒƒCƒ„[‚ÌŒü‚«‚ğis•ûŒü‚Ö‰ñ“] */
+            /* ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‘ãã‚’é€²è¡Œæ–¹å‘ã¸å›è»¢ */
             if(moveForward != Vector3.zero) {
-                /* ÅI“I‚È‰ñ“]•ûŒü */
+                /* æœ€çµ‚çš„ãªå›è»¢æ–¹å‘ */
                 Vector3 lookForward = moveForward;
                 lookForward.y = 0.0f;
                 Quaternion lookRot = Quaternion.LookRotation(lookForward);
 
-                /* ÀÛ‚Ì‰ñ“]•ûŒü */
+                /* å®Ÿéš›ã®å›è»¢æ–¹å‘ */
                 Quaternion nextRot = Quaternion.RotateTowards(transform.rotation, lookRot, rotStep);
 
-                /* ‰ñ“]‚³‚¹‚é */
+                /* å›è»¢ã•ã›ã‚‹ */
                 transform.rotation = nextRot;
             }
 
-            /* ƒƒCƒ„[ƒRƒ“ƒgƒ[ƒ‹ */
+            /* ãƒ¯ã‚¤ãƒ¤ãƒ¼ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ« */
             wap.WireAnchorControl();
 
-            /* ƒAƒjƒ[ƒVƒ‡ƒ“ */
+            /* ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ */
             if(Vector3.Magnitude(moveVel) > 0.1f && !wap.isLink && groundCol.Length > 0) {
                 anim.SetRunning(true);
             }
@@ -150,7 +150,7 @@ public class MovePlayer : MonoBehaviour
             }
             anim.SetScaleVertical(rb.velocity.y);
 
-            /* Œ•‚Ì‹OÕ */
+            /* å‰£ã®è»Œè·¡ */
             sap.PlayerActionUpdate(playerCamera);
         }
 	}

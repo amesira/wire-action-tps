@@ -5921,22 +5921,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5698714}
     m_Modifications:
-    - target: {fileID: 51116346404584166, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1696500230290077541, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760383981288764799, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1854449613595958642, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2555755668859155155, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5968,18 +5952,6 @@ PrefabInstance:
     - target: {fileID: 2555755668859155155, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555755668859155155, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555755668859155155, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555755668859155155, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2555755668859155155, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6029,21 +6001,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3270301411861519675, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3829767913170373676, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
       propertyPath: m_Name
       value: LoadingUiGroup
-      objectReference: {fileID: 0}
-    - target: {fileID: 6771454752229447189, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 8753413246414390915, guid: fef58d9d6b51489419b60f038ec325bb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

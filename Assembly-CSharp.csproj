@@ -66,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\GameManager.cs" />
-    <Compile Include="Assets\_Scripts\CameraController_TPS.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\SwordActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSoundControl.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
@@ -76,6 +75,7 @@
     <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\ResultManager.cs" />
     <Compile Include="Assets\TitleManager.cs" />
+    <Compile Include="Assets\_Scripts\CameraController.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
     <Compile Include="Assets\EventManager.cs" />
     <Compile Include="Assets\Bullet.cs" />

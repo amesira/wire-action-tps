@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2555755668859155155}
   - component: {fileID: 7108022181142523927}
+  - component: {fileID: 6678705743610123041}
   m_Layer: 5
   m_Name: LoadingUiGroup
   m_TagString: Untagged
@@ -64,6 +65,18 @@ MonoBehaviour:
     - {fileID: 3953768535134122935}
     - {fileID: 8750682283958078868}
   animationDelay: 0.2
+--- !u!225 &6678705743610123041
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829767913170373676}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &848348018396522519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,9 +561,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5974267894065626205, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974267894065626205, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886360637267895868, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886360637267895868, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8268519853243297428, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
       propertyPath: m_Name
       value: LoadingUi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268519853243297428, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561490745051877131, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561490745051877131, guid: cb04accf6a930ca43bd127d8d571fb54, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

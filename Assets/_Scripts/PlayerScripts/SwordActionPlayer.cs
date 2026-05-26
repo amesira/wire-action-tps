@@ -16,13 +16,13 @@ public class SwordActionPlayer : MonoBehaviour
 
     public PLAYER_ACTION playerAct;
 
-    [Header("Œ•ƒAƒNƒVƒ‡ƒ“")]
+    [Header("å‰£ã‚¢ã‚¯ã‚·ãƒ§ãƒ³")]
     public BoxCollider swordCol;
     public GameObject traceObject;
     public bool isTrace;
     public float traceSpawn = 0.1f;
 
-    [Header("“Š‚°‚Â‚¯ƒAƒNƒVƒ‡ƒ“")]
+    [Header("æŠ•ã’ã¤ã‘ã‚¢ã‚¯ã‚·ãƒ§ãƒ³")]
     public Transform throwBox;
     public GameObject throwObject;
     public float throwPower = 100.0f;
@@ -51,7 +51,7 @@ public class SwordActionPlayer : MonoBehaviour
     }
 
     public void PlayerActionUpdate(Camera _playerCam) {
-        /* ƒAƒNƒVƒ‡ƒ““ü—Í */
+        /* ã‚¢ã‚¯ã‚·ãƒ§ãƒ³å…¥åŠ› */
         if(inputAction) {
             inputAction = false;
 
@@ -67,26 +67,26 @@ public class SwordActionPlayer : MonoBehaviour
             }
         }
 
-        /* Œ•‚Ì‹OÕ */
+        /* å‰£ã®è»Œè·¡ */
         if(isTrace && playerAct == PLAYER_ACTION.SWORD_ACTION) {
             traceTime -= Time.deltaTime;
             if(traceTime < 0.0f) {
                 traceTime = traceSpawn;
-                /* ‹OÕ‚ğ¶¬ */
+                /* è»Œè·¡ã‚’ç”Ÿæˆ */
                 GameObject traceCopy = Instantiate(traceObject);
 
-                /* ‹OÕ‚Ìİ’è */
+                /* è»Œè·¡ã®è¨­å®š */
                 traceCopy.SetActive(true);
                 traceCopy.transform.position = traceObject.transform.position;
                 traceCopy.transform.rotation = traceObject.transform.rotation;
                 traceCopy.transform.localScale = traceObject.transform.lossyScale;
 
-                /* ”•bŒã‚É‹OÕ‚ğíœ */
+                /* æ•°ç§’å¾Œã«è»Œè·¡ã‚’å‰Šé™¤ */
                 Destroy(traceCopy, 0.15f);
             }
         }
 
-        /* Œ•‚ğU‚Á‚½Œãˆ— */
+        /* å‰£ã‚’æŒ¯ã£ãŸå¾Œå‡¦ç† */
         swingTime -= Time.deltaTime;
         if(swingTime < 0.0f && swordCol.enabled) {
             swordCol.enabled = false;
@@ -100,14 +100,14 @@ public class SwordActionPlayer : MonoBehaviour
     }
 
     void ThrowAwayObject(Camera _cam) {
-        /* Œø‰Ê‰¹ */
+        /* åŠ¹æœéŸ³ */
         psc.PlayThrowClip();
 
-        /* “Š‚°‚Â‚¯ƒxƒNƒgƒ‹‚ğŒvZ */
+        /* æŠ•ã’ã¤ã‘ãƒ™ã‚¯ãƒˆãƒ«ã‚’è¨ˆç®— */
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
         Vector3 force = ray.direction.normalized * throwPower;
 
-        /* “Š‚°‚Â‚¯‚é */
+        /* æŠ•ã’ã¤ã‘ã‚‹ */
         throwObject.tag = "PlayerAttack";
         throwObject.layer = 11;
         throwObject.transform.parent = null;
@@ -133,11 +133,11 @@ public class SwordActionPlayer : MonoBehaviour
 
                 throwObject = other.gameObject;
 
-                /* ƒIƒuƒWƒFƒNƒg‚ğè‚É‚Â */
+                /* ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æ‰‹ã«æŒã¤ */
                 throwObject.transform.parent = throwBox;
                 throwObject.transform.position = throwBox.position;
 
-                /* ƒRƒ“ƒ|[ƒlƒ“ƒgİ’è */
+                /* ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆè¨­å®š */
                 throwObject.GetComponent<SphereCollider>().enabled = false;
                 throwObject.GetComponent<BoxCollider>().enabled = false;
                 throwObject.GetComponent<Rigidbody>().isKinematic = true;

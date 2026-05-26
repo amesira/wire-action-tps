@@ -76,6 +76,12 @@ public class MovePlayer : MonoBehaviour
     }
 
 	private void FixedUpdate() {
+        // 落下速度の制限
+        if (Mathf.Abs(rb.velocity.y) > 50.0f)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -30.0f, 30.0f), rb.velocity.z);
+        }
+
         if(GameManager.instance.isPlaying && canMoving) {
             this.transform.parent = null;
 

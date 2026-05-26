@@ -17,7 +17,6 @@ public class SwordActionPlayer : MonoBehaviour
     public PLAYER_ACTION playerAct;
 
     [Header("剣アクション")]
-    public BoxCollider swordCol;
     public GameObject traceObject;
     public bool isTrace;
     public float traceSpawn = 0.1f;
@@ -28,7 +27,6 @@ public class SwordActionPlayer : MonoBehaviour
     public float throwPower = 100.0f;
 
     float traceTime;
-    float swingTime;
     List<GameObject> traceLine = new List<GameObject>();
 
     bool inputAction = false;
@@ -41,7 +39,6 @@ public class SwordActionPlayer : MonoBehaviour
         playerAct = PLAYER_ACTION.SWORD_ACTION;
 
         traceObject.SetActive(false);
-        swordCol.enabled = false;
     }
 
     public void CheckInputActionButton() {
@@ -86,17 +83,10 @@ public class SwordActionPlayer : MonoBehaviour
             }
         }
 
-        /* 剣を振った後処理 */
-        swingTime -= Time.deltaTime;
-        if(swingTime < 0.0f && swordCol.enabled) {
-            swordCol.enabled = false;
-        }
     }
 
     public void SwingSword() {
         psc.PlaySwingSE(0);
-        swordCol.enabled = true;
-        swingTime = 0.5f;
     }
 
     void ThrowAwayObject(Camera _cam) {
@@ -127,7 +117,7 @@ public class SwordActionPlayer : MonoBehaviour
     }
 
 	private void OnTriggerEnter(Collider other) {
-        if(playerAct == PLAYER_ACTION.SWORD_ACTION && swordCol.enabled) {
+        if(playerAct == PLAYER_ACTION.SWORD_ACTION) {
             if(other.tag == "ThrowObject") {
                 psc.PlaySwingSE(1);
 

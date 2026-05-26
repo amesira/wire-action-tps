@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\CustomPostEffect.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\SwordActionPlayer.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSoundControl.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\TitleManager.cs" />
     <Compile Include="Assets\_Scripts\CameraController.cs" />
     <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
+    <Compile Include="Assets\_Scripts\HitStop.cs" />
     <Compile Include="Assets\EventManager.cs" />
     <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\_Heathen Engineering\Samples\UX Examples\Flat Icons [Free]\ToggleSetAnimatorBoolean.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Assets\Explosion.cs" />
     <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
     <Compile Include="Assets\SendResult.cs" />
+    <Compile Include="Assets\_Scripts\VFXService.cs" />
     <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\FixedTurretAct.cs" />
   </ItemGroup>
@@ -100,6 +103,7 @@
     <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\_Heathen Engineering\Documentation\UX\Flat Icons [Free]\Read Me.txt" />
     <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
+    <None Include="Assets\_Materials\PostEffectMat\RadialBlur.shader" />
     <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
   </ItemGroup>
   <ItemGroup>

@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public RectTransform startCutinText;
 
     [SerializeField] private LoadingUiManager loadingUiManager;
+    [SerializeField] private CameraController cameraController;
     
     float timerCnt = 0.0f;
 
@@ -57,6 +58,8 @@ public class GameManager : MonoBehaviour
 
 	void Start()
     {
+        cameraController.SetActive(false);
+
         if(loadStart) {
             // fadeImage.gameObject.SetActive(true);
 
@@ -146,6 +149,8 @@ public class GameManager : MonoBehaviour
     }
     public void GameStart() {
         isPlaying = true;
+        cameraController.SetActive(true);
+        
         startUI.SetActive(false);
         gameUI.SetActive(true);
 

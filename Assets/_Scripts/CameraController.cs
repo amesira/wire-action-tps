@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera; // メインカメラ
+    [SerializeField] private bool isActive = true; // カメラコントローラーが有効かどうか
 
     [Header("カメラコントロールオブジェクト設定")]
     [SerializeField] private Transform pivotX;    // カメラの水平回転の中心
@@ -70,6 +71,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        if (!isActive) return;
+
         float deltaTime = Time.unscaledDeltaTime;
 
         UpdateThirdPersonCamera(deltaTime);
@@ -92,6 +95,11 @@ public class CameraController : MonoBehaviour
         // カメラの位置を更新する
         mainCamera.transform.position = cameraBox.position;
         mainCamera.transform.rotation = cameraBox.rotation;
+    }
+
+    public void SetActive(bool active)
+    {
+        isActive = active;
     }
 
     // カメラシェイクを開始する関数

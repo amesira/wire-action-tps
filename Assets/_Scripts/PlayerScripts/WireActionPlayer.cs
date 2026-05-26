@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class WireActionPlayer : MonoBehaviour
@@ -212,5 +213,14 @@ public class WireActionPlayer : MonoBehaviour
         }
 
         handPoint.position = rope.GetEndPos();
+    }
+
+    public float GetActionSpeed() {
+        if(isLink) {
+            return LinkRoap(Vector3.zero).magnitude;
+        }
+        else {
+            return 0.0f;
+        }
     }
 }

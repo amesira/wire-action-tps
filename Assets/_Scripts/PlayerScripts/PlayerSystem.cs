@@ -25,6 +25,11 @@ public class PlayerSystem : MonoBehaviour
     public Image damagePanel;
     float damageTime;
 
+    [SerializeField] private WireActionPlayer wireActionPlayer;
+
+    // エフェクトをかけているか
+    private bool isEffecting = false;
+
     void Start()
     {
         psc = GetComponent<PlayerSoundControl>();
@@ -51,8 +56,12 @@ public class PlayerSystem : MonoBehaviour
 
         damageTime = Time.fixedTime;
     }
-	private void Update() {
+	private void Update() 
+    {
+        bool wasEffecting = isEffecting;
+        isEffecting = false;
 
+        // ダメージ演出の更新
         if(Time.fixedTime - damageTime > 6.0f && damageCnt > 0) {
             damageCnt--;
             damageTime += 3.0f;
@@ -76,6 +85,22 @@ public class PlayerSystem : MonoBehaviour
             color.a = Mathf.Lerp(0.2f * (float)damageCnt, 0.2f * (float)(damageCnt - 1), l);
             damagePanel.color = color;
         }
+
+        // プレイヤーがワイヤーアクション中、ブラーをかける
+        if(wireActionPlayer.isLink) {
+            float speed = wireActionPlayer.GetActionSpeed();
+            if (speed > 5.0f) {
+                VFXService.instance.ChangePostEffect(CustomPostEffect.EffectType.RadialBlur, 0.1f);
+                VFXService.instance.ChangeFOV(80.0f, 0.2f);
+                isEffecting = true;
+            }
+        }
+
+
+        if (wasEffecting && !isEffecting) {
+            VFXService.instance.ChangePostEffect(CustomPostEffect.EffectType.None, 0.0f);
+            VFXService.instance.ResetFOV(0.2f);
+        }
     }
 
 	private void OnTriggerEnter(Collider other) {
@@ -85,7 +110,6 @@ public class PlayerSystem : MonoBehaviour
 	}
 
     IEnumerator Respawn() {
-        //GameManager.instance.isPlaying = false;
         GetComponent<MovePlayer>().canMoving = false;
 
         for(int i = 0; i < 1000; i++) {
@@ -107,7 +131,7 @@ public class PlayerSystem : MonoBehaviour
 
         /* プレイヤーを初期位置へ */
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        transform.position = startPos.position;
+        transform.position = startPos.position + new Vector3(0, 50.0f, 0);
         transform.rotation = Quaternion.identity;
         yield return new WaitForSeconds(0.5f);
 
@@ -125,7 +149,6 @@ public class PlayerSystem : MonoBehaviour
             }
             yield return null;
         }
-        //GameManager.instance.isPlaying = true;
         GetComponent<MovePlayer>().canMoving = true;
     }
 

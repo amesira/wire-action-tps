@@ -403,7 +403,9 @@
 "Assets/_Heathen Engineering/Samples/UX Examples/Flat Icons [Free]/ToggleSetAnimatorBoolean.cs"
 "Assets/_Scripts/BreakableBoxObject.cs"
 "Assets/_Scripts/CameraController.cs"
+"Assets/_Scripts/CustomPostEffect.cs"
 "Assets/_Scripts/GameManager.cs"
+"Assets/_Scripts/HitStop.cs"
 "Assets/_Scripts/LoadingUiManager.cs"
 "Assets/_Scripts/PlayerScripts/MovePlayer.cs"
 "Assets/_Scripts/PlayerScripts/PlayerAnimeControl.cs"
@@ -416,6 +418,7 @@
 "Assets/_Scripts/SimpleScripts/LightlyAndDisappear.cs"
 "Assets/_Scripts/SimpleScripts/Rotate.cs"
 "Assets/_Scripts/SimpleScripts/ShrinkAndDisappear.cs"
+"Assets/_Scripts/VFXService.cs"
 "Assets/_Scripts/WhaleMove.cs"
 -langversion:9.0
 

@@ -109,7 +109,11 @@ public class SwordActionPlayer : MonoBehaviour
 
         /* “Š‚°‚Â‚¯‚é */
         throwObject.tag = "PlayerAttack";
+        throwObject.layer = 11;
         throwObject.transform.parent = null;
+
+        throwObject.transform.position = transform.position + transform.up * 0.5f;
+
         throwObject.GetComponent<BoxCollider>().enabled = true;
         throwObject.GetComponent<BoxCollider>().size *= 2.0f;
         throwObject.GetComponent<Rigidbody>().isKinematic = false;

@@ -19,6 +19,12 @@ public class PlayerSystem : MonoBehaviour
     public Image respawnFadeImage;
     public Text respawnText;
 
+    public int damageCnt;
+    public Image damageImage;
+    public List<Sprite> damageSprites = new List<Sprite>();
+    public Image damagePanel;
+    float damageTime;
+
     void Start()
     {
         psc = GetComponent<PlayerSoundControl>();
@@ -35,6 +41,41 @@ public class PlayerSystem : MonoBehaviour
         newColor = respawnText.color;
         newColor.a = 0.0f;
         respawnText.color = newColor;
+
+        // ダメージ
+        damageCnt = 0;
+        damageImage.gameObject.SetActive(false);
+        Color color = damagePanel.color;
+        color.a = 0.0f;
+        damagePanel.color = color;
+
+        damageTime = Time.fixedTime;
+    }
+	private void Update() {
+
+        if(Time.fixedTime - damageTime > 6.0f && damageCnt > 0) {
+            damageCnt--;
+            damageTime += 3.0f;
+
+            if(damageCnt > 0) {
+                damageImage.gameObject.SetActive(true);
+                damageImage.sprite = damageSprites[damageCnt - 1];
+            }
+            else {
+                damageImage.gameObject.SetActive(false);
+            }
+
+            Color color = damagePanel.color;
+            color.a = 0.2f * (float)damageCnt;
+            damagePanel.color = color;
+        }
+        else if(Time.fixedTime - damageTime > 5.0f && damageCnt > 0) {
+            float l = Time.fixedTime - damageTime - 5.0f;
+
+            Color color = damagePanel.color;
+            color.a = Mathf.Lerp(0.2f * (float)damageCnt, 0.2f * (float)(damageCnt - 1), l);
+            damagePanel.color = color;
+        }
     }
 
 	private void OnTriggerEnter(Collider other) {
@@ -90,13 +131,28 @@ public class PlayerSystem : MonoBehaviour
 
     public void DamagedPlayer() {
         if(GameManager.instance.isPlaying) {
-            hp--;
-            hpText.text = hp.ToString();
-            playerHeart.SetHeartImage(hp);
+            //hp--;
+            //hpText.text = hp.ToString();
+            //playerHeart.SetHeartImage(hp);
 
-            psc.PlayDamageSE();
+            //psc.PlayDamageSE();
 
-            if(hp <= 0) {
+            //if(hp <= 0) {
+            //    LosePlayer();
+            //}
+
+            // ダメージ演出
+            damageTime = Time.fixedTime;
+            damageCnt++;
+
+            damageImage.gameObject.SetActive(true);
+            damageImage.sprite = damageSprites[damageCnt - 1];
+
+            Color color = damagePanel.color;
+            color.a = 0.2f * (float)damageCnt;
+            damagePanel.color = color;
+
+            if(damageCnt >= 3) {
                 LosePlayer();
             }
         }

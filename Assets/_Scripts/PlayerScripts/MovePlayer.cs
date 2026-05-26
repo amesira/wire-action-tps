@@ -112,7 +112,6 @@ public class MovePlayer : MonoBehaviour
 
                 if(groundCol.Length > 0) {  // ƒWƒƒƒ“ƒvˆ—
                     moveVel += new Vector3(0, jumpPower, 0);
-                    //psc.PlayJumpClip();
                 }
             }
 

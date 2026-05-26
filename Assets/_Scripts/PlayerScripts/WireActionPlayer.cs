@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-//using static UnityEditor.PlayerSettings;
 
 public class WireActionPlayer : MonoBehaviour
 {
@@ -16,8 +15,8 @@ public class WireActionPlayer : MonoBehaviour
     [Header("ワイヤーのパラメータ")]
     public float anchorSpeed = 3.0f;    // アンカー射出スピード
     public float rewindSpeed = 50.0f;   // アンカー回収スピード
-    public float moveDecay = 0.3f;  // ワイヤーアクション時の速度減衰
-    public bool isLink;             // ワイヤーとリンクしているか
+    public float moveDecay = 0.3f;      // ワイヤーアクション時の速度減衰
+    public bool isLink;                 // ワイヤーとリンクしているか
 
     [Header("アンカーターゲット")]
     public string targetTagName;    // アンカーターゲットのタグ

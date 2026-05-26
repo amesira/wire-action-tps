@@ -28,7 +28,7 @@ public class WhaleHp : MonoBehaviour
     bool updateValue = false;
 
     public float t = 0.0f;
-    Outline outline;
+    UnityEngine.UI.Outline outline;
 
 	private void Awake() {
         if(instance == null) {
@@ -44,10 +44,15 @@ public class WhaleHp : MonoBehaviour
         bbo = GetComponentsInChildren<BreakableBoxObject>();
         for(int i = 0; i < bbo.Length; i++) {
             partsCnt += bbo[i].partCnt;
+            if(!bbo[i].GetComponent<Outline>()) {
+                Outline o = bbo[i].gameObject.AddComponent<Outline>();
+                o.OutlineColor = Color.white;
+                o.OutlineWidth = 3.0f;
+            }
         }
         partsMax = partsCnt;
 
-        outline = hpText.gameObject.GetComponent<Outline>();
+        outline = hpText.gameObject.GetComponent<UnityEngine.UI.Outline>();
 
         /* スライダー設定 */
         hpSlider.value = partsCnt / partsMax;

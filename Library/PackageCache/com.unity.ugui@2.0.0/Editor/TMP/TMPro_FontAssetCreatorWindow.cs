@@ -438,7 +438,8 @@ namespace TMPro.EditorUtilities
                 {
                     m_SelectedFontAsset = null;
                     m_IsFontAtlasInvalid = true;
-                    m_SourceFontFaces = GetFontFaces();
+                    if (m_SourceFont != null)
+                        m_SourceFontFaces = GetFontFaces();
                     m_SourceFontFaceIndex = 0;
                 }
 
@@ -1844,7 +1845,8 @@ namespace TMPro.EditorUtilities
         {
             m_SourceFont = AssetDatabase.LoadAssetAtPath<Font>(AssetDatabase.GUIDToAssetPath(settings.sourceFontFileGUID));
             m_SourceFontFaceIndex = settings.faceIndex;
-            m_SourceFontFaces = GetFontFaces();
+            if (m_SourceFont != null)
+                m_SourceFontFaces = GetFontFaces();
             m_PointSizeSamplingMode  = settings.pointSizeSamplingMode;
             m_PointSize = settings.pointSize;
             m_Padding = settings.padding;

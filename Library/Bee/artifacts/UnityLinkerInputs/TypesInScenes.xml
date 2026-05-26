@@ -99,4 +99,7 @@
 		<type fullname="UnityEngine.UI.Slider" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Text" preserve="nothing"/>
 	</assembly>
+	<assembly fullname="unityroom">
+		<type fullname="unityroom.Api.UnityroomApiClient" preserve="nothing"/>
+	</assembly>
 </linker>

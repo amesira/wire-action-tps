@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using unityroom.Api;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,7 +34,11 @@ public class GameManager : MonoBehaviour
     [Header("タイマー")]
     public float timeRimit = 180.0f;
     public Timer timer;
-    //public Text timerText;
+    public Slider timeSlider;
+
+    [Header("ゲームスタート")]
+    public RectTransform startPanel;
+    public RectTransform startCutinText;
     
     float timerCnt = 0.0f;
 
@@ -70,9 +75,15 @@ public class GameManager : MonoBehaviour
         timer.SetTimerText(timerCnt);
         timeup = false;
 
+        timeSlider.value = 1.0f;
+
         startUI.SetActive(true);
         gameUI.SetActive(false);
         endUI.SetActive(false);
+
+        // スタートカットイン
+        startPanel.gameObject.SetActive(false);
+        startCutinText.gameObject.SetActive(false);
     }
 
     private void FixedUpdate() {
@@ -96,6 +107,7 @@ public class GameManager : MonoBehaviour
 	void Update()
     {
         if(isPlaying) {
+            // タイマー設定
             timerCnt -= Time.deltaTime;
             timer.SetTimerText(timerCnt);
 
@@ -113,6 +125,8 @@ public class GameManager : MonoBehaviour
                 timeup = true;
                 StartCoroutine(GameEnd(0));
             }
+
+            timeSlider.value = timerCnt / timeRimit;
 
             /* Escを押したら */
             if(Input.GetKeyDown(KeyCode.Escape)) {
@@ -135,6 +149,48 @@ public class GameManager : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        StartCoroutine(StartCutin(0.6f));
+    }
+
+    public IEnumerator StartCutin(float speed) {
+        float t = 0.0f;
+        float value = 0.0f;
+        Vector2 panelSize = startPanel.sizeDelta;
+
+        startPanel.gameObject.SetActive(true);
+        startCutinText.gameObject.SetActive(true);
+
+        bool wait = false;
+
+        while(t < 1.0f) {
+            t += Time.deltaTime * speed;
+
+            if(t < 0.5f) {
+                // EaseOut部分（前半）
+                value = 0.5f * Mathf.Pow((t * 2), 1) * (2 - (t * 2));
+                panelSize.y = Mathf.Lerp(0.0f, 150.0f, value * 2);
+            }
+            else {
+                // EaseIn部分（後半）
+                float nt = (t - 0.5f) * 2;
+                value = 0.5f + 0.5f * Mathf.Pow(nt, 2);
+                panelSize.y = Mathf.Lerp(150.0f, 0.0f, (value - 0.5f) * 2);
+            }
+
+            startPanel.sizeDelta = panelSize;
+            startCutinText.anchoredPosition = Vector3.Lerp(new Vector3(720f, 0, 0), new Vector3(-720f, 0, 0), value);
+
+            yield return null;
+
+            if(!wait && t >= 0.5f) {
+                wait = true;
+                yield return new WaitForSeconds(1.0f);
+            }
+        }
+
+         startPanel.gameObject.SetActive(false);
+        startCutinText.gameObject.SetActive(false);
     }
 
     public IEnumerator GameEnd(int _result) {
@@ -162,8 +218,8 @@ public class GameManager : MonoBehaviour
                 SendResult.instance.subStr = "制限時間内にクジラを倒せなかった…";
             }
             else {
-                resultSubText.text = "HPハートが無くなってしまった…";
-                SendResult.instance.subStr = "HPハートが無くなってしまった…";
+                resultSubText.text = "ロボットが壊れてしまった…";
+                SendResult.instance.subStr = "ロボットが壊れてしまった…";
             }
 
             audio.clip = loseBGM;
@@ -177,6 +233,9 @@ public class GameManager : MonoBehaviour
 
             audio.clip = winBGM;
             audio.Play();
+
+            // スコア送信
+            UnityroomApiClient.Instance.SendScore(1, timerCnt, ScoreboardWriteMode.HighScoreDesc);
         }
         SendResult.instance.resultNum = _result;
     }

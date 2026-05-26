@@ -2724,6 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b352c7db69b4b3419b9611ba7e47749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeSpeed: 1
   fadeImage: {fileID: 2083593000}
   loadText: {fileID: 2083592998}
   resultText: {fileID: 2120502438}

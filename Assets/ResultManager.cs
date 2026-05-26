@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ResultManager : MonoBehaviour
 {
+    public float fadeSpeed;
+
     public Image fadeImage;
     public Text loadText;
 
@@ -54,11 +56,11 @@ public class ResultManager : MonoBehaviour
         /* フェードアウト */
         for(int i = 0; i < 1000; i++) {
             Color newColor = fadeImage.color;
-            newColor.a -= Time.deltaTime;
+            newColor.a -= Time.deltaTime * fadeSpeed;
             fadeImage.color = newColor;
 
             newColor = loadText.color;
-            newColor.a -= Time.deltaTime;
+            newColor.a -= Time.deltaTime * fadeSpeed;
             loadText.color = newColor;
 
             if(fadeImage.color.a < 0.0f) {

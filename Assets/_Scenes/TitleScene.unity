@@ -2203,7 +2203,7 @@ MonoBehaviour:
   player: {fileID: 785921278895680550}
   fadeImage: {fileID: 483125870}
   loadText: {fileID: 466918345}
-  fadeSpeed: 0.5
+  fadeSpeed: 1
 --- !u!1 &873948110
 GameObject:
   m_ObjectHideFlags: 0

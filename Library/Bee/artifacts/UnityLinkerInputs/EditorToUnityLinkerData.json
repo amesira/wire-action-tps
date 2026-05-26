@@ -951,6 +951,13 @@
             "usedInScenes": []
         },
         {
+            "managedAssemblyName": "unityroom.dll",
+            "nativeClass": "",
+            "fullManagedTypeName": "unityroom.Api.UnityroomApiClient",
+            "moduleName": "",
+            "usedInScenes": []
+        },
+        {
             "managedAssemblyName": "Assembly-CSharp.dll",
             "nativeClass": "",
             "fullManagedTypeName": "WhaleHp",
@@ -3632,6 +3639,10 @@
     ],
     "forceIncludeModules": [],
     "forceExcludeModules": [
-        "NVIDIA"
+        "AR",
+        "ClusterInput",
+        "ClusterRenderer",
+        "NVIDIA",
+        "VirtualTexturing"
     ]
 }

@@ -28,10 +28,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -134,57 +132,57 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 24194}
+      Script: {instanceID: 17714}
     - Class: 114
-      Script: {instanceID: 24230}
+      Script: {instanceID: 17716}
     - Class: 114
-      Script: {instanceID: 24360}
+      Script: {instanceID: 17718}
     - Class: 114
-      Script: {instanceID: 24622}
+      Script: {instanceID: 24200}
     - Class: 114
-      Script: {instanceID: 25184}
+      Script: {instanceID: 24236}
     - Class: 114
-      Script: {instanceID: 25220}
+      Script: {instanceID: 24366}
     - Class: 114
-      Script: {instanceID: 25498}
+      Script: {instanceID: 24628}
     - Class: 114
-      Script: {instanceID: 25650}
+      Script: {instanceID: 25190}
     - Class: 114
-      Script: {instanceID: 25680}
+      Script: {instanceID: 25226}
     - Class: 114
-      Script: {instanceID: 25894}
+      Script: {instanceID: 25504}
     - Class: 114
-      Script: {instanceID: 26104}
+      Script: {instanceID: 25656}
     - Class: 114
-      Script: {instanceID: 26300}
+      Script: {instanceID: 25686}
     - Class: 114
-      Script: {instanceID: 26308}
+      Script: {instanceID: 25900}
     - Class: 114
-      Script: {instanceID: 26504}
+      Script: {instanceID: 26110}
     - Class: 114
-      Script: {instanceID: 26642}
+      Script: {instanceID: 26306}
     - Class: 114
-      Script: {instanceID: 27186}
+      Script: {instanceID: 26314}
     - Class: 114
-      Script: {instanceID: 27230}
+      Script: {instanceID: 26510}
     - Class: 114
-      Script: {instanceID: 27390}
+      Script: {instanceID: 26648}
     - Class: 114
-      Script: {instanceID: 27758}
+      Script: {instanceID: 27234}
     - Class: 114
-      Script: {instanceID: 27864}
+      Script: {instanceID: 27394}
     - Class: 114
-      Script: {instanceID: 27966}
+      Script: {instanceID: 27866}
     - Class: 114
-      Script: {instanceID: 28200}
+      Script: {instanceID: 27968}
     - Class: 114
-      Script: {instanceID: 28660}
+      Script: {instanceID: 28202}
     - Class: 114
-      Script: {instanceID: 28804}
+      Script: {instanceID: 28662}
     - Class: 114
-      Script: {instanceID: 28962}
+      Script: {instanceID: 28806}
     - Class: 114
-      Script: {instanceID: 29054}
+      Script: {instanceID: 28964}
     - Class: 114
       Script: {instanceID: 29056}
     - Class: 114
@@ -273,27 +271,27 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 24622}
+      Script: {instanceID: 17718}
     - Class: 114
-      Script: {instanceID: 25220}
+      Script: {instanceID: 24628}
     - Class: 114
-      Script: {instanceID: 25680}
+      Script: {instanceID: 25226}
     - Class: 114
-      Script: {instanceID: 25924}
+      Script: {instanceID: 25686}
     - Class: 114
-      Script: {instanceID: 26104}
+      Script: {instanceID: 25930}
     - Class: 114
-      Script: {instanceID: 26300}
+      Script: {instanceID: 26110}
     - Class: 114
-      Script: {instanceID: 26504}
+      Script: {instanceID: 26306}
     - Class: 114
-      Script: {instanceID: 26642}
+      Script: {instanceID: 26510}
     - Class: 114
-      Script: {instanceID: 27186}
+      Script: {instanceID: 26648}
     - Class: 114
-      Script: {instanceID: 27864}
+      Script: {instanceID: 27866}
     - Class: 114
-      Script: {instanceID: 28660}
+      Script: {instanceID: 28662}
     - Class: 114
       Script: {instanceID: 29276}
     - Class: 114
@@ -366,33 +364,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 24194}
+      Script: {instanceID: 17718}
     - Class: 114
-      Script: {instanceID: 24360}
+      Script: {instanceID: 24200}
     - Class: 114
-      Script: {instanceID: 24622}
+      Script: {instanceID: 24366}
     - Class: 114
-      Script: {instanceID: 25220}
+      Script: {instanceID: 24628}
     - Class: 114
-      Script: {instanceID: 25680}
+      Script: {instanceID: 25226}
     - Class: 114
-      Script: {instanceID: 26104}
+      Script: {instanceID: 25686}
     - Class: 114
-      Script: {instanceID: 26300}
+      Script: {instanceID: 26110}
     - Class: 114
-      Script: {instanceID: 26504}
+      Script: {instanceID: 26306}
     - Class: 114
-      Script: {instanceID: 26642}
+      Script: {instanceID: 26510}
     - Class: 114
-      Script: {instanceID: 27186}
+      Script: {instanceID: 26648}
     - Class: 114
-      Script: {instanceID: 27390}
+      Script: {instanceID: 27394}
     - Class: 114
-      Script: {instanceID: 27864}
+      Script: {instanceID: 27866}
     - Class: 114
-      Script: {instanceID: 28660}
+      Script: {instanceID: 28662}
     - Class: 114
-      Script: {instanceID: 28736}
+      Script: {instanceID: 28738}
     - Class: 114
       Script: {instanceID: 29276}
     - Class: 114
@@ -422,6 +420,24 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 01679cb59fd3223076a2ce9de935125b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CameraController_TPS
+  - hash:
+      serializedVersion: 2
+      Hash: a6fe897acae1a1b4e76f4e81e87a82e5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GameManager
+  - hash:
+      serializedVersion: 2
+      Hash: 4b59df2a1cc9790b925e71d32bfe10ca
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerAnimeControl
   - hash:
       serializedVersion: 2
       Hash: 7a248b8fda8103f064bdd5f58fba24c2
@@ -652,7 +668,7 @@ ScriptsOnlyBuild:
     className: UnityOnScrollRectValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 01e7ac665366e2dcb9c973b63985d01d
+      Hash: 3b854f0d50b7ca9be953a70ed72b6de9
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerSystem
@@ -844,12 +860,6 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 4b59df2a1cc9790b925e71d32bfe10ca
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerAnimeControl
-  - hash:
-      serializedVersion: 2
       Hash: 3d1739aabaa22da0c230e56eea06324c
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -956,12 +966,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: VariablesAsset
-  - hash:
-      serializedVersion: 2
-      Hash: f50840b4bf815fb894d57e5b39383526
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: cf32d98954e63b8e30e9334b152e9b8e
@@ -1174,12 +1178,6 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 01679cb59fd3223076a2ce9de935125b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CameraController_TPS
-  - hash:
-      serializedVersion: 2
       Hash: 252d734192f006edaca15b27d40cad0f
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -1363,4 +1361,4 @@ ScriptsOnlyBuild:
   - Assets/_Scenes/TitleScene.unity
   - Assets/_Scenes/GameScene.unity
   - Assets/_Scenes/ResultScene.unity
-  playerPath: C:/Users/HAL_Tokyo_miu/UnityProjects/01-SU_HalSchool-unity/1NenKouki_3contest/3KOU_WireActionTPS/_BUILD/3KOU_WireActionTPS.exe
+  playerPath: C:/Users/HAL_Tokyo_miu/UnityProjects/01_School/1NenKouki_3contest/3KOU_WireActionTPS/_BUILD/3KOU_WireActionTPS.exe

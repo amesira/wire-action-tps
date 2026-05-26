@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour
     }
 
     public void SetTimerText(float _time) {
+        // タイマーのテキストをセット
         float f = _time;
         float div = upperDigit;
         for(int i = 0; i < timerTexts.Count; i++) {
@@ -33,6 +34,7 @@ public class Timer : MonoBehaviour
             f %= div;
             div /= 10.0f;
         }
+
     }
 
     public void SetTimerColor(Color _color) {

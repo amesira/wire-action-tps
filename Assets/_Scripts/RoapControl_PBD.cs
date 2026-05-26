@@ -302,7 +302,7 @@ public class RoapControl_PBD : MonoBehaviour
         }
 
         /* オブジェクトによる速度変化 */
-        if(isHold) {
+        if(isHold) {// 未使用
             endPoint.position = massPoints[pointNum - 1].pos;
         }
         if(!massPoints[pointNum - 1].isFixed) {

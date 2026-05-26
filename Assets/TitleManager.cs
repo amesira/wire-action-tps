@@ -9,10 +9,12 @@ public class TitleManager : MonoBehaviour
     public string gameSceneName = "GameScene";
     public GameObject player;
 
-    [Header("ƒtƒF[ƒhˆ—")]
+    [Header("Fade Settings")]
     public Image fadeImage;
     public Text loadText;
     public float fadeSpeed = 1.5f;
+
+    [SerializeField] private LoadingUiManager loadingUiManager;
 
     Rigidbody rb;
     WireActionPlayer wap;
@@ -56,39 +58,44 @@ public class TitleManager : MonoBehaviour
 
 	private void FixedUpdate() {
         if(isStart) {
-            /* ‘¬“xİ’è */
-            if(wap.isLink) {    // ƒ[ƒv‚É‚Â‚È‚ª‚Á‚Ä‚¢‚éê‡
+            // ãƒ­ãƒ¼ãƒ—ã‚’ç™ºå°„ã—ã¦ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒå‡ºå‹•
+            if(wap.isLink) {
                 rb.velocity = wap.LinkRoap(Vector3.zero);
             }
-
-            /* ƒƒCƒ„[ƒRƒ“ƒgƒ[ƒ‹ */
             wap.WireAnchorControl();
 
-            fadeImage.gameObject.SetActive(true);
-            /* ƒtƒF[ƒhƒCƒ“ */
-            Color newColor = fadeImage.color;
-            newColor.a += Time.deltaTime * fadeSpeed;
-            fadeImage.color = newColor;
+            // fadeImage.gameObject.SetActive(true);
+            // Color newColor = fadeImage.color;
+            // newColor.a += Time.deltaTime * fadeSpeed;
+            // fadeImage.color = newColor;
 
-            newColor = loadText.color;
-            newColor.a += Time.deltaTime * fadeSpeed;
-            loadText.color = newColor;
+            // newColor = loadText.color;
+            // newColor.a += Time.deltaTime * fadeSpeed;
+            // loadText.color = newColor;
 
-            if(fadeImage.color.a > 1.0f) {
-                SceneManager.LoadScene(gameSceneName);
-            }
+            // if(fadeImage.color.a > 1.0f) {
+            //     SceneManager.LoadScene(gameSceneName);
+            // }
         }
 	}
 
 	public void OnClickPlay() {
         wap.ShotWire();
         isStart = true;
+        loadingUiManager.Open();
+
+        StartCoroutine(LoadScene());
+    }
+
+    private IEnumerator LoadScene() {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(gameSceneName);
     }
 
     public void GameEnd() {
-#if UNITY_EDITOR    // unityã‚ÅÀs‚µ‚½ê‡
+#if UNITY_EDITOR    // ã‚¨ãƒ‡ã‚£ã‚¿ä¸Šã§å®Ÿè¡Œã—ã¦ã„ã‚‹å ´åˆã¯ã€å†ç”Ÿãƒ¢ãƒ¼ãƒ‰ã‚’åœæ­¢
         UnityEditor.EditorApplication.isPlaying = false;
-#else               // ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Æ‚µ‚ÄÀs‚µ‚½ê‡
+#else               // æœ¬ç•ªãƒ“ãƒ«ãƒ‰ã®å ´åˆã¯ã€ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†
         Application.Quit();
 #endif
     }

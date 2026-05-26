@@ -19,26 +19,28 @@ public class GameManager : MonoBehaviour
     public bool isPlaying;
 
 
-    [Header("ƒtƒF[ƒhˆ—")]
+    [Header("ãƒ•ã‚§ãƒ¼ãƒ‰è¨­å®š")]
     public Image fadeImage;
     public Text loadText;
     public float fadeSpeed = 1.5f;
 
-    [Header("UIƒOƒ‹[ƒv")]
+    [Header("UIè¨­å®š")]
     public GameObject startUI;
     public GameObject gameUI;
     public GameObject endUI;
     public Text resultText;
     public Text resultSubText;
 
-    [Header("ƒ^ƒCƒ}[")]
+    [Header("åˆ¶é™æ™‚é–“")]
     public float timeRimit = 180.0f;
     public Timer timer;
     public Slider timeSlider;
 
-    [Header("ƒQ[ƒ€ƒXƒ^[ƒg")]
+    [Header("ã‚¹ã‚¿ãƒ¼ãƒˆãƒ‘ãƒãƒ«")]
     public RectTransform startPanel;
     public RectTransform startCutinText;
+
+    [SerializeField] private LoadingUiManager loadingUiManager;
     
     float timerCnt = 0.0f;
 
@@ -56,22 +58,22 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
         if(loadStart) {
-            fadeImage.gameObject.SetActive(true);
+            // fadeImage.gameObject.SetActive(true);
 
-            /* ƒtƒF[ƒhƒAƒEƒgˆ—UI‚Ì‰Šú‰» */
-            Color newColor = fadeImage.color;
-            newColor.a = 1.0f;
-            fadeImage.color = newColor;
+            // /* ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆæ™‚ã®UIè¡¨ç¤º */
+            // Color newColor = fadeImage.color;
+            // newColor.a = 1.0f;
+            // fadeImage.color = newColor;
 
-            newColor = loadText.color;
-            newColor.a = 1.0f;
-            loadText.color = newColor;
+            // newColor = loadText.color;
+            // newColor.a = 1.0f;
+            // loadText.color = newColor;
 
-            isFadeout = true;
+            // isFadeout = true;
+            loadingUiManager.Close();
         }
 
         timerCnt = timeRimit;
-        //timerText.text = timerCnt.ToString();
         timer.SetTimerText(timerCnt);
         timeup = false;
 
@@ -81,33 +83,33 @@ public class GameManager : MonoBehaviour
         gameUI.SetActive(false);
         endUI.SetActive(false);
 
-        // ƒXƒ^[ƒgƒJƒbƒgƒCƒ“
+        // ã‚¹ã‚¿ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚¤ãƒ³ã®åˆæœŸçŠ¶æ…‹ã‚’è¨­å®š
         startPanel.gameObject.SetActive(false);
         startCutinText.gameObject.SetActive(false);
     }
 
     private void FixedUpdate() {
-        if(isFadeout) {
-            /* ƒtƒF[ƒhƒAƒEƒg */
-            Color newColor = fadeImage.color;
-            newColor.a -= Time.deltaTime * fadeSpeed;
-            fadeImage.color = newColor;
+        // if(isFadeout) {
+        //     /* ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆæ™‚ã®UIè¡¨ç¤º */
+        //     Color newColor = fadeImage.color;
+        //     newColor.a -= Time.deltaTime * fadeSpeed;
+        //     fadeImage.color = newColor;
 
-            newColor = loadText.color;
-            newColor.a -= Time.deltaTime * fadeSpeed;
-            loadText.color = newColor;
+        //     newColor = loadText.color;
+        //     newColor.a -= Time.deltaTime * fadeSpeed;
+        //     loadText.color = newColor;
 
-            if(fadeImage.color.a < 0.0f) {
-                fadeImage.gameObject.SetActive(false);
-                isFadeout = false;
-            }
-        }
+        //     if(fadeImage.color.a < 0.0f) {
+        //         fadeImage.gameObject.SetActive(false);
+        //         isFadeout = false;
+        //     }
+        // }
     }
 
 	void Update()
     {
         if(isPlaying) {
-            // ƒ^ƒCƒ}[İ’è
+            // åˆ¶é™æ™‚é–“ã®ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³
             timerCnt -= Time.deltaTime;
             timer.SetTimerText(timerCnt);
 
@@ -128,14 +130,14 @@ public class GameManager : MonoBehaviour
 
             timeSlider.value = timerCnt / timeRimit;
 
-            /* Esc‚ğ‰Ÿ‚µ‚½‚ç */
+            /* Escã‚­ãƒ¼æŠ¼ä¸‹æ™‚ */
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                /* ƒJ[ƒ\ƒ‹‚ğ•\¦ */
+                /* ã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤º */
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
             }
 
-            /* ƒ}ƒEƒX‚ğ‰Ÿ‚µ‚½‚ç */
+            /* ãƒã‚¦ã‚¹ã‚¯ãƒªãƒƒã‚¯æ™‚ */
             if(Input.GetMouseButtonDown(0)) {
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
@@ -167,12 +169,12 @@ public class GameManager : MonoBehaviour
             t += Time.deltaTime * speed;
 
             if(t < 0.5f) {
-                // EaseOut•”•ªi‘O”¼j
+                // EaseOut
                 value = 0.5f * Mathf.Pow((t * 2), 1) * (2 - (t * 2));
                 panelSize.y = Mathf.Lerp(0.0f, 150.0f, value * 2);
             }
             else {
-                // EaseIn•”•ªiŒã”¼j
+                // EaseIn
                 float nt = (t - 0.5f) * 2;
                 value = 0.5f + 0.5f * Mathf.Pow(nt, 2);
                 panelSize.y = Mathf.Lerp(150.0f, 0.0f, (value - 0.5f) * 2);
@@ -210,47 +212,47 @@ public class GameManager : MonoBehaviour
 
         endUI.SetActive(true);
 
-        if(_result == 0) { // •‰‚¯‚½ê‡
-            resultText.text = "ƒQ[ƒ€ƒI[ƒo[";
+        if(_result == 0) { // è² ã‘ãŸæ™‚
+            resultText.text = "ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼";
             resultText.color = Color.red;
-            if(timeup) {
-                resultSubText.text = "§ŒÀŠÔ“à‚ÉƒNƒWƒ‰‚ğ“|‚¹‚È‚©‚Á‚½c";
-                SendResult.instance.subStr = "§ŒÀŠÔ“à‚ÉƒNƒWƒ‰‚ğ“|‚¹‚È‚©‚Á‚½c";
+            if(timeup) {// ã‚¿ã‚¤ãƒ ã‚¢ãƒƒãƒ—ã§è² ã‘ãŸå ´åˆ
+                resultSubText.text = "åˆ¶é™æ™‚é–“å†…ã«ã‚¯ã‚¸ãƒ©ã‚’å€’ã›ãªã‹ã£ãŸâ€¦";
+                SendResult.instance.subStr = "åˆ¶é™æ™‚é–“å†…ã«ã‚¯ã‚¸ãƒ©ã‚’å€’ã›ãªã‹ã£ãŸâ€¦";
             }
             else {
-                resultSubText.text = "ƒƒ{ƒbƒg‚ª‰ó‚ê‚Ä‚µ‚Ü‚Á‚½c";
-                SendResult.instance.subStr = "ƒƒ{ƒbƒg‚ª‰ó‚ê‚Ä‚µ‚Ü‚Á‚½c";
+                resultSubText.text = "ãƒ­ãƒœãƒƒãƒˆãŒå£Šã‚Œã¦ã—ã¾ã£ãŸâ€¦";
+                SendResult.instance.subStr = "ãƒ­ãƒœãƒƒãƒˆãŒå£Šã‚Œã¦ã—ã¾ã£ãŸâ€¦";
             }
 
             audio.clip = loseBGM;
             audio.Play();
         }
-        else { // Ÿ‚Á‚½ê‡
-            resultText.text = "ƒQ[ƒ€ƒNƒŠƒAI";
+        else { // 
+            resultText.text = "ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢ï¼";
             resultText.color = Color.yellow;
-            resultSubText.text = "Œ©–ƒNƒWƒ‰‚ğ“|‚µ‚½I";
-            SendResult.instance.subStr = "Œ©–ƒNƒWƒ‰‚ğ“|‚µ‚½I";
+            resultSubText.text = "è¦‹äº‹ã‚¯ã‚¸ãƒ©ã‚’å€’ã—ãŸï¼";
+            SendResult.instance.subStr = "è¦‹äº‹ã‚¯ã‚¸ãƒ©ã‚’å€’ã—ãŸï¼";
 
             audio.clip = winBGM;
             audio.Play();
 
-            // ƒXƒRƒA‘—M
+            // Unityroomã®ã‚¹ã‚³ã‚¢é€ä¿¡ï¼ˆã‚¹ã‚³ã‚¢ã¯æ®‹ã‚Šæ™‚é–“ï¼‰
             UnityroomApiClient.Instance.SendScore(1, timerCnt, ScoreboardWriteMode.HighScoreDesc);
         }
         SendResult.instance.resultNum = _result;
     }
 
     public void LoadResult() {
-        /* ƒtƒF[ƒhƒAƒEƒgˆ—UI‚Ì‰Šú‰» */
+        /* ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆæ™‚ã®UIè¡¨ç¤º */
         Color newColor = fadeImage.color;
         newColor.a = 0.0f;
-        fadeImage.color = newColor;
+        //fadeImage.color = newColor;
 
         newColor = loadText.color;
         newColor.a = 0.0f;
         loadText.color = newColor;
 
-        /* ƒf[ƒ^‚Ìó‚¯“n‚µ */
+        /* ã‚·ãƒ¼ãƒ³é·ç§»æ™‚ã®ãƒ‡ãƒ¼ã‚¿ä¿å­˜ */
         SendResult.instance.timerRemain = timerCnt;
         SendResult.instance.whaleHpRate = WhaleHp.instance.partsCnt / WhaleHp.instance.partsMax;
 
@@ -258,23 +260,25 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator GoResult() {
-        fadeImage.gameObject.SetActive(true);
-        for(int i = 0; i < 1000; i++) {
-            /* ƒtƒF[ƒhƒAƒEƒg */
-            Color newColor = fadeImage.color;
-            newColor.a += Time.deltaTime * fadeSpeed;
-            fadeImage.color = newColor;
+        loadingUiManager.Open();
+        yield return new WaitForSeconds(2.0f);
+        // fadeImage.gameObject.SetActive(true);
+        // for(int i = 0; i < 1000; i++) {
+        //     /* ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆ */
+        //     Color newColor = fadeImage.color;
+        //     newColor.a += Time.deltaTime * fadeSpeed;
+        //     fadeImage.color = newColor;
 
-            newColor = loadText.color;
-            newColor.a += Time.deltaTime * fadeSpeed;
-            loadText.color = newColor;
+        //     newColor = loadText.color;
+        //     newColor.a += Time.deltaTime * fadeSpeed;
+        //     loadText.color = newColor;
 
-            if(fadeImage.color.a > 1.0f) {
-                break;
-            }
+        //     if(fadeImage.color.a > 1.0f) {
+        //         break;
+        //     }
 
-            yield return null;
-        }
+        //     yield return null;
+        // }
         SceneManager.LoadScene("ResultScene");
     }
 }

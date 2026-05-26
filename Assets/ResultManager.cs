@@ -17,22 +17,25 @@ public class ResultManager : MonoBehaviour
     public Text remainTime;
     public Text whaleHpRate;
 
+    [SerializeField] private LoadingUiManager loadingUiManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(FadeOut());
+       // StartCoroutine(FadeOut());
+       loadingUiManager.Close();
 
         if(SendResult.instance.resultNum == 0) {
-            resultText.text = "ƒQ[ƒ€ƒI[ƒo[";
+            resultText.text = "ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼";
             resultText.color = Color.red;
         }
         else {
-            resultText.text = "ƒQ[ƒ€ƒNƒŠƒAI";
+            resultText.text = "ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢ï¼";
             resultText.color = Color.yellow;
         }
         resultSubText.text = SendResult.instance.subStr;
-        remainTime.text = "c‚èŠÔF" + SendResult.instance.timerRemain.ToString("f2");
-        whaleHpRate.text = "ƒNƒWƒ‰”j‰ó—¦F" + ((1.0f - SendResult.instance.whaleHpRate) * 100f).ToString("f2") + "“";
+        remainTime.text = "æ®‹ã‚Šæ™‚é–“ï¼š" + SendResult.instance.timerRemain.ToString("f2");
+        whaleHpRate.text = "ã‚¯ã‚¸ãƒ©ç ´å£Šç‡ï¼š" + ((1.0f - SendResult.instance.whaleHpRate) * 100f).ToString("f2") + "ï¼…";
 
         Destroy(SendResult.instance.gameObject);
     }
@@ -53,7 +56,7 @@ public class ResultManager : MonoBehaviour
         loadText.color = color;
 
         fadeImage.gameObject.SetActive(true);
-        /* ƒtƒF[ƒhƒAƒEƒg */
+        /* ï¿½tï¿½Fï¿½[ï¿½hï¿½Aï¿½Eï¿½g */
         for(int i = 0; i < 1000; i++) {
             Color newColor = fadeImage.color;
             newColor.a -= Time.deltaTime * fadeSpeed;
@@ -85,7 +88,7 @@ public class ResultManager : MonoBehaviour
         loadText.color = color;
 
         fadeImage.gameObject.SetActive(true);
-        /* ƒtƒF[ƒhƒAƒEƒg */
+        /* ï¿½tï¿½Fï¿½[ï¿½hï¿½Aï¿½Eï¿½g */
         for(int i = 0; i < 1000; i++) {
             Color newColor = fadeImage.color;
             newColor.a += Time.deltaTime;

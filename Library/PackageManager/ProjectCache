@@ -193,6 +193,10 @@ m_ResolvedPackages:
     - 2.10.0
     - 2.10.1
     - 2.10.2
+    - 2.11.2
+    - 2.11.3
+    - 2.11.4
+    - 2.12.4
     compatible:
     - 2.3.1
     - 2.4.3
@@ -209,6 +213,10 @@ m_ResolvedPackages:
     - 2.10.0
     - 2.10.1
     - 2.10.2
+    - 2.11.2
+    - 2.11.3
+    - 2.11.4
+    - 2.12.4
     recommended: 2.3.1
     deprecated: []
   dependencies: []
@@ -499,13 +507,17 @@ m_ResolvedPackages:
     - 1.8.8
     - 1.8.9
     - 1.8.10
+    - 1.8.11
+    - 1.8.12
     compatible:
     - 1.8.6
     - 1.8.7
     - 1.8.8
     - 1.8.9
     - 1.8.10
-    recommended: 1.8.10
+    - 1.8.11
+    - 1.8.12
+    recommended: 1.8.12
     deprecated: []
   dependencies:
   - name: com.unity.modules.audio
@@ -717,6 +729,8 @@ m_ResolvedPackages:
     - 1.9.7
     - 1.9.8
     - 1.9.9
+    - 1.9.10
+    - 1.9.11
     compatible:
     - 1.8.0
     - 1.9.0
@@ -728,6 +742,8 @@ m_ResolvedPackages:
     - 1.9.7
     - 1.9.8
     - 1.9.9
+    - 1.9.10
+    - 1.9.11
     recommended: 1.8.0
     deprecated:
     - 1.8.0-pre.1
@@ -3079,11 +3095,15 @@ m_ResolvedPackages:
     - 2.0.22
     - 2.0.23
     - 2.0.25
+    - 2.0.26
+    - 2.0.27
     compatible:
     - 2.0.22
     - 2.0.23
     - 2.0.25
-    recommended: 2.0.25
+    - 2.0.26
+    - 2.0.27
+    recommended: 2.0.27
     deprecated: []
   dependencies:
   - name: com.unity.test-framework
@@ -3206,6 +3226,8 @@ m_ResolvedPackages:
     - 3.0.36
     - 3.0.37
     - 3.0.38
+    - 3.0.39
+    - 3.0.40
     compatible:
     - 3.0.28
     - 3.0.31
@@ -3214,7 +3236,9 @@ m_ResolvedPackages:
     - 3.0.36
     - 3.0.37
     - 3.0.38
-    recommended: 3.0.38
+    - 3.0.39
+    - 3.0.40
+    recommended: 3.0.40
     deprecated:
     - 3.0.37
   dependencies:
@@ -3289,9 +3313,11 @@ m_ResolvedPackages:
     - 0.1.0-preview.2
     - 1.0.0
     - 1.0.1
+    - 1.1.0
     compatible:
     - 1.0.0
     - 1.0.1
+    - 1.1.0
     recommended: 1.0.1
     deprecated: []
   dependencies: []
@@ -3373,10 +3399,20 @@ m_ResolvedPackages:
     - 1.2.2
     - 1.2.3
     - 1.2.4
+    - 1.3.0
+    - 1.3.1
+    - 1.3.2
+    - 1.3.3
+    - 1.3.4
     compatible:
     - 1.2.2
     - 1.2.3
     - 1.2.4
+    - 1.3.0
+    - 1.3.1
+    - 1.3.2
+    - 1.3.3
+    - 1.3.4
     recommended: 1.2.4
     deprecated: []
   dependencies: []
@@ -3617,10 +3653,12 @@ m_ResolvedPackages:
     - 1.2.5
     - 1.2.6
     - 1.2.7
+    - 1.3.0
     compatible:
     - 1.2.5
     - 1.2.6
     - 1.2.7
+    - 1.3.0
     recommended: 1.2.7
     deprecated: []
   dependencies:

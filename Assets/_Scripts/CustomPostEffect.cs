@@ -10,13 +10,17 @@ public class CustomPostEffect : MonoBehaviour
     {
         None,
         RadialBlur,
+        MonoMask,
         // 他のエフェクトタイプを追加可能
     }
     // ============== Inspector Variables ==============
     [SerializeField] Material radialBlurMaterial;
+    [SerializeField] Material monochromeMaterial;
 
     // 現在のエフェクトタイプ
     [SerializeField] private EffectType currentEffect = EffectType.RadialBlur;
+    // 現在のエフェクト優先度
+    [SerializeField] private int currentEffectPriority = 0;
 
     private Coroutine playingEffectCoroutine;
 
@@ -38,67 +42,71 @@ public class CustomPostEffect : MonoBehaviour
         Graphics.Blit(src, dest, currentMaterial);
     }
 
-    // エフェクトのタイプ・強度を変更するメソッド
-    public void ChangePostEffect(EffectType effectType, float intensity)
-    {
-        currentEffect = effectType;
-        string intensityParamName = GetShaderIntensityName(effectType);
-        Material effectMaterial = GetEffectMaterial(effectType);
-        if(effectMaterial != null && !string.IsNullOrEmpty(intensityParamName))
-        {
-            effectMaterial.SetFloat(intensityParamName, intensity);
+    public void PlayPostEffect(EffectType postEffectType, float intensity, float duration, float holdDuration = 0f, int priority = 0) {
+        if (priority < currentEffectPriority) {
+            // 現在のエフェクトの方が優先度が高い場合は新しいエフェクトを無視
+            return;
         }
-    }
 
-    // エフェクトのタイプ・強度を一定時間変更するメソッド
-    public void ChangePostEffectTemporarily(EffectType effectType, float intensity, float changeDuration, float holdDuration)
-    {
-        if (playingEffectCoroutine != null)
-        {
+        currentEffect = postEffectType;
+        currentEffectPriority = priority;
+        if (playingEffectCoroutine != null) {
             StopCoroutine(playingEffectCoroutine);
         }
-        playingEffectCoroutine = StartCoroutine(ChangePostEffectTemporarilyCoroutine(effectType, intensity, changeDuration, holdDuration));
+        playingEffectCoroutine = StartCoroutine(PlayEffect(postEffectType, intensity, duration, holdDuration));
     }
 
-    private IEnumerator ChangePostEffectTemporarilyCoroutine(EffectType effectType, float intensity, float changeDuration, float holdDuration)
+    public void ResetPostEffect() {
+        if (playingEffectCoroutine != null) {
+            StopCoroutine(playingEffectCoroutine);
+        }
+        currentEffect = EffectType.None;
+        currentEffectPriority = 0;
+    }
+
+    // ポストエフェクトを再生するためのメソッド
+    private IEnumerator PlayEffect(
+        EffectType postEffectType,
+         float intensity, float duration, float holdDuration = 0f) 
     {
-        string intensityParamName = GetShaderIntensityName(effectType);
-        Material effectMaterial = GetEffectMaterial(effectType);
+        Material effectMaterial = GetEffectMaterial(postEffectType);
 
-        // エフェクトを変更
-        ChangePostEffect(effectType, 0.0f);
+        string intensityPropertyName = GetShaderIntensityName(postEffectType);
+        if (effectMaterial == null || string.IsNullOrEmpty(intensityPropertyName)) {
+            Debug.LogWarning("Invalid post effect type or missing material/intensity property.");
+            yield break;
+        }
 
+        // エフェクトの強さを徐々に変化させるコルーチンを開始
+        yield return StartCoroutine(ChangeMaterialIntensity(effectMaterial, intensityPropertyName, intensity, duration));
+
+        // 強さが最大になった状態を一定時間保持する
+        yield return new WaitForSecondsRealtime(holdDuration);
+
+        // エフェクトの強さを徐々に0に戻すコルーチンを開始
+        yield return StartCoroutine(ChangeMaterialIntensity(effectMaterial, intensityPropertyName, 0f, duration));
+
+        // エフェクトを完全にオフにする
+        currentEffect = EffectType.None;
+        currentEffectPriority = 0;
+    }
+
+    // -------------------------- private
+
+    private IEnumerator ChangeMaterialIntensity(Material mat, string propertyName, float targetIntensity, float duration) {
+        if (mat == null) yield break;
+
+        float initialIntensity = mat.GetFloat(propertyName);
         float elapsedTime = 0f;
-        while (elapsedTime < changeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float currentIntensity = Mathf.Lerp(0f, intensity, elapsedTime / changeDuration);
-            if(effectMaterial != null && !string.IsNullOrEmpty(intensityParamName))
-            {
-                effectMaterial.SetFloat(intensityParamName, currentIntensity);
-            }
-            yield return null; // 次のフレームまで待機
+
+        while (elapsedTime < duration) {
+            elapsedTime += Time.unscaledDeltaTime; // 時間の流れに影響されないようにする
+            float newIntensity = Mathf.Lerp(initialIntensity, targetIntensity, elapsedTime / duration);
+            mat.SetFloat(propertyName, newIntensity);
+            yield return null;
         }
 
-        // エフェクトを保持
-        yield return new WaitForSeconds(holdDuration);
-
-        elapsedTime = 0f;
-        while (elapsedTime < changeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float currentIntensity = Mathf.Lerp(intensity, 0f, elapsedTime / changeDuration);
-            if(effectMaterial != null && !string.IsNullOrEmpty(intensityParamName))
-            {
-                effectMaterial.SetFloat(intensityParamName, currentIntensity);
-            }
-            yield return null; // 次のフレームまで待機
-        }
-
-        // エフェクトを元に戻す
-        ChangePostEffect(EffectType.None, 0f);
-
-        playingEffectCoroutine = null;
+        mat.SetFloat(propertyName, targetIntensity); // 最終的に目標の強さを確実に設定
     }
 
     // ============== private helper methods ==============
@@ -109,6 +117,8 @@ public class CustomPostEffect : MonoBehaviour
         {
             case EffectType.RadialBlur:
                 return "_BlurStrength";
+            case EffectType.MonoMask:
+                return "_MonoStrength";
             // 他のエフェクトタイプに対するパラメータ名を追加可能
             default:
                 return "";
@@ -122,6 +132,8 @@ public class CustomPostEffect : MonoBehaviour
         {
             case EffectType.RadialBlur:
                 return radialBlurMaterial;
+            case EffectType.MonoMask:
+                return monochromeMaterial;
             // 他のエフェクトタイプに対するマテリアルを追加可能
             default:
                 return null;

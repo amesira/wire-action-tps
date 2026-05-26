@@ -10042,11 +10042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7659092821234318768, guid: cb1a6c051ec64734d860d7177c7d56c0, type: 3}
       propertyPath: m_Maskable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7659092821234318768, guid: cb1a6c051ec64734d860d7177c7d56c0, type: 3}
       propertyPath: m_RaycastTarget
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -19,7 +19,7 @@
     <RootNamespace></RootNamespace>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFramework>netstandard2.1</TargetFramework>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -54,7 +54,7 @@
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
     <UnityProjectGeneratorStyle>SDK</UnityProjectGeneratorStyle>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2023.2.22f1</UnityVersion>
   </PropertyGroup>
@@ -65,47 +65,20 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.22f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\GameManager.cs" />
-    <Compile Include="Assets\_Scripts\CustomPostEffect.cs" />
-    <Compile Include="Assets\_Scripts\PlayerScripts\SwordActionPlayer.cs" />
-    <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSoundControl.cs" />
-    <Compile Include="Assets\_Scripts\PlayerScripts\PlayerAnimeControl.cs" />
-    <Compile Include="Assets\_Scripts\SimpleScripts\AfterImage.cs" />
-    <Compile Include="Assets\_Scripts\LoadingUiManager.cs" />
-    <Compile Include="Assets\_Scripts\WhaleMove.cs" />
-    <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
-    <Compile Include="Assets\ResultManager.cs" />
-    <Compile Include="Assets\TitleManager.cs" />
-    <Compile Include="Assets\_Scripts\CameraController.cs" />
-    <Compile Include="Assets\_Scripts\PlayerScripts\PlayerSystem.cs" />
-    <Compile Include="Assets\_Scripts\HitStop.cs" />
-    <Compile Include="Assets\EventManager.cs" />
-    <Compile Include="Assets\Bullet.cs" />
-    <Compile Include="Assets\_Heathen Engineering\Samples\UX Examples\Flat Icons [Free]\ToggleSetAnimatorBoolean.cs" />
-    <Compile Include="Assets\_Scripts\SimpleScripts\LightlyAndDisappear.cs" />
-    <Compile Include="Assets\_Scripts\SimpleScripts\ShrinkAndDisappear.cs" />
-    <Compile Include="Assets\WhaleHp.cs" />
-    <Compile Include="Assets\_Scripts\PlayerScripts\MovePlayer.cs" />
-    <Compile Include="Assets\_Scripts\PlayerScripts\WireActionPlayer.cs" />
-    <Compile Include="Assets\_Scripts\RoapControl_PBD.cs" />
-    <Compile Include="Assets\_Scripts\SimpleScripts\Rotate.cs" />
-    <Compile Include="Assets\HpHeart.cs" />
-    <Compile Include="Assets\Explosion.cs" />
-    <Compile Include="Assets\_Scripts\BreakableBoxObject.cs" />
-    <Compile Include="Assets\SendResult.cs" />
-    <Compile Include="Assets\_Scripts\VFXService.cs" />
-    <Compile Include="Assets\Timer.cs" />
-    <Compile Include="Assets\FixedTurretAct.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUIToolkit.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\_Materials\PostEffectMat\MonoMask.shader" />
-    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
-    <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />
-    <None Include="Assets\QuickOutline\Readme.txt" />
-    <None Include="Assets\_Heathen Engineering\Documentation\UX\Flat Icons [Free]\Read Me.txt" />
-    <None Include="Assets\Customizable Skybox\Stylized Sky\Shaders\Stylized Sky.shader" />
-    <None Include="Assets\_Materials\PostEffectMat\RadialBlur.shader" />
-    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
+    <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
+    <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.dll" />
+    <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1146,7 +1119,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj" />
     <ProjectReference Include="unityroom.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />

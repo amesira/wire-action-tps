@@ -46,65 +46,15 @@ public class ResultManager : MonoBehaviour
         
     }
 
-    IEnumerator FadeOut() {
-        Color color = fadeImage.color;
-        color.a = 1.0f;
-        fadeImage.color = color;
-
-        color = loadText.color;
-        color.a = 1.0f;
-        loadText.color = color;
-
-        fadeImage.gameObject.SetActive(true);
-        /* �t�F�[�h�A�E�g */
-        for(int i = 0; i < 1000; i++) {
-            Color newColor = fadeImage.color;
-            newColor.a -= Time.deltaTime * fadeSpeed;
-            fadeImage.color = newColor;
-
-            newColor = loadText.color;
-            newColor.a -= Time.deltaTime * fadeSpeed;
-            loadText.color = newColor;
-
-            if(fadeImage.color.a < 0.0f) {
-                break;
-            }
-
-            yield return null;
-        }
-
-        fadeImage.gameObject.SetActive(false);
-    }
     public void BackTitle() {
-        StartCoroutine(FadeIn());
+        loadingUiManager.Open();
+        StartCoroutine(LoadTitle(2.0f));
     }
-    IEnumerator FadeIn() {
-        Color color = fadeImage.color;
-        color.a = 0.0f;
-        fadeImage.color = color;
 
-        color = loadText.color;
-        color.a = 0.0f;
-        loadText.color = color;
-
-        fadeImage.gameObject.SetActive(true);
-        /* �t�F�[�h�A�E�g */
-        for(int i = 0; i < 1000; i++) {
-            Color newColor = fadeImage.color;
-            newColor.a += Time.deltaTime;
-            fadeImage.color = newColor;
-
-            newColor = loadText.color;
-            newColor.a += Time.deltaTime;
-            loadText.color = newColor;
-
-            if(fadeImage.color.a > 1.0f) {
-                break;
-            }
-
-            yield return null;
-        }
-
+    // n秒後にタイトルへ
+    IEnumerator LoadTitle(float delay) {
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene("TitleScene");
     }
+
 }

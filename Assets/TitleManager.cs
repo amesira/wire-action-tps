@@ -33,6 +33,8 @@ public class TitleManager : MonoBehaviour
         loadText.color = newColor;
 
         StartCoroutine(Fade());
+
+        loadingUiManager.Close();
     }
 
     IEnumerator Fade() {
@@ -63,19 +65,6 @@ public class TitleManager : MonoBehaviour
                 rb.velocity = wap.LinkRoap(Vector3.zero);
             }
             wap.WireAnchorControl();
-
-            // fadeImage.gameObject.SetActive(true);
-            // Color newColor = fadeImage.color;
-            // newColor.a += Time.deltaTime * fadeSpeed;
-            // fadeImage.color = newColor;
-
-            // newColor = loadText.color;
-            // newColor.a += Time.deltaTime * fadeSpeed;
-            // loadText.color = newColor;
-
-            // if(fadeImage.color.a > 1.0f) {
-            //     SceneManager.LoadScene(gameSceneName);
-            // }
         }
 	}
 

@@ -28,16 +28,20 @@ public class PlayerAnimeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // まばたきアニメーションの再生
         time -= Time.deltaTime;
         if(time < 0.0f) {
             anim.SetTrigger("onBlink");
             time = blinkSpawn;
         }
     }
+
+    // 走るアニメーションの切り替え
     public void SetRunning(bool _flag) {
         anim.SetBool("isRunning", _flag);
     }
 
+    // y軸の速度に応じてアニメーションを切り替える
     public void SetScaleVertical(float _yVel) {
         if(_yVel > stateChangeY) {
             anim.SetFloat("scaleVertical", 1.0f);
@@ -50,10 +54,23 @@ public class PlayerAnimeControl : MonoBehaviour
         }
     }
 
+    // 剣アクションのトリガー
     public void SetSword() {
         anim.SetTrigger("swingSword");
+        Debug.Log("swing");
     }
 
+    // 剣アクションのアニメーションをスキップして、指定した位置で停止する
+    public void SkipAndStopSwordAnim(float normalizedTime) {
+        anim.Play("PlayerSword_Swing", 2, normalizedTime);
+        anim.Update(0.0f);
+    }
+    // 剣アクションのレイヤーを再開する
+    public void ResumeSwordLayer() {
+        anim.SetLayerWeight(2, 1.0f);
+    }
+
+    // ゲーム終了時のアニメーション再生
     public IEnumerator PlayEndAnim(int a) {
         anim.enabled = false;
         yield return null;
@@ -70,5 +87,15 @@ public class PlayerAnimeControl : MonoBehaviour
 
             animation.Play();
         }
+    }
+
+    // アニメーションの再生を停止する
+    public void StopAnim() {
+        anim.enabled = false;
+    }
+
+    // アニメーションの再生を再開する
+    public void StartAnim() {
+        anim.enabled = true;
     }
 }

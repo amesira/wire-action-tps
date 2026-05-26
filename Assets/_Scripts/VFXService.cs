@@ -55,11 +55,11 @@ public class VFXService : MonoBehaviour
     }
 
     // CustomPostEffectsのラッパー
-    public void ChangePostEffect(CustomPostEffect.EffectType effectType, float intensity) {
-        customPostEffect.ChangePostEffect(effectType, intensity);
+    public void PlayPostEffect(CustomPostEffect.EffectType postEffectType, float intensity, float duration, float holdDuration = 0f, int priority = 0) {
+        customPostEffect.PlayPostEffect(postEffectType, intensity, duration, holdDuration, priority);
     }
-    public void ChangePostEffectTemporarily(CustomPostEffect.EffectType effectType, float intensity, float changeDuration, float holdDuration) {
-        customPostEffect.ChangePostEffectTemporarily(effectType, intensity, changeDuration, holdDuration);
+    public void ResetPostEffect() {
+        customPostEffect.ResetPostEffect();
     }
 
 }

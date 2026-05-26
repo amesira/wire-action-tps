@@ -1,0 +1,231 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\playerscripts\\swordactionplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerscripts\\swordactionplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|c:\\users\\hal_tokyo_miu\\unityprojects\\01_school\\firstnenkouki_3contest\\3kou_wireactiontps\\assets\\fixedturretact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\fixedturretact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|c:\\users\\hal_tokyo_miu\\unityprojects\\01_school\\firstnenkouki_3contest\\3kou_wireactiontps\\assets\\_scripts\\playerscripts\\wireactionplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerscripts\\wireactionplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\roapcontrol_pbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\roapcontrol_pbd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\playerscripts\\moveplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerscripts\\moveplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\resultmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\resultmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\playerscripts\\playeranimecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerscripts\\playeranimecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\breakableboxobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\breakableboxobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\quickoutline\\scripts\\outline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\quickoutline\\scripts\\outline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\playerscripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerscripts\\playersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\_scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F36C9991-FAD4-26B5-23F9-A9F63CD7858C}|unityroom.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\unityroom\\api\\unityroomapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F36C9991-FAD4-26B5-23F9-A9F63CD7858C}|unityroom.csproj|solutionrelative:assets\\unityroom\\api\\unityroomapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\assets\\whalehp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5D7F1EAA-08C7-778B-DB26-CC2E9601FBC7}|Assembly-CSharp.csproj|solutionrelative:assets\\whalehp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FixedTurretAct.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\FixedTurretAct.cs",
+              "RelativeDocumentMoniker": "Assets\\FixedTurretAct.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\FixedTurretAct.cs",
+              "RelativeToolTip": "Assets\\FixedTurretAct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T05:28:23.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResultManager.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\ResultManager.cs",
+              "RelativeDocumentMoniker": "Assets\\ResultManager.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\ResultManager.cs",
+              "RelativeToolTip": "Assets\\ResultManager.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAgwEkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WireActionPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\WireActionPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerScripts\\WireActionPlayer.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\WireActionPlayer.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\PlayerScripts\\WireActionPlayer.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAqwDYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PlayerAnimeControl.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\PlayerAnimeControl.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerScripts\\PlayerAnimeControl.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\PlayerAnimeControl.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\PlayerScripts\\PlayerAnimeControl.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwEAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MovePlayer.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\MovePlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerScripts\\MovePlayer.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\MovePlayer.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\PlayerScripts\\MovePlayer.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAApwHgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoapControl_PBD.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\RoapControl_PBD.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\RoapControl_PBD.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\RoapControl_PBD.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\RoapControl_PBD.cs",
+              "ViewState": "AgIAAHEBAAAAAAAAAABewHYBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\GameManager.cs",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAmwO0AAABgAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEASURBVDhP7Y8xSwJxGMZ/5/GPkAM/QTiccI5xUG65ieAUgv4dXMTBLxFEtTm4CC1RRPUtHFvERW7I5RqyIZBuEG5S5G0o/4hER7u/6YHn4XmfF3YYxm9jad43xbvyxL1wpXHXkLUXzSPJXeZkWwNYAME0kPpjncJBgdZxi8x\u002Bhslsgj7SVjSPxO/567xB2YrwLLQAaD\u002B1pXJdkTiOTfMmfy1IAYzeR5S8Eo7jfDf\u002BgxTAYrVA2Wrbg5\u002BLfs9nuVqSPc8avbmC2m1NqjfVX\u002BeT8IIFMHwdin7QlPNl9KFG2YrgI6Bz0kl8yQQGLwPpP/cJP0PSe2mKbpHuaTexYAd8AREpdKtYXY\u002BXAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-16T01:20:57.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Outline.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\QuickOutline\\Scripts\\Outline.cs",
+              "RelativeDocumentMoniker": "Assets\\QuickOutline\\Scripts\\Outline.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\QuickOutline\\Scripts\\Outline.cs",
+              "RelativeToolTip": "Assets\\QuickOutline\\Scripts\\Outline.cs",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAUwJUAAAAFAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEASURBVDhP7Y8xSwJxGMZ/5/GPkAM/QTiccI5xUG65ieAUgv4dXMTBLxFEtTm4CC1RRPUtHFvERW7I5RqyIZBuEG5S5G0o/4hER7u/6YHn4XmfF3YYxm9jad43xbvyxL1wpXHXkLUXzSPJXeZkWwNYAME0kPpjncJBgdZxi8x\u002Bhslsgj7SVjSPxO/567xB2YrwLLQAaD\u002B1pXJdkTiOTfMmfy1IAYzeR5S8Eo7jfDf\u002BgxTAYrVA2Wrbg5\u002BLfs9nuVqSPc8avbmC2m1NqjfVX\u002BeT8IIFMHwdin7QlPNl9KFG2YrgI6Bz0kl8yQQGLwPpP/cJP0PSe2mKbpHuaTexYAd8AREpdKtYXY\u002BXAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-16T01:20:57.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SwordActionPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\SwordActionPlayer.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerScripts\\SwordActionPlayer.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\SwordActionPlayer.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\PlayerScripts\\SwordActionPlayer.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAiwHkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlayerSystem.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\PlayerSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerScripts\\PlayerSystem.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\PlayerScripts\\PlayerSystem.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\PlayerScripts\\PlayerSystem.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAswEsAAABcAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEASURBVDhP7Y8xSwJxGMZ/5/GPkAM/QTiccI5xUG65ieAUgv4dXMTBLxFEtTm4CC1RRPUtHFvERW7I5RqyIZBuEG5S5G0o/4hER7u/6YHn4XmfF3YYxm9jad43xbvyxL1wpXHXkLUXzSPJXeZkWwNYAME0kPpjncJBgdZxi8x\u002Bhslsgj7SVjSPxO/567xB2YrwLLQAaD\u002B1pXJdkTiOTfMmfy1IAYzeR5S8Eo7jfDf\u002BgxTAYrVA2Wrbg5\u002BLfs9nuVqSPc8avbmC2m1NqjfVX\u002BeT8IIFMHwdin7QlPNl9KFG2YrgI6Bz0kl8yQQGLwPpP/cJP0PSe2mKbpHuaTexYAd8AREpdKtYXY\u002BXAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-16T01:20:57.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WhaleHp.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\WhaleHp.cs",
+              "RelativeDocumentMoniker": "Assets\\WhaleHp.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\WhaleHp.cs",
+              "RelativeToolTip": "Assets\\WhaleHp.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAswDEAAAAiAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEASURBVDhP7Y8xSwJxGMZ/5/GPkAM/QTiccI5xUG65ieAUgv4dXMTBLxFEtTm4CC1RRPUtHFvERW7I5RqyIZBuEG5S5G0o/4hER7u/6YHn4XmfF3YYxm9jad43xbvyxL1wpXHXkLUXzSPJXeZkWwNYAME0kPpjncJBgdZxi8x\u002Bhslsgj7SVjSPxO/567xB2YrwLLQAaD\u002B1pXJdkTiOTfMmfy1IAYzeR5S8Eo7jfDf\u002BgxTAYrVA2Wrbg5\u002BLfs9nuVqSPc8avbmC2m1NqjfVX\u002BeT8IIFMHwdin7QlPNl9KFG2YrgI6Bz0kl8yQQGLwPpP/cJP0PSe2mKbpHuaTexYAd8AREpdKtYXY\u002BXAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-16T01:20:57.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UnityroomApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\unityroom\\Api\\UnityroomApiClient.cs",
+              "RelativeDocumentMoniker": "Assets\\unityroom\\Api\\UnityroomApiClient.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\unityroom\\Api\\UnityroomApiClient.cs",
+              "RelativeToolTip": "Assets\\unityroom\\Api\\UnityroomApiClient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEASURBVDhP7Y8xSwJxGMZ/5/GPkAM/QTiccI5xUG65ieAUgv4dXMTBLxFEtTm4CC1RRPUtHFvERW7I5RqyIZBuEG5S5G0o/4hER7u/6YHn4XmfF3YYxm9jad43xbvyxL1wpXHXkLUXzSPJXeZkWwNYAME0kPpjncJBgdZxi8x\u002Bhslsgj7SVjSPxO/567xB2YrwLLQAaD\u002B1pXJdkTiOTfMmfy1IAYzeR5S8Eo7jfDf\u002BgxTAYrVA2Wrbg5\u002BLfs9nuVqSPc8avbmC2m1NqjfVX\u002BeT8IIFMHwdin7QlPNl9KFG2YrgI6Bz0kl8yQQGLwPpP/cJP0PSe2mKbpHuaTexYAd8AREpdKtYXY\u002BXAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-12-16T01:20:57.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BreakableBoxObject.cs",
+              "DocumentMoniker": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\BreakableBoxObject.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\BreakableBoxObject.cs",
+              "ToolTip": "C:\\Users\\HAL_Tokyo_miu\\UnityProjects\\01_School\\FirstNenKouki_3contest\\3KOU_WireActionTPS\\Assets\\_Scripts\\BreakableBoxObject.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\BreakableBoxObject.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAADwv04AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T01:20:57.272Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

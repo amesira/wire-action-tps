@@ -25,6 +25,8 @@ public class PlayerSystem : MonoBehaviour
     public Image damagePanel;
     float damageTime;
 
+    public bool isReadyThrowAction;
+
     [SerializeField] private WireActionPlayer wireActionPlayer;
 
     // エフェクトをかけているか
@@ -90,7 +92,7 @@ public class PlayerSystem : MonoBehaviour
         if(wireActionPlayer.isLink) {
             float speed = wireActionPlayer.GetActionSpeed();
             if (speed > 5.0f) {
-                VFXService.instance.ChangePostEffect(CustomPostEffect.EffectType.RadialBlur, 0.1f);
+                VFXService.instance.PlayPostEffect(CustomPostEffect.EffectType.RadialBlur, 0.2f, 0.5f, 0.1f, 0);
                 VFXService.instance.ChangeFOV(80.0f, 0.2f);
                 isEffecting = true;
             }
@@ -98,7 +100,7 @@ public class PlayerSystem : MonoBehaviour
 
 
         if (wasEffecting && !isEffecting) {
-            VFXService.instance.ChangePostEffect(CustomPostEffect.EffectType.None, 0.0f);
+            VFXService.instance.PlayPostEffect(CustomPostEffect.EffectType.RadialBlur, 0f, 0.5f, 0.1f, 0);
             VFXService.instance.ResetFOV(0.2f);
         }
     }

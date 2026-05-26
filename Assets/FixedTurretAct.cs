@@ -51,26 +51,31 @@ public class FixedTurretAct : MonoBehaviour
 	}
 
     void RotToPlayer() {
-        /* ‰ñ“]•ûŒü */
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®ã‚’å‘ã
         Quaternion lookRot = Quaternion.LookRotation((player[0].transform.position + new Vector3(0.0f, 1.0f, 0.0f)) - movingPart.position);
         Quaternion nextRot = Quaternion.RotateTowards(movingPart.rotation, lookRot, rotStep);
 
-        /* ‰ñ“]‚³‚¹‚é */
+        // å›è»¢ã‚’é©ç”¨
         movingPart.rotation = nextRot;
     }
 
     void ShotBullet() {
         GameObject bullet = Instantiate(bulletPrefab, gunPoint.position, gunPoint.rotation);
 
-        /* ’eŠÛ‚Ìİ’è */
+        /* ç™ºå°„æ–¹å‘ã®è¨­å®š */
         Vector3 direction = (gunPoint.position - movingPart.position).normalized;
         bullet.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
         bullet.GetComponent<Bullet>().myTurret = gameObject;
 
-        /* ”š”­ƒGƒtƒFƒNƒg‚ğƒZƒbƒg */
+        /* çˆ†ç™ºã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®è¡¨ç¤º */
         EventManager.instance.SetExplosion(gunPoint.position, Color.red);
 
-        /* ƒVƒ‡ƒbƒgSE‚ğÄ¶ */
+        // SEã®å†ç”Ÿ
         audioSource.PlayOneShot(shotSE);
+    }
+
+    public void TakeDamage()
+    {
+        movingPart.eulerAngles = new Vector3(-35.0f, movingPart.eulerAngles.y, movingPart.eulerAngles.z);
     }
 }
